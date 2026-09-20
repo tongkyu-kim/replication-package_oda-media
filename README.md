@@ -86,59 +86,6 @@ first if starting from a subset of stages).
   `results/diagnostics/classifier_performance.csv`,
   `results/diagnostics/reliability_alpha.csv`
 
-## Status: frozen, 2026-09-20
-
-This package underwent a final reconciliation pass on 2026-09-20. All four
-discrepancies found during construction have been resolved, and the
-manuscript (`00. Submission/manuscript.docx`) has been synchronized to
-match this package's output exactly -- confirmed by a full
-manuscript-to-pipeline consistency check covering every reported
-coefficient, SE, p-value, N, country count, total, predicted value,
-classifier metric, reliability statistic, and timing window. No open
-discrepancies remain; `results/diagnostics/known_discrepancies.csv` is
-present but empty (header only) as of this freeze.
-
-**Resolution summary** (see each script's module docstring for full detail
-and the specific rows/article_ids each fix traces to):
-
-1. **Table 2's dollar-denominated figures.** Were on a disbursement basis
-   in the manuscript while the package was already on the commitment basis
-   used by every count, regression, and the row's own label. The
-   manuscript's Table 2 (Panel B and Panel C) has been updated to the
-   package's commitment-basis figures (`generate_tables.py`).
-2. **The ideological-breadth measure's timing window.** Corrected from
-   k=1-13 to k=2-13 months, matching every other measure in the study
-   (`code/lib/ideology_panel.py`). This changed the interaction
-   coefficient (Table 3 col.[7]: 0.079\*→0.084\*) and Figure 7's predicted
-   ranges; the manuscript has been updated to the corrected values.
-3. **The Section 4.8 IV first-stage F-statistics.** A second exhaustive
-   search still could not trace the previously-reported F=5.86 (sports) /
-   F=1.50 (entertainment) pair to any script in the source repository. Per
-   instruction, these two numbers were removed from the manuscript, which
-   now retains only the qualitative statement that both instruments had
-   first-stage F-statistics well below the conventional relevance
-   threshold (`build_reported_text_results.py`).
-4. **The crisis-flag reliability alpha.** Traced to a documented
-   precondition in `docs/CODING_RULEBOOK.md` ("`label_crisis_flag` only if
-   devrel=1") that the alpha computation had not been enforcing --  2 of
-   2,001 coded rows violated it. Applying the documented precondition
-   (`code/reliability_alpha.py`) moves the regenerated alpha from 0.726 to
-   0.739; the manuscript has been updated from 0.748 to 0.739. The
-   residual ~0.009 gap from 0.748 could not be further traced and is
-   reported, not forced to zero.
-
-**Addendum, 2026-09-20 (same day, post-freeze).** A reviewer/editor-facing
-threshold-sensitivity check was added for H3 (sustained attention):
-`code/h3_bar_sensitivity.py` re-estimates the >=24/36/60-month streak
-specifications at six monthly coverage bars (>=1, >=2, >=3 [manuscript
-baseline], >=4, >=5, >=10 devrel-relevant articles/month), holding sample,
-controls, FE, clustering, and outcome fixed. Reported as **Appendix Table
-A7**; the manuscript's Section 4.7 (Robustness) now cites it. This is an
-added robustness check, not a correction -- it does not change any
-existing table, figure, or reported coefficient. See
-`results/tables/tableA7_h3_bar_sensitivity.csv` and the script's own
-docstring for detail.
-
 ## Runtime
 
 Approximately 10-15 minutes end to end on a standard laptop CPU (most of
