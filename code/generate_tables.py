@@ -322,8 +322,12 @@ def build_table_a7() -> None:
     """One row per monthly coverage bar (>=1, >=2, >=3 [baseline], >=4, >=5,
     >=10 devrel-relevant articles/month); for each of the three streak
     lengths (>=24, >=36, >=60 consecutive months), the coefficient, SE,
-    p-value, N, and the percent of the estimation sample meeting that
-    streak definition at that bar. Source: h3_bar_sensitivity.py."""
+    p-value, and the count/percent of the estimation sample meeting that
+    streak definition at that bar. The regression sample size (N) is
+    constant at 2,214 across every cell (the streak indicator is never
+    missing, so it never changes which rows survive the complete-case
+    filter) and is reported once in the table's notes rather than
+    per-cell. Source: h3_bar_sensitivity.py."""
     res = pd.read_csv(RESULTS_MODELS / "h3_bar_sensitivity_results.csv")
     cov = pd.read_csv(RESULTS_DIAGNOSTICS / "h3_bar_sensitivity_coverage.csv")
 
@@ -339,7 +343,7 @@ def build_table_a7() -> None:
             row[f"streak_ge{thresh}_coef"] = r["coefficient"]
             row[f"streak_ge{thresh}_se"] = r["se"]
             row[f"streak_ge{thresh}_p"] = r["p_value"]
-            row[f"streak_ge{thresh}_n"] = int(r["n"])
+            row[f"streak_ge{thresh}_count_meeting"] = int(c["n_meeting"])
             row[f"streak_ge{thresh}_pct_meeting"] = round(100 * c["share_meeting"], 1)
         rows.append(row)
 
