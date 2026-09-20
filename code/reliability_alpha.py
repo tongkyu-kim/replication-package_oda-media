@@ -39,9 +39,11 @@ regenerate from the final coding data under the documented procedure.
 
 Devrel and sentiment alphas were unaffected by this fix (their labeling
 has no analogous precondition) and continue to reproduce closely:
-  - development-relevance (nominal):  alpha = 0.9231   (manuscript: 0.922)
-  - sentiment, ordinal framing:       alpha = 0.8143   (manuscript: 0.819)
-  - sentiment, interval framing:      alpha = 0.8260   (manuscript: 0.819)
+  - development-relevance (nominal):  alpha = 0.9231   (manuscript: 0.923)
+  - sentiment, ordinal framing:       alpha = 0.8143   (manuscript: 0.814)
+  - sentiment, interval framing:      alpha = 0.8260   (shown for reference; not the reported framing)
+The manuscript was updated (2026-09-21) to report these regenerated values
+(three-decimal rule); sentiment is reported at the ordinal level.
 
 Methodology (applied identically and reported as-is for all three
 variables -- not adjusted per-variable to chase a particular number,
@@ -105,13 +107,13 @@ VARIABLES = {
     "development_relevance": {
         "column": "label_development_relevant",
         "domain": [0, 1],
-        "manuscript_value": 0.922,
+        "manuscript_value": 0.923,
         "levels": ["nominal"],
     },
     "sentiment": {
         "column": "label_sentiment_country",
         "domain": [-2, -1, 0, 1, 2],
-        "manuscript_value": 0.819,
+        "manuscript_value": 0.814,  # ordinal framing is the one reported
         "levels": ["ordinal", "interval"],
     },
     "crisis_flag": {
@@ -194,8 +196,8 @@ def main() -> None:
     unresolved = [r for r in rows if not r["matches_manuscript"]]
     if unresolved:
         log.warning(f"{len(unresolved)} of {len(rows)} rows do NOT match their manuscript_reported_value "
-                     f"column within tolerance {MATCH_TOLERANCE} (expected for the two sentiment framings "
-                     f"the manuscript doesn't specify between -- see module docstring).")
+                     f"column within tolerance {MATCH_TOLERANCE} (expected: the manuscript reports the ordinal "
+                     f"sentiment framing; the interval framing is shown for reference -- see module docstring).")
 
 
 if __name__ == "__main__":

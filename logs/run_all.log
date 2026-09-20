@@ -6464,3 +6464,192 @@ SUMMARY (5.6s total)
 2026-09-21 00:16:37  INFO     run_all                         OK    validate                  1.1s
 2026-09-21 00:16:37  INFO     run_all                       
 All stages completed successfully.
+2026-09-21 00:30:38  INFO     run_all                       Running 4 stage(s)
+2026-09-21 00:30:38  INFO     run_all                       ======================================================================
+2b. Human-coding reliability (Krippendorff's alpha)
+======================================================================
+2026-09-21 00:30:39  INFO     reliability_alpha             Loaded coder files: N=2001 each, article_id row-alignment match rate=1.0000
+2026-09-21 00:30:39  INFO     reliability_alpha             development_relevance (nominal): alpha=0.9231  n_units=2000  manuscript=0.923  matches(tol=0.005)=True
+2026-09-21 00:30:39  INFO     reliability_alpha             sentiment (ordinal): alpha=0.8143  n_units=333  manuscript=0.814  matches(tol=0.005)=True
+2026-09-21 00:30:39  INFO     reliability_alpha             sentiment (interval): alpha=0.8260  n_units=333  manuscript=0.814  matches(tol=0.005)=False
+2026-09-21 00:30:39  INFO     reliability_alpha             crisis_flag (nominal): alpha=0.7394  n_units=282  manuscript=0.7394  matches(tol=0.005)=True
+2026-09-21 00:30:39  INFO     reliability_alpha             Wrote 4 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\diagnostics\reliability_alpha.csv
+2026-09-21 00:30:39  WARNING  reliability_alpha             1 of 4 rows do NOT match their manuscript_reported_value column within tolerance 0.005 (expected: the manuscript reports the ordinal sentiment framing; the interval framing is shown for reference -- see module docstring).
+2026-09-21 00:30:39  INFO     run_all                       [reliability] OK (0.7s)
+2026-09-21 00:30:39  INFO     run_all                       ======================================================================
+8. Generate all tables (Table 1-4, A1-A7)
+======================================================================
+2026-09-21 00:30:39  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\table1_classifier_performance.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\table2_panelB_data_construction.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\table2_panelC_descriptives.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\table3_main_results.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\table4_robustness_summary.csv
+2026-09-21 00:30:42  INFO     generate_tables               Note: Table 4 is a narrative summary of Appendix Tables A1-A7; every number above is interpolated from those result files, not typed manually.
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\tableA1_temporal_placebo.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\tableA2_media_type_placebo.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\tableA3_baseline_alt_timing.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\tableA4_emergency_alt_timing.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\tableA5_leave_one_out.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\tableA6_h3_bar_sensitivity.csv
+2026-09-21 00:30:42  INFO     generate_tables               Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\tables\tableA7_crisis_type_heterogeneity.csv
+2026-09-21 00:30:42  INFO     run_all                       [tables] OK (3.5s)
+2026-09-21 00:30:42  INFO     run_all                       ======================================================================
+9. Consolidate text-only reported numbers
+======================================================================
+2026-09-21 00:30:43  INFO     build_reported_text_results   Wrote 51 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\reported_text_results.csv
+2026-09-21 00:30:43  INFO     run_all                       [reported_text] OK (1.0s)
+2026-09-21 00:30:43  INFO     run_all                       ======================================================================
+10. Validation checks
+======================================================================
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/oda_clean.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/panel_country_sdg_month.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/country_year_controls.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/crisis_news_country_month.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/devrel_country_year.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/emergency_country_year.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/outlet_article_counts_long.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  data/analytical/stage0_noncrisis_country_month.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  classifier checkpoint present
+2026-09-21 00:30:44  INFO     validate                      PASS  classifier gold set present
+2026-09-21 00:30:44  INFO     validate                      PASS  ODA project count == 94,412
+2026-09-21 00:30:44  INFO     validate                      PASS  devrel panel N == 2,336
+2026-09-21 00:30:44  INFO     validate                      PASS  devrel panel countries == 146
+2026-09-21 00:30:44  INFO     validate                      PASS  devrel panel has no duplicate (country, year) keys
+2026-09-21 00:30:44  INFO     validate                      PASS  emergency panel N == 2,336 (full universe, pre crisis-media merge)
+2026-09-21 00:30:44  INFO     validate                      PASS  emergency panel has no duplicate (country, year) keys
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/main_baseline_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/main_baseline_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/lag_windows_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/lag_windows_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/lag_windows_wald_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/lag_windows_wald_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/rolling_persistence_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/rolling_persistence_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/sustained_coverage_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/sustained_coverage_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/emergency_temporal_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/emergency_temporal_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/emergency_temporal_wald_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/emergency_temporal_wald_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/emergency_ppml_contrast_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/emergency_ppml_contrast_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/allocation_margin_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/allocation_margin_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/ideological_breadth_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/ideological_breadth_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/evaluative_tone_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/evaluative_tone_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/evaluative_tone_wald_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/evaluative_tone_wald_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/placebo_future_news_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/placebo_future_news_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/placebo_nondevrel_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/placebo_nondevrel_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/alt_timing_baseline_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/alt_timing_baseline_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/leave_one_out_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/leave_one_out_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/h3_bar_sensitivity_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/h3_bar_sensitivity_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/reported_text_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/models/reported_text_results.csv is non-empty
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/table1_classifier_performance.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/table2_panelB_data_construction.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/table2_panelC_descriptives.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/table3_main_results.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/table4_robustness_summary.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/tableA1_temporal_placebo.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/tableA2_media_type_placebo.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/tableA3_baseline_alt_timing.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/tableA4_emergency_alt_timing.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/tableA5_leave_one_out.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/tableA6_h3_bar_sensitivity.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/tables/tableA7_crisis_type_heterogeneity.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure1_need_media_oda.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure2_monthly_temporal_profile.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure3_persistent_attention.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure4_streak_threshold_profile.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure5_ppml_contrast.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure6_oda_threshold_sensitivity.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure7_ideological_breadth.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figure8_placebo_battery.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/figures/figureA2_classifier_performance.png exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/diagnostics/classifier_performance.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/diagnostics/classifier_predictions.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/diagnostics/reliability_alpha.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/diagnostics/known_discrepancies.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  results/diagnostics/h3_bar_sensitivity_coverage.csv exists
+2026-09-21 00:30:44  INFO     validate                      PASS  main_baseline_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  main_baseline_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  lag_windows_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  lag_windows_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  rolling_persistence_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  rolling_persistence_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  sustained_coverage_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  sustained_coverage_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  emergency_temporal_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  emergency_temporal_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  emergency_ppml_contrast_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  emergency_ppml_contrast_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  allocation_margin_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  allocation_margin_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  ideological_breadth_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  ideological_breadth_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  evaluative_tone_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  evaluative_tone_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  placebo_future_news_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  placebo_future_news_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  placebo_nondevrel_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  placebo_nondevrel_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  alt_timing_baseline_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  alt_timing_baseline_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  h3_bar_sensitivity_results.csv has all standardized schema columns
+2026-09-21 00:30:44  INFO     validate                      PASS  h3_bar_sensitivity_results.csv specification_id values are unique
+2026-09-21 00:30:44  INFO     validate                      PASS  no unexpected files in results/models/
+2026-09-21 00:30:44  INFO     validate                      PASS  no unexpected files in results/tables/
+2026-09-21 00:30:44  INFO     validate                      PASS  figure7 data file is non-empty and interaction coefficient exists in source model results
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_unadjusted_pooled :: coefficient (expected 0.4345, got 0.4345, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_preferred__devrel_media_m1_13 :: coefficient (expected 0.0843, got 0.0843, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_preferred__devrel_media_m1_13 :: p_value (expected 0.035, got 0.0350, tol 0.002)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_preferred__devrel_media_m1_13 :: n (expected 2214.0, got 2214.0000, tol 0.0)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: lag_windows_results.csv :: lag_windows_joint__devrel_media_m1_13 :: coefficient (expected 0.068, got 0.0685, tol 0.005)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: rolling_persistence_results.csv :: H2_devrel_media_roll24__devrel_media_roll24 :: coefficient (expected 0.2011, got 0.2011, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: rolling_persistence_results.csv :: H2_devrel_media_roll36__devrel_media_roll36 :: coefficient (expected 0.2031, got 0.2031, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: rolling_persistence_results.csv :: H2_devrel_media_roll60__devrel_media_roll60 :: coefficient (expected 0.2072, got 0.2072, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: sustained_coverage_results.csv :: H3_streak_ge24__streak_ge24 :: coefficient (expected 0.2155, got 0.2155, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: sustained_coverage_results.csv :: H3_streak_ge36__streak_ge36 :: coefficient (expected 0.2285, got 0.2285, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: sustained_coverage_results.csv :: H3_streak_ge60__streak_ge60 :: coefficient (expected 0.2019, got 0.2019, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: emergency_temporal_results.csv :: H4_within_emergency_contemporaneous__crisis_media_lag0 :: coefficient (expected 0.0967, got 0.0967, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: emergency_ppml_contrast_results.csv :: H4_ppml_contrast__development_contemporaneous :: coefficient (expected 0.0957, got 0.0957, tol 0.002)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: emergency_ppml_contrast_results.csv :: H4_ppml_contrast__emergency_contemporaneous :: coefficient (expected 0.9291, got 0.9291, tol 0.002)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: emergency_ppml_contrast_results.csv :: H4_ppml_contrast__diff_emergency_minus_development_contemporaneous :: coefficient (expected 0.8334, got 0.8334, tol 0.002)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: allocation_margin_results.csv :: allocation_margin_extensive__devrel_media_m1_13 :: coefficient (expected 0.0082, got 0.0082, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: allocation_margin_results.csv :: allocation_margin_intensive__devrel_media_m1_13 :: coefficient (expected 0.1924, got 0.1924, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: ideological_breadth_results.csv :: ideological_breadth_crosspartisan__media_x_crosspartisan :: coefficient (expected 0.0837, got 0.0837, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: evaluative_tone_results.csv :: evaluative_tone_additive__devrel_media_m1_13 :: coefficient (expected 0.1089, got 0.1089, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: placebo_future_news_results.csv :: placebo_future_news_ar2_innovation__innovation_ar2 :: p_value (expected 0.1445, got 0.1445, tol 0.002)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: placebo_nondevrel_results.csv :: placebo_nondevrel_m1_13_generic :: p_value (expected 0.556, got 0.5557, tol 0.01)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: alt_timing_baseline_results.csv :: alt_timing_lag0__devrel_media_lag0 :: coefficient (expected 0.1369, got 0.1369, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: classifier_performance.csv :: f1 :: value (expected 0.9007, got 0.9007, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: classifier_performance.csv :: test_n :: value (expected 1954.0, got 1954.0000, tol 0.0)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: reliability_alpha.csv :: development_relevance :: alpha (expected 0.9231, got 0.9231, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: reliability_alpha.csv :: crisis_flag :: alpha (expected 0.7394, got 0.7394, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: h3_bar_sensitivity_results.csv :: H3_bar_sensitivity_bar3_ge24__streak_ge24 :: coefficient (expected 0.2155, got 0.2155, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: h3_bar_sensitivity_results.csv :: H3_bar_sensitivity_bar3_ge36__streak_ge36 :: coefficient (expected 0.2285, got 0.2285, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      PASS  snapshot: h3_bar_sensitivity_results.csv :: H3_bar_sensitivity_bar3_ge60__streak_ge60 :: coefficient (expected 0.2019, got 0.2019, tol 0.001)
+2026-09-21 00:30:44  INFO     validate                      
+======================================================================
+136 passed, 0 failed
+======================================================================
+2026-09-21 00:30:44  INFO     validate                      All validation checks passed.
+2026-09-21 00:30:44  INFO     run_all                       [validate] OK (1.0s)
+2026-09-21 00:30:44  INFO     run_all                       
+======================================================================
+SUMMARY (6.2s total)
+======================================================================
+2026-09-21 00:30:44  INFO     run_all                         OK    reliability               0.7s
+2026-09-21 00:30:44  INFO     run_all                         OK    tables                    3.5s
+2026-09-21 00:30:44  INFO     run_all                         OK    reported_text             1.0s
+2026-09-21 00:30:44  INFO     run_all                         OK    validate                  1.0s
+2026-09-21 00:30:44  INFO     run_all                       
+All stages completed successfully.

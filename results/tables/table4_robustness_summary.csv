@@ -4,4 +4,4 @@ Generic news placebo,"Generic country coverage does not predict ODA (β = -0.019
 Alternative timing_baseline,"The association remains positive for roughly three years, peaking contemporaneously before fading in year four.",Mixed
 Alternative timing_crisis,"Emergency ODA is associated with contemporaneous crisis coverage (β = 0.097, p = 0.009), but not previous news (p = 0.145).",Pass
 LOO sensitivity,No sign reversals in any analysis. Only the roll60 estimate shows six significance-status changes (6/140).,Pass
-Crisis-type heterogeneity,"All 6 crisis types are individually positive and significant (p < 0.05); joint test: χ²(6) = 28.06, p < 0.001.",Pass
+Crisis-type heterogeneity,"All 6 crisis types are individually positive and significant (p < 0.05); joint test: χ²(6) = 28.057, p < 0.001.",Pass

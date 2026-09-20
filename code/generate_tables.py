@@ -298,7 +298,7 @@ def build_table4() -> None:
          "verdict": "Pass"},
         {"diagnostic": "Crisis-type heterogeneity",
          "key_finding": f"{ct_scope}; joint test: χ²({int(joint_ct['df'])}) = "
-                         f"{joint_ct['test_statistic']:.2f}, {_p_fmt(joint_ct['p_value'])}.",
+                         f"{joint_ct['test_statistic']:.3f}, {_p_fmt(joint_ct['p_value'])}.",
          "verdict": "Pass"},
     ]
     _write_table("table4_robustness_summary", pd.DataFrame(rows))
