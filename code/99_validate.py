@@ -97,7 +97,8 @@ REQUIRED_MODEL_RESULT_FILES = [
     "emergency_ppml_contrast_results.csv", "allocation_margin_results.csv",
     "ideological_breadth_results.csv", "evaluative_tone_results.csv", "evaluative_tone_wald_results.csv",
     "placebo_future_news_results.csv", "placebo_nondevrel_results.csv",
-    "alt_timing_baseline_results.csv", "leave_one_out_results.csv", "reported_text_results.csv",
+    "alt_timing_baseline_results.csv", "leave_one_out_results.csv", "h3_bar_sensitivity_results.csv",
+    "reported_text_results.csv",
 ]
 
 REQUIRED_TABLES = [
@@ -105,6 +106,7 @@ REQUIRED_TABLES = [
     "table3_main_results", "table4_robustness_summary",
     "tableA1_temporal_placebo", "tableA2_media_type_placebo", "tableA3_baseline_alt_timing",
     "tableA4_emergency_alt_timing", "tableA5_leave_one_out", "tableA6_crisis_type_heterogeneity",
+    "tableA7_h3_bar_sensitivity",
 ]
 
 REQUIRED_FIGURES = [
@@ -131,7 +133,7 @@ def check_required_outputs() -> None:
         check(f"results/figures/{fig}.png exists", png_exists)
 
     for diag in ["classifier_performance.csv", "classifier_predictions.csv", "reliability_alpha.csv",
-                 "known_discrepancies.csv"]:
+                 "known_discrepancies.csv", "h3_bar_sensitivity_coverage.csv"]:
         check(f"results/diagnostics/{diag} exists", (RESULTS_DIAGNOSTICS / diag).exists())
 
 
@@ -145,6 +147,7 @@ _MAIN_RESULT_FILES = [
     "sustained_coverage_results.csv", "emergency_temporal_results.csv", "emergency_ppml_contrast_results.csv",
     "allocation_margin_results.csv", "ideological_breadth_results.csv", "evaluative_tone_results.csv",
     "placebo_future_news_results.csv", "placebo_nondevrel_results.csv", "alt_timing_baseline_results.csv",
+    "h3_bar_sensitivity_results.csv",
 ]
 
 

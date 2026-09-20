@@ -43,6 +43,7 @@ STAGES: list[tuple[str, str, str]] = [
     ("placebo_tests",         "placebo_tests.py",               "6. Robustness: placebo tests"),
     ("alt_timing",            "alt_timing.py",                  "6b. Robustness: alternative timing"),
     ("leave_one_out",         "leave_one_out.py",               "6c. Robustness: leave-one-out sensitivity"),
+    ("h3_bar_sensitivity",    "h3_bar_sensitivity.py",          "6d. Robustness: H3 coverage-bar sensitivity (Appendix Table A7)"),
     ("fig1",  "make_figure1_need_media_oda.py",          "7a. Figure 1 data + plot"),
     ("fig2",  "make_figure2_monthly_temporal_profile.py", "7b. Figure 2 data + plot"),
     ("fig3",  "make_figure3_persistent_attention.py",     "7c. Figure 3 data + plot"),
@@ -53,7 +54,7 @@ STAGES: list[tuple[str, str, str]] = [
     ("fig8",  "make_figure8_placebo_battery.py",           "7h. Figure 8 data + plot"),
     ("figA1", "make_figureA1_research_pipeline.py",        "7i. Figure A1 (diagram)"),
     ("figA2", "make_figureA2_classifier_performance.py",   "7j. Figure A2 data + plot"),
-    ("tables",                "generate_tables.py",             "8. Generate all tables (Table 1-4, A1-A6)"),
+    ("tables",                "generate_tables.py",             "8. Generate all tables (Table 1-4, A1-A7)"),
     ("reported_text",         "build_reported_text_results.py", "9. Consolidate text-only reported numbers"),
     ("validate",              "99_validate.py",                 "10. Validation checks"),
 ]

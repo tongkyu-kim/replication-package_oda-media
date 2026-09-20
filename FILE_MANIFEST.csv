@@ -14,6 +14,7 @@ code/generate_tables.py,code,"Analysis, table, or figure generation script -- se
 code/ideological_breadth.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/lag_windows.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/leave_one_out.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/h3_bar_sensitivity.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/lib/__init__.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
 code/lib/devrel_panel.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
 code/lib/emergency_panel.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
@@ -60,10 +61,13 @@ logs/run_all.log,log,Execution log from the most recent 00_run_all.py run,,outpu
 OUTPUT_MANIFEST.csv,result_data,Maps every table/figure/text-result to its generating script,,documentation
 README.md,documentation,"Package overview, setup, and usage instructions",,documentation
 requirements.txt,other,Pinned Python dependency versions,,documentation
+.gitattributes,other,Git LFS tracking rules for large data files (GitHub hosting only),,documentation
+.gitignore,other,"Excludes compiled bytecode (__pycache__/*.pyc) from version control (GitHub hosting only)",,documentation
 results/diagnostics/classifier_performance.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
 results/diagnostics/classifier_predictions.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
 results/diagnostics/known_discrepancies.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
 results/diagnostics/reliability_alpha.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
+results/diagnostics/h3_bar_sensitivity_coverage.csv,result_data,"Share/count of observations meeting each H3 streak definition, by coverage bar -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/figure_data/figure1_need_media_oda_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figure_data/figure2_monthly_profile_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figure_data/figure3_persistent_attention_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
@@ -105,6 +109,7 @@ results/models/ideological_breadth_results.csv,result_data,"Structured model-res
 results/models/lag_windows_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/lag_windows_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/leave_one_out_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/h3_bar_sensitivity_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/main_baseline_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/placebo_future_news_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/placebo_nondevrel_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
@@ -133,3 +138,5 @@ results/tables/tableA5_leave_one_out.csv,result_data,Generated manuscript table 
 results/tables/tableA5_leave_one_out.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA6_crisis_type_heterogeneity.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA6_crisis_type_heterogeneity.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA7_h3_bar_sensitivity.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA7_h3_bar_sensitivity.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output

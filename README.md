@@ -47,7 +47,7 @@ replication_package_public/
 │   └── *.py                      one file per analysis / table / figure (see OUTPUT_MANIFEST.csv)
 ├── results/
 │   ├── models/                   every specification's structured coefficients/tests
-│   ├── tables/                    Table 1-4, Appendix Tables A1-A6 (CSV + XLSX)
+│   ├── tables/                    Table 1-4, Appendix Tables A1-A7 (CSV + XLSX)
 │   ├── figures/                   Figures 1-8, A1-A2 (PNG/PDF)
 │   ├── figure_data/                underlying plotted values for every figure
 │   └── diagnostics/                classifier performance, reliability alpha, known discrepancies
@@ -74,7 +74,7 @@ first if starting from a subset of stages).
 ## Outputs
 
 - **Tables**: `results/tables/table{1,2,3,4}_*.csv` (+ `.xlsx`) and
-  `results/tables/tableA{1-6}_*.csv`
+  `results/tables/tableA{1-7}_*.csv`
 - **Figures**: `results/figures/figure{1-8}_*.png` and `figureA{1,2}_*.png`,
   each with underlying data at `results/figure_data/`
 - **Every reported model coefficient, SE, p-value, CI, and test statistic**:
@@ -126,6 +126,18 @@ and the specific rows/article_ids each fix traces to):
    0.739; the manuscript has been updated from 0.748 to 0.739. The
    residual ~0.009 gap from 0.748 could not be further traced and is
    reported, not forced to zero.
+
+**Addendum, 2026-09-20 (same day, post-freeze).** A reviewer/editor-facing
+threshold-sensitivity check was added for H3 (sustained attention):
+`code/h3_bar_sensitivity.py` re-estimates the >=24/36/60-month streak
+specifications at six monthly coverage bars (>=1, >=2, >=3 [manuscript
+baseline], >=4, >=5, >=10 devrel-relevant articles/month), holding sample,
+controls, FE, clustering, and outcome fixed. Reported as **Appendix Table
+A7**; the manuscript's Section 4.7 (Robustness) now cites it. This is an
+added robustness check, not a correction -- it does not change any
+existing table, figure, or reported coefficient. See
+`results/tables/tableA7_h3_bar_sensitivity.csv` and the script's own
+docstring for detail.
 
 ## Runtime
 

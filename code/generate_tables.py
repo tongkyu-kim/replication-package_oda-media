@@ -311,6 +311,40 @@ def build_appendix_tables() -> None:
     a6 = et[et["specification_id"].str.startswith("H4_crisis_type_")]
     _write_table("tableA6_crisis_type_heterogeneity", a6)
 
+    build_table_a7()
+
+
+# ---------------------------------------------------------------------------
+# Appendix Table A7 -- H3 coverage-bar sensitivity (added 2026-09-20)
+# ---------------------------------------------------------------------------
+
+def build_table_a7() -> None:
+    """One row per monthly coverage bar (>=1, >=2, >=3 [baseline], >=4, >=5,
+    >=10 devrel-relevant articles/month); for each of the three streak
+    lengths (>=24, >=36, >=60 consecutive months), the coefficient, SE,
+    p-value, N, and the percent of the estimation sample meeting that
+    streak definition at that bar. Source: h3_bar_sensitivity.py."""
+    res = pd.read_csv(RESULTS_MODELS / "h3_bar_sensitivity_results.csv")
+    cov = pd.read_csv(RESULTS_DIAGNOSTICS / "h3_bar_sensitivity_coverage.csv")
+
+    bars = sorted(cov["covered_article_bar"].unique())
+    thresholds = [24, 36, 60]
+
+    rows = []
+    for bar in bars:
+        row = {"covered_article_bar": bar, "is_manuscript_baseline": bar == dp.COVERED_ARTICLE_BAR}
+        for thresh in thresholds:
+            r = res[res["specification_id"] == f"H3_bar_sensitivity_bar{bar}_ge{thresh}__streak_ge{thresh}"].iloc[0]
+            c = cov[(cov["covered_article_bar"] == bar) & (cov["streak_threshold_months"] == thresh)].iloc[0]
+            row[f"streak_ge{thresh}_coef"] = r["coefficient"]
+            row[f"streak_ge{thresh}_se"] = r["se"]
+            row[f"streak_ge{thresh}_p"] = r["p_value"]
+            row[f"streak_ge{thresh}_n"] = int(r["n"])
+            row[f"streak_ge{thresh}_pct_meeting"] = round(100 * c["share_meeting"], 1)
+        rows.append(row)
+
+    _write_table("tableA7_h3_bar_sensitivity", pd.DataFrame(rows))
+
 
 def main() -> None:
     build_table1()

@@ -25,3 +25,6 @@ classifier_performance.csv,f1,value,0.9007,0.001,Table 1
 classifier_performance.csv,test_n,value,1954,0,Table 1
 reliability_alpha.csv,development_relevance,alpha,0.922,0.005,Section 3.1 -- reproduces closely
 reliability_alpha.csv,crisis_flag,alpha,0.7394,0.001,"Section 3.1 -- corrected 2026-09-20 per documented crisis_flag-requires-devrel=1 precondition (was 0.7263 before the fix, manuscript now updated to 0.739)"
+h3_bar_sensitivity_results.csv,H3_bar_sensitivity_bar3_ge24__streak_ge24,coefficient,0.2155,0.001,"Appendix Table A7, bar>=3 row -- must equal sustained_coverage_results.csv's H3_streak_ge24 exactly (same COVERED_ARTICLE_BAR=3 default)"
+h3_bar_sensitivity_results.csv,H3_bar_sensitivity_bar3_ge36__streak_ge36,coefficient,0.2285,0.001,"Appendix Table A7, bar>=3 row -- must equal sustained_coverage_results.csv's H3_streak_ge36 exactly"
+h3_bar_sensitivity_results.csv,H3_bar_sensitivity_bar3_ge60__streak_ge60,coefficient,0.2019,0.001,"Appendix Table A7, bar>=3 row -- must equal sustained_coverage_results.csv's H3_streak_ge60 exactly"

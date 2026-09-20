@@ -76,12 +76,20 @@ def attach_sentiment_annual(annual: pd.DataFrame, sentiment_month: pd.DataFrame)
     return out
 
 
-def attach_streak(annual: pd.DataFrame, country_month_long: pd.DataFrame, min_ym: int, max_ym: int) -> pd.DataFrame:
+def attach_streak(annual: pd.DataFrame, country_month_long: pd.DataFrame, min_ym: int, max_ym: int,
+                   covered_article_bar: float | None = None) -> pd.DataFrame:
     """Consecutive-coverage streak, true monthly granularity: the number of
     uninterrupted prior months (as of November of year Y-1, the near edge
     of the 2-13 month window) in which the recipient received at least
-    COVERED_ARTICLE_BAR devrel-relevant articles, resetting to zero on any
-    month below that bar."""
+    covered_article_bar devrel-relevant articles (default: the module-level
+    COVERED_ARTICLE_BAR, i.e. every specification reported in the
+    manuscript), resetting to zero on any month below that bar.
+    covered_article_bar is exposed as a parameter only so
+    h3_bar_sensitivity.py can rebuild this measure at alternative monthly
+    thresholds for a robustness check (Appendix Table A7); every other
+    caller in this package relies on the default and is unaffected."""
+    if covered_article_bar is None:
+        covered_article_bar = COVERED_ARTICLE_BAR
     out = annual.copy()
     month_grid = pd.MultiIndex.from_product(
         [out["entity"].unique(), range(min_ym, max_ym + 1)], names=["entity", "_ym"]
@@ -91,7 +99,7 @@ def attach_streak(annual: pd.DataFrame, country_month_long: pd.DataFrame, min_ym
     month_grid = month_grid.merge(
         country_month_long[["entity", "year", "month", "freq_articles"]],
         on=["entity", "year", "month"], how="left")
-    month_grid["_covered"] = month_grid["freq_articles"].fillna(0.0) >= COVERED_ARTICLE_BAR
+    month_grid["_covered"] = month_grid["freq_articles"].fillna(0.0) >= covered_article_bar
     month_grid = month_grid.sort_values(["entity", "_ym"])
 
     def _running_streak(s: pd.Series) -> pd.Series:
@@ -114,12 +122,16 @@ def attach_streak(annual: pd.DataFrame, country_month_long: pd.DataFrame, min_ym
 
 
 def build_country_annual(use_log: bool, country_month_long: pd.DataFrame,
-                          sentiment_month: pd.DataFrame) -> pd.DataFrame:
+                          sentiment_month: pd.DataFrame,
+                          covered_article_bar: float | None = None) -> pd.DataFrame:
     """The single shared country x year panel: recent (2-13mo), two further
     lag cycles (14-25, 26-37mo, for the temporal-decomposition diagnostic),
     persistent-attention rolling averages (roll24/36/60), the sustained-
     coverage streak, annual sentiment shares, and the five controls --
-    merged onto the devrel-ODA base panel (`devrel_country_year.csv`)."""
+    merged onto the devrel-ODA base panel (`devrel_country_year.csv`).
+    covered_article_bar passes through to attach_streak() (see its
+    docstring); leave it at the default for every use except the H3
+    coverage-threshold robustness check."""
     require_file(DEVREL_PATH, "Run build_analytical_panels.py first.")
     devrel = pd.read_csv(DEVREL_PATH, encoding="utf-8-sig")
     annual = devrel.copy()
@@ -141,7 +153,7 @@ def build_country_annual(use_log: bool, country_month_long: pd.DataFrame,
                                colname="devrel_media_roll60", agg="mean", min_ym=min_ym, max_ym=max_ym)
 
     annual = attach_sentiment_annual(annual, sentiment_month)
-    annual = attach_streak(annual, country_month_long, min_ym, max_ym)
+    annual = attach_streak(annual, country_month_long, min_ym, max_ym, covered_article_bar=covered_article_bar)
 
     if use_log:
         annual["devrel_commitment_musd"] = np.log1p(annual["devrel_commitment_musd"].clip(lower=0))
