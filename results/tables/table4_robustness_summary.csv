@@ -1,0 +1,7 @@
+﻿diagnostic,key_finding,assessment
+Future-news placebo,"Future media does not predict current ODA: gamma=0.048, p=0.144.",Pass
+NonDevRel placebo,"Development-related coverage predicts ODA (beta=0.084, p=0.035). Generic country coverage does not (beta=-0.019, p=0.556). 7 of 7 generic-coverage estimates are null.",Pass
+Baseline alternative timing,"The association remains positive for roughly three years, peaking contemporaneously before fading by year four (see alt_timing_baseline_results.csv).",Mixed
+LOO sensitivity,No sign reversals in any analysis. Only the already-marginal 60-month rolling estimate (p=0.075 in the full sample) shows 6 significance flips (6/140).,Pass
+Development vs. emergency alternative timing,See emergency_temporal_results.csv rows H4_within_emergency_contemporaneous / H4_within_emergency_forward for the contemporaneous-vs-forward-window comparison.,Pass
+Development vs. emergency crisis-type,"All 6 crisis types are individually positive and significant (p<0.05); joint test: chi2(6)=28.06, p=9.168e-05.",Pass

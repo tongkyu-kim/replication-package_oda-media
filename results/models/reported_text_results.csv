@@ -1,0 +1,52 @@
+item,manuscript_section,value,source_file,source_row_or_field
+"Total ODA projects, 2010-2025",3.1,94412,data/analytical/oda_clean.csv,row count
+Main development-ODA panel N,3.2,2336,data/analytical/devrel_country_year.csv,row count
+Main development-ODA panel countries,3.2,146,data/analytical/devrel_country_year.csv,nunique(country_iso3)
+Full emergency-ODA panel N (pre crisis-media merge),3.2,2336,data/analytical/emergency_country_year.csv,row count
+Classifier F1 score,3.1,0.9006993006993007,results/diagnostics/classifier_performance.csv,metric==f1
+Classifier Precision,3.1,0.8655913978494624,results/diagnostics/classifier_performance.csv,metric==precision
+Classifier Recall,3.1,0.9387755102040816,results/diagnostics/classifier_performance.csv,metric==recall
+Classifier AUC-ROC,3.1,0.9895525116138502,results/diagnostics/classifier_performance.csv,metric==auc_roc
+Classifier Held-out test N,3.1,1954.0,results/diagnostics/classifier_performance.csv,metric==test_n
+"Krippendorff's alpha, development_relevance (nominal)",3.1,0.9231018119068162,results/diagnostics/reliability_alpha.csv,variable==development_relevance
+"Krippendorff's alpha, sentiment (ordinal)",3.1,0.8142595703735389,results/diagnostics/reliability_alpha.csv,variable==sentiment
+"Krippendorff's alpha, sentiment (interval)",3.1,0.8260427263479145,results/diagnostics/reliability_alpha.csv,variable==sentiment
+"Krippendorff's alpha, crisis_flag (nominal)",3.1,0.7393518518518518,results/diagnostics/reliability_alpha.csv,variable==crisis_flag
+H1 preferred coefficient,4.1,0.0842931125485394,results/models/main_baseline_results.csv,specification_id==H1_preferred__devrel_media_m1_13
+H1 preferred p-value,4.1,0.0350401845896148,results/models/main_baseline_results.csv,specification_id==H1_preferred__devrel_media_m1_13
+"Temporal decomposition, 2-13mo coefficient",4.2,0.0684776557552999,results/models/lag_windows_results.csv,key_predictor==devrel_media_m1_13
+"Temporal decomposition, 14-25mo coefficient",4.2,0.0370904826154282,results/models/lag_windows_results.csv,key_predictor==devrel_media_m14_25
+"Temporal decomposition, 26-37mo coefficient",4.2,0.0293102503065146,results/models/lag_windows_results.csv,key_predictor==devrel_media_m26_37
+H2 devrel_media_roll24 coefficient,4.3,0.2011236993794083,results/models/rolling_persistence_results.csv,key_predictor==devrel_media_roll24
+H2 devrel_media_roll36 coefficient,4.3,0.2031202350300649,results/models/rolling_persistence_results.csv,key_predictor==devrel_media_roll36
+H2 devrel_media_roll60 coefficient,4.3,0.2072364021401371,results/models/rolling_persistence_results.csv,key_predictor==devrel_media_roll60
+H3 streak_ge24 coefficient,4.4,0.2154708583914853,results/models/sustained_coverage_results.csv,key_predictor==streak_ge24
+H3 streak_ge24 p-value,4.4,0.0155021492672648,results/models/sustained_coverage_results.csv,key_predictor==streak_ge24
+H3 streak_ge36 coefficient,4.4,0.2285087916131138,results/models/sustained_coverage_results.csv,key_predictor==streak_ge36
+H3 streak_ge36 p-value,4.4,0.0079544221301282,results/models/sustained_coverage_results.csv,key_predictor==streak_ge36
+H3 streak_ge60 coefficient,4.4,0.2019054059065828,results/models/sustained_coverage_results.csv,key_predictor==streak_ge60
+H3 streak_ge60 p-value,4.4,0.0441753969838323,results/models/sustained_coverage_results.csv,key_predictor==streak_ge60
+H4 within-emergency pooled contemporaneous coefficient,4.5,0.0966519096493873,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_contemporaneous__crisis_media_lag0
+"H4 stacked PPML, contemporaneous development coefficient",4.5,0.0956538093966458,results/models/emergency_ppml_contrast_results.csv,key_predictor==development_contemporaneous
+"H4 stacked PPML, contemporaneous development p-value",4.5,0.2762570611925321,results/models/emergency_ppml_contrast_results.csv,key_predictor==development_contemporaneous
+"H4 stacked PPML, contemporaneous emergency coefficient",4.5,0.9290504681277088,results/models/emergency_ppml_contrast_results.csv,key_predictor==emergency_contemporaneous
+"H4 stacked PPML, contemporaneous emergency p-value",4.5,1.674216321134736e-13,results/models/emergency_ppml_contrast_results.csv,key_predictor==emergency_contemporaneous
+"H4 stacked PPML, contemporaneous emergency-minus-development difference coefficient",4.5,0.833396658731063,results/models/emergency_ppml_contrast_results.csv,key_predictor==diff_emergency_minus_development_contemporaneous
+"H4 stacked PPML, contemporaneous emergency-minus-development difference p-value",4.5,3.2607887501256982e-09,results/models/emergency_ppml_contrast_results.csv,key_predictor==diff_emergency_minus_development_contemporaneous
+Allocation-margin extensive margin coefficient,4.6,0.0082017570324921,results/models/allocation_margin_results.csv,specification_id==allocation_margin_extensive__devrel_media_m1_13
+Allocation-margin intensive margin coefficient,4.6,0.1923535792013992,results/models/allocation_margin_results.csv,specification_id==allocation_margin_intensive__devrel_media_m1_13
+Ideological-breadth interaction coefficient,4.6,0.0837090871670516,results/models/ideological_breadth_results.csv,specification_id==ideological_breadth_crosspartisan__media_x_crosspartisan
+"Evaluative-tone spec, media coefficient",4.6,0.1088868285746173,results/models/evaluative_tone_results.csv,specification_id==evaluative_tone_additive__devrel_media_m1_13
+Future-news innovation placebo coefficient,4.7,0.0476889951911409,results/models/placebo_future_news_results.csv,specification_id==placebo_future_news_ar2_innovation__innovation_ar2
+Future-news innovation placebo p-value,4.7,0.1444865908404664,results/models/placebo_future_news_results.csv,specification_id==placebo_future_news_ar2_innovation__innovation_ar2
+Crisis-type joint Wald chi-square,4.7,28.056824464969207,results/models/emergency_temporal_wald_results.csv,test_name contains 'crisis-type coefficients = 0'
+Crisis-type joint Wald p-value,4.7,9.167540608545632e-05,results/models/emergency_temporal_wald_results.csv,test_name contains 'crisis-type coefficients = 0'
+LOO persistent_roll24 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==persistent_roll24
+LOO persistent_roll36 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==persistent_roll36
+LOO persistent_roll60 sig-flip count,4.7,6,results/models/leave_one_out_results.csv,analysis==persistent_roll60
+LOO sustained_streak24 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak24
+LOO sustained_streak36 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak36
+LOO sustained_streak60 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak60
+LOO crisis_timing_lag0 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==crisis_timing_lag0
+Sports-based IV partial first-stage F,4.8,Not reported (manuscript revised 2026-09-20 to a qualitative-only statement; specific F-statistic could not be traced to any script in the source repository),N/A,N/A
+Entertainment-based IV partial first-stage F,4.8,Not reported (manuscript revised 2026-09-20 to a qualitative-only statement; specific F-statistic could not be traced to any script in the source repository),N/A,N/A

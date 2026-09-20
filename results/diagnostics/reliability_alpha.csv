@@ -1,0 +1,5 @@
+variable,level_of_measurement,n_units,n_coders,alpha,manuscript_reported_value,matches_manuscript
+development_relevance,nominal,2000,2,0.9231018119068162,0.922,True
+sentiment,ordinal,333,2,0.8142595703735389,0.819,True
+sentiment,interval,333,2,0.8260427263479145,0.819,False
+crisis_flag,nominal,282,2,0.7393518518518518,0.7394,True

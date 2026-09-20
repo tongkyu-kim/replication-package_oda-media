@@ -1,0 +1,8 @@
+﻿variable,n,mean,sd,min,max
+Development-relevant media (2-13 month window),2336,208.57,607.9,0.0,16575.0
+"ODA commitment, $M (country x year)",2336,19.46,70.36,-0.61,1793.63
+GDP per capita (constant 2015 USD),2248,4843.53,4566.68,253.31,39191.57
+Population (million),2288,43.85,164.69,0.01,1463.87
+Bilateral trade with Korea (million USD),2318,3514.44,21411.33,0.0,310365.52
+Conflict deaths,2320,703.6,6502.51,0.0,163210.0
+Disaster-affected persons (million),2304,1.05,9.26,0.0,346.56

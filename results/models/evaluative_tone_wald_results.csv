@@ -1,0 +1,2 @@
+specification_id,test_name,test_statistic,df,p_value,restriction_tested,n
+evaluative_tone_additive_no_media,Wald: positive share = negative share = 0,2.776512143781897,2,0.24951005303148044,b_positive=b_negative=0,2053

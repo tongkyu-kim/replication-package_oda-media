@@ -1,0 +1,33 @@
+output_id,article_location,output_type,filename,generating_script,source_result_file,specification_id
+T1,Table 1,table,results/tables/table1_classifier_performance.csv,generate_tables.py,results/diagnostics/classifier_performance.csv,N/A
+T2B,Table 2 Panel B,table,results/tables/table2_panelB_data_construction.csv,generate_tables.py,data/analytical/oda_clean.csv,N/A
+T2C,Table 2 Panel C,table,results/tables/table2_panelC_descriptives.csv,generate_tables.py,data/analytical/devrel_country_year.csv;country_year_controls.csv,N/A
+T3,Table 3 (all columns),table,results/tables/table3_main_results.csv,generate_tables.py,"main_baseline_results.csv;lag_windows_results.csv;rolling_persistence_results.csv;sustained_coverage_results.csv;emergency_temporal_results.csv;allocation_margin_results.csv;ideological_breadth_results.csv;evaluative_tone_results.csv",see table3_main_results.csv 'column' field
+T4,Table 4 (robustness summary),table,results/tables/table4_robustness_summary.csv,generate_tables.py,"placebo_future_news_results.csv;placebo_nondevrel_results.csv;alt_timing_baseline_results.csv;leave_one_out_results.csv;emergency_temporal_wald_results.csv",N/A
+TA1,Appendix Table A1,table,results/tables/tableA1_temporal_placebo.csv,generate_tables.py,results/models/placebo_future_news_results.csv,placebo_future_news_raw__future_news_t1;placebo_future_news_ar2_innovation__innovation_ar2
+TA2,Appendix Table A2,table,results/tables/tableA2_media_type_placebo.csv,generate_tables.py,results/models/placebo_nondevrel_results.csv,placebo_nondevrel_*
+TA3,Appendix Table A3,table,results/tables/tableA3_baseline_alt_timing.csv,generate_tables.py,results/models/alt_timing_baseline_results.csv,alt_timing_lag0..lag4
+TA4,Appendix Table A4,table,results/tables/tableA4_emergency_alt_timing.csv,generate_tables.py,results/models/emergency_temporal_results.csv,H4_within_emergency_*
+TA5,Appendix Table A5,table,results/tables/tableA5_leave_one_out.csv,generate_tables.py,results/models/leave_one_out_results.csv,N/A (all rows)
+TA6,Appendix Table A6,table,results/tables/tableA6_crisis_type_heterogeneity.csv,generate_tables.py,results/models/emergency_temporal_results.csv,H4_crisis_type_*
+F1,Figure 1,figure,results/figures/figure1_need_media_oda.png,make_figure1_need_media_oda.py,results/figure_data/figure1_need_media_oda_data.csv,N/A
+F2,Figure 2,figure,results/figures/figure2_monthly_temporal_profile.png,make_figure2_monthly_temporal_profile.py,results/figure_data/figure2_monthly_profile_data.csv,N/A
+F3,Figure 3,figure,results/figures/figure3_persistent_attention.png,make_figure3_persistent_attention.py,"results/figure_data/figure3_persistent_attention_data.csv;rolling_persistence_results.csv",H2_devrel_media_roll24/36/60
+F4,Figure 4,figure,results/figures/figure4_streak_threshold_profile.png,make_figure4_streak_threshold_profile.py,results/figure_data/figure4_streak_threshold_data.csv,N/A (dense 1-60mo grid)
+F5,Figure 5,figure,results/figures/figure5_ppml_contrast.png,make_figure5_ppml_contrast.py,"results/figure_data/figure5_ppml_contrast_data.csv;emergency_ppml_contrast_results.csv",H4_ppml_contrast__*
+F6,Figure 6,figure,results/figures/figure6_oda_threshold_sensitivity.png,make_figure6_oda_threshold_sensitivity.py,results/figure_data/figure6_oda_threshold_data.csv,N/A (dense threshold grid)
+F7,Figure 7,figure,results/figures/figure7_ideological_breadth.png,"ideological_breadth.py (data); make_figure7_ideological_breadth.py (plot)",results/figure_data/figure7_ideological_breadth_data.csv,N/A
+F8,Figure 8,figure,results/figures/figure8_placebo_battery.png,make_figure8_placebo_battery.py,"results/figure_data/figure8_placebo_battery_data.csv;placebo_future_news_results.csv;placebo_nondevrel_results.csv",N/A
+FA1,Figure A1,figure,results/figures/figureA1_research_pipeline.png,make_figureA1_research_pipeline.py,N/A (diagram; no data),N/A
+FA2,Figure A2,figure,results/figures/figureA2_classifier_performance.png,make_figureA2_classifier_performance.py,"results/figure_data/figureA2_classifier_performance_data.csv;results/diagnostics/classifier_predictions.csv",N/A
+TXT_H1,Section 4.1 H1 coefficient/p-value,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/models/main_baseline_results.csv,H1_preferred__devrel_media_m1_13
+TXT_TEMPORAL,Section 4.2 temporal decomposition coefficients,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/models/lag_windows_results.csv,lag_windows_joint__*
+TXT_H2,Section 4.3 H2 coefficients,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/models/rolling_persistence_results.csv,H2_*
+TXT_H3,Section 4.4 H3 coefficients,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/models/sustained_coverage_results.csv,H3_*
+TXT_H4,Section 4.5 H4 coefficients (pooled + PPML),text_result,results/models/reported_text_results.csv,build_reported_text_results.py,"results/models/emergency_temporal_results.csv;emergency_ppml_contrast_results.csv",H4_*
+TXT_SECONDARY,Section 4.6 secondary-analysis coefficients,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,"allocation_margin_results.csv;ideological_breadth_results.csv;evaluative_tone_results.csv",N/A
+TXT_ROBUST,Section 4.7 robustness statistics,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,"placebo_future_news_results.csv;emergency_temporal_wald_results.csv;leave_one_out_results.csv",N/A
+TXT_IV,Section 4.8 IV first-stage F-statistics,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,RESOLVED 2026-09-20: specific F-stats not traceable to any source script; manuscript revised to qualitative-only statement (no numeric claim remains to reproduce),N/A
+TXT_CLASSIFIER,Section 3.1 classifier metrics,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/diagnostics/classifier_performance.csv,N/A
+TXT_ALPHA,Section 3.1 reliability alphas,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/diagnostics/reliability_alpha.csv,N/A
+TXT_CONSTRUCTION,Section 3.1-3.2 sample-construction counts,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,"data/analytical/oda_clean.csv;devrel_country_year.csv;emergency_country_year.csv",N/A

@@ -1,0 +1,35 @@
+Academic Research License
+
+Copyright (c) 2026 Hanyang University. All rights reserved.
+
+This repository contains code, data-processing pipelines, and documentation
+developed for an academic research project ("the Work") conducted at Hanyang
+University.
+
+Permission is granted to view, and to use, copy, and modify the Work for
+non-commercial academic and research purposes only, including citation,
+replication, and extension of the research in scholarly work, subject to the
+following conditions:
+
+1. Attribution. Any use, publication, or derivative work based on the Work
+   must credit Hanyang University and cite the associated research
+   appropriately.
+
+2. Non-commercial use only. The Work, in whole or in part, may not be used
+   for commercial purposes, nor sold, sublicensed, or incorporated into a
+   commercial product or service, without prior written permission from
+   Hanyang University.
+
+3. No redistribution of data. Underlying datasets included or referenced in
+   this repository (including but not limited to licensed news article data
+   and ODA records) are subject to their original data providers' terms and
+   may not be redistributed independently of this notice.
+
+4. No warranty. THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+   IN NO EVENT SHALL HANYANG UNIVERSITY OR THE AUTHORS BE LIABLE FOR ANY
+   CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE WORK.
+
+For permissions beyond the scope of this license, contact the research team
+at Hanyang University.

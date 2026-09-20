@@ -1,0 +1,135 @@
+relative_path,type,purpose,source_or_generator,input_or_output
+code/00_run_all.py,code,Master pipeline entry point,,code
+code/99_validate.py,code,Post-run validation checks,,code
+code/_common.py,code,"Shared configuration, paths, and standardized result-file schema",,code
+code/allocation_margin.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/alt_timing.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/build_analytical_panels.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/build_reported_text_results.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/classifier_validation.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/emergency_temporal.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/evaluative_tone.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/expected_final_results.csv,result_data,Verification snapshot used by 99_validate.py (not a data source),,code
+code/generate_tables.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/ideological_breadth.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/lag_windows.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/leave_one_out.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/lib/__init__.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
+code/lib/devrel_panel.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
+code/lib/emergency_panel.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
+code/lib/ideology_panel.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
+code/lib/panel_windows.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
+code/lib/regressions.py,code,"Shared panel-construction / regression helper module, imported by analysis scripts",,code
+code/main_baseline.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure1_need_media_oda.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure2_monthly_temporal_profile.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure3_persistent_attention.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure4_streak_threshold_profile.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure5_ppml_contrast.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure6_oda_threshold_sensitivity.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure7_ideological_breadth.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figure8_placebo_battery.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figureA1_research_pipeline.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/make_figureA2_classifier_performance.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/placebo_tests.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/reliability_alpha.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/rolling_persistence.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/sustained_coverage.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
+code/verify_edits.txt,other,See README.md,,code
+data/analytical/country_year_controls.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/crisis_news_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/devrel_country_year.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/emergency_country_year.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/oda_clean.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/outlet_article_counts_long.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/panel_country_sdg_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/stage0_noncrisis_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/validation/classifier_checkpoint/config.json,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/validation/classifier_checkpoint/model.safetensors,model_weights,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/validation/classifier_checkpoint/tokenizer.json,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/validation/classifier_checkpoint/tokenizer_config.json,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/validation/precision_final_coderA.csv,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/validation/precision_final_coderB.csv,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/validation/precision_gold_devrel.csv,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+DATA_AVAILABILITY.md,documentation,"What data is included vs. restricted, and how to obtain the restricted source",,documentation
+docs/DATA_CONSTRUCTION.md,documentation,Technical reference for every variable and panel construction step,,documentation
+environment/README.md,documentation,Environment setup instructions,,documentation
+FILE_MANIFEST.csv,result_data,This file,,documentation
+LICENSE,other,Usage license (Hanyang University academic research license),,documentation
+logs/run_all.log,log,Execution log from the most recent 00_run_all.py run,,output
+OUTPUT_MANIFEST.csv,result_data,Maps every table/figure/text-result to its generating script,,documentation
+README.md,documentation,"Package overview, setup, and usage instructions",,documentation
+requirements.txt,other,Pinned Python dependency versions,,documentation
+results/diagnostics/classifier_performance.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
+results/diagnostics/classifier_predictions.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
+results/diagnostics/known_discrepancies.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
+results/diagnostics/reliability_alpha.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure1_need_media_oda_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure2_monthly_profile_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure3_persistent_attention_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure4_streak_threshold_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure5_ppml_contrast_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure6_oda_threshold_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure7_ideological_breadth_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figure8_placebo_battery_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figureA2_classifier_performance_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figure_data/figureA2_confusion_matrix_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure1_need_media_oda.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure1_need_media_oda.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure2_monthly_temporal_profile.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure2_monthly_temporal_profile.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure3_persistent_attention.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure3_persistent_attention.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure4_streak_threshold_profile.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure4_streak_threshold_profile.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure5_ppml_contrast.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure5_ppml_contrast.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure6_oda_threshold_sensitivity.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure6_oda_threshold_sensitivity.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure7_ideological_breadth.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure7_ideological_breadth.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure8_placebo_battery.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figure8_placebo_battery.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figureA1_research_pipeline.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figureA1_research_pipeline.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figureA2_classifier_performance.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/figures/figureA2_classifier_performance.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/models/allocation_margin_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/alt_timing_baseline_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/emergency_ppml_contrast_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/emergency_temporal_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/emergency_temporal_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/evaluative_tone_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/evaluative_tone_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/ideological_breadth_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/lag_windows_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/lag_windows_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/leave_one_out_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/main_baseline_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/placebo_future_news_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/placebo_nondevrel_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/reported_text_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/rolling_persistence_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/sustained_coverage_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/tables/table1_classifier_performance.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table1_classifier_performance.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table2_panelB_data_construction.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table2_panelB_data_construction.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table2_panelC_descriptives.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table2_panelC_descriptives.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table3_main_results.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table3_main_results.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table4_robustness_summary.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/table4_robustness_summary.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA1_temporal_placebo.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA1_temporal_placebo.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA2_media_type_placebo.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA2_media_type_placebo.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA3_baseline_alt_timing.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA3_baseline_alt_timing.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA4_emergency_alt_timing.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA4_emergency_alt_timing.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA5_leave_one_out.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA5_leave_one_out.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA6_crisis_type_heterogeneity.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA6_crisis_type_heterogeneity.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output

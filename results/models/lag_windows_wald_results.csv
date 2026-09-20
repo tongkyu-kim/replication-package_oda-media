@@ -1,0 +1,3 @@
+specification_id,test_name,test_statistic,df,p_value,restriction_tested,n
+lag_windows_joint,Wald: all three windows = 0 (joint),4.5679193154561135,3,0.20631146005420808,b_m1_13=b_m14_25=b_m26_37=0,2075
+lag_windows_joint,Wald: recent window = most-distant window,0.6803448543744688,1,0.4094680000624018,b_m1_13=b_m26_37,2075
