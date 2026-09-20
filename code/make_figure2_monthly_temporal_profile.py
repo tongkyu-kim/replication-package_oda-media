@@ -30,7 +30,7 @@ this package uses, whatever CI multiplier a given script in the original
 research repository happened to use for its own intermediate CSV.
 
 Writes: results/figure_data/figure2_monthly_profile_data.csv (one row per
-relative month) and results/figures/figure2_monthly_temporal_profile.png(.pdf).
+relative month) and results/figures/figure2_monthly_temporal_profile.png.
 """
 from __future__ import annotations
 
@@ -56,7 +56,6 @@ log = get_logger("make_figure2_monthly_temporal_profile")
 
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure2_monthly_profile_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure2_monthly_temporal_profile.png"
-OUT_PDF = RESULTS_FIGURES / "figure2_monthly_temporal_profile.pdf"
 
 FIGDATA_FIELDS = ["relative_month", "codebase_k", "coefficient", "se", "p_value",
                    "ci_lower", "ci_upper", "ci_level", "n", "n_entities"]
@@ -131,10 +130,8 @@ def plot_figure(df: pd.DataFrame) -> None:
 
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=300, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
     log.info(f"Wrote {OUT_PNG}")
-    log.info(f"Wrote {OUT_PDF}")
 
 
 def main() -> None:

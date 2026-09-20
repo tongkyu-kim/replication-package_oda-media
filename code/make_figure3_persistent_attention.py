@@ -38,7 +38,7 @@ CI convention: 90% (Z_90, this package's standard, see code/_common.py).
 
 Writes: results/figure_data/figure3_persistent_attention_data.csv (one row
 per window width, L=1..60) and
-results/figures/figure3_persistent_attention.png(.pdf).
+results/figures/figure3_persistent_attention.png.
 """
 from __future__ import annotations
 
@@ -64,7 +64,6 @@ log = get_logger("make_figure3_persistent_attention")
 
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure3_persistent_attention_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure3_persistent_attention.png"
-OUT_PDF = RESULTS_FIGURES / "figure3_persistent_attention.pdf"
 
 FIGDATA_FIELDS = ["window_length_months", "coefficient", "se", "p_value",
                    "ci_lower", "ci_upper", "ci_level", "n", "n_entities"]
@@ -146,10 +145,8 @@ def plot_figure(df: pd.DataFrame) -> None:
 
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=300, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
     log.info(f"Wrote {OUT_PNG}")
-    log.info(f"Wrote {OUT_PDF}")
 
 
 def main() -> None:

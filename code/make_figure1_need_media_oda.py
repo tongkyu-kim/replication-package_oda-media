@@ -62,7 +62,7 @@ publication-polished -- see task brief):
     -- plain scatter with labels on the largest recipients only.
 
 Writes: results/figure_data/figure1_need_media_oda_data.csv (one row per
-country) and results/figures/figure1_need_media_oda.png(.pdf).
+country) and results/figures/figure1_need_media_oda.png.
 """
 from __future__ import annotations
 
@@ -86,7 +86,6 @@ log = get_logger("make_figure1_need_media_oda")
 
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure1_need_media_oda_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure1_need_media_oda.png"
-OUT_PDF = RESULTS_FIGURES / "figure1_need_media_oda.pdf"
 
 FIGDATA_FIELDS = ["country_iso3", "oda_rank", "top50", "quadrant", "avg_annual_oda",
                    "avg_annual_media_raw", "avg_annual_media_log", "development_need",
@@ -194,10 +193,8 @@ def plot_figure(g: pd.DataFrame, x_ref: float, y_ref: float) -> None:
 
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=300, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
     log.info(f"Wrote {OUT_PNG}")
-    log.info(f"Wrote {OUT_PDF}")
 
 
 def main() -> None:

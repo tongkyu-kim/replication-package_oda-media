@@ -48,7 +48,7 @@ replication_package_public/
 ├── results/
 │   ├── models/                   every specification's structured coefficients/tests
 │   ├── tables/                    Table 1-4, Appendix Tables A1-A7 (CSV + XLSX)
-│   ├── figures/                   Figures 1-8, A1-A2 (PNG/PDF)
+│   ├── figures/                   Figures 1-8, A1-A2 (PNG)
 │   ├── figure_data/                underlying plotted values for every figure
 │   └── diagnostics/                classifier performance, reliability alpha, known discrepancies
 ├── logs/                        execution log from the last 00_run_all.py run

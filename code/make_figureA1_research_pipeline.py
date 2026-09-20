@@ -17,7 +17,7 @@ data construction -> classifier validation & reliability -> main/temporal
 analyses (H1-H4) -> secondary analyses -> robustness & diagnostics ->
 tables & figures.
 
-Writes: results/figures/figureA1_research_pipeline.png (+ .pdf)
+Writes: results/figures/figureA1_research_pipeline.png
 No figure-data CSV -- this is a diagram, not a data plot.
 """
 from __future__ import annotations
@@ -37,7 +37,6 @@ from _common import RESULTS_FIGURES, get_logger  # noqa: E402
 log = get_logger("make_figureA1_research_pipeline")
 
 OUT_PNG = RESULTS_FIGURES / "figureA1_research_pipeline.png"
-OUT_PDF = RESULTS_FIGURES / "figureA1_research_pipeline.pdf"
 
 INK = "#000000"
 WHITE = "#FFFFFF"
@@ -121,13 +120,12 @@ def make_figure() -> None:
             ha="center", va="top", fontsize=13, fontweight="bold")
 
     fig.savefig(OUT_PNG, dpi=220, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
 
 
 def main() -> None:
     make_figure()
-    log.info(f"Wrote {OUT_PNG} and {OUT_PDF}")
+    log.info(f"Wrote {OUT_PNG}")
 
 
 if __name__ == "__main__":

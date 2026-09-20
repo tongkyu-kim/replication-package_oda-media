@@ -47,7 +47,7 @@ sentence.
 CI convention: 90% (Z_90, this package's standard, see code/_common.py).
 
 Writes: results/figure_data/figure4_streak_threshold_data.csv (one row per
-threshold, 1..60) and results/figures/figure4_streak_threshold_profile.png(.pdf).
+threshold, 1..60) and results/figures/figure4_streak_threshold_profile.png.
 """
 from __future__ import annotations
 
@@ -73,7 +73,6 @@ log = get_logger("make_figure4_streak_threshold_profile")
 
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure4_streak_threshold_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure4_streak_threshold_profile.png"
-OUT_PDF = RESULTS_FIGURES / "figure4_streak_threshold_profile.pdf"
 
 FIGDATA_FIELDS = ["threshold", "coefficient", "se", "ci_lower", "ci_upper", "ci_level", "p_value", "n", "n_entities"]
 
@@ -147,10 +146,8 @@ def plot_figure(df: pd.DataFrame) -> None:
 
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=300, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
     log.info(f"Wrote {OUT_PNG}")
-    log.info(f"Wrote {OUT_PDF}")
 
 
 def main() -> None:

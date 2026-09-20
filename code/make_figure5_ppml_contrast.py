@@ -24,7 +24,7 @@ statistically distinguishable (development~0.096, emergency~0.929,
 diff p<0.001); the three lagged windows are not (diff p>0.20 in each).
 
 Writes: results/figure_data/figure5_ppml_contrast_data.csv and
-results/figures/figure5_ppml_contrast.png (+ .pdf)
+results/figures/figure5_ppml_contrast.png
 """
 from __future__ import annotations
 
@@ -46,7 +46,6 @@ log = get_logger("make_figure5_ppml_contrast")
 IN_PATH = RESULTS_MODELS / "emergency_ppml_contrast_results.csv"
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure5_ppml_contrast_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure5_ppml_contrast.png"
-OUT_PDF = RESULTS_FIGURES / "figure5_ppml_contrast.pdf"
 
 FIGDATA_FIELDS = ["window", "window_order", "window_label", "aid_type", "coefficient", "se",
                    "ci_lower", "ci_upper", "ci_level", "p_value", "n"]
@@ -165,7 +164,6 @@ def make_plot(fig_df: pd.DataFrame) -> None:
                   "(stacked PPML, country x aid-type + year x aid-type FE, clustered SE)", fontsize=10.5)
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=200, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -177,7 +175,7 @@ def main() -> None:
 
     fig_df = pd.read_csv(OUT_FIGDATA, encoding="utf-8-sig")
     make_plot(fig_df)
-    log.info(f"Wrote {OUT_PNG} and {OUT_PDF}")
+    log.info(f"Wrote {OUT_PNG}")
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ ln(ODA) for cross-partisan vs. single-bloc coverage across the observed
 ribbons, predicted at the estimation sample's means). This script only
 plots that already-written data -- no new computation happens here.
 
-Writes: results/figures/figure7_ideological_breadth.png (+ .pdf)
+Writes: results/figures/figure7_ideological_breadth.png
 """
 from __future__ import annotations
 
@@ -29,7 +29,6 @@ log = get_logger("make_figure7_ideological_breadth")
 
 IN_PATH = RESULTS_FIGURE_DATA / "figure7_ideological_breadth_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure7_ideological_breadth.png"
-OUT_PDF = RESULTS_FIGURES / "figure7_ideological_breadth.pdf"
 
 SERIES = [
     ("cross_partisan", "Cross-partisan coverage (both blocs)", "black", "-"),
@@ -57,14 +56,13 @@ def make_plot(df: pd.DataFrame) -> None:
     ax.legend(loc="best", frameon=False)
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=200, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
 
 
 def main() -> None:
     df = pd.read_csv(IN_PATH, encoding="utf-8-sig")
     make_plot(df)
-    log.info(f"Wrote {OUT_PNG} and {OUT_PDF}")
+    log.info(f"Wrote {OUT_PNG}")
 
 
 if __name__ == "__main__":

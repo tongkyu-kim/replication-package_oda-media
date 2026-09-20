@@ -78,25 +78,15 @@ results/figure_data/figure7_ideological_breadth_data.csv,result_data,Underlying 
 results/figure_data/figure8_placebo_battery_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figure_data/figureA2_classifier_performance_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figure_data/figureA2_confusion_matrix_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure1_need_media_oda.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure1_need_media_oda.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure2_monthly_temporal_profile.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure2_monthly_temporal_profile.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure3_persistent_attention.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure3_persistent_attention.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure4_streak_threshold_profile.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure4_streak_threshold_profile.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure5_ppml_contrast.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure5_ppml_contrast.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure6_oda_threshold_sensitivity.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure6_oda_threshold_sensitivity.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure7_ideological_breadth.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure7_ideological_breadth.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figure8_placebo_battery.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure8_placebo_battery.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figureA1_research_pipeline.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figureA1_research_pipeline.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figureA2_classifier_performance.pdf,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figureA2_classifier_performance.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/models/allocation_margin_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/alt_timing_baseline_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output

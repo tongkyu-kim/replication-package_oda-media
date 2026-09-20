@@ -34,7 +34,7 @@ H1_preferred__devrel_media_m1_13 to full precision since both fit the
 identical spec on the identical sample).
 
 Writes: results/figure_data/figure8_placebo_battery_data.csv and
-results/figures/figure8_placebo_battery.png (+ .pdf)
+results/figures/figure8_placebo_battery.png
 """
 from __future__ import annotations
 
@@ -56,7 +56,6 @@ IN_NONDEVREL = RESULTS_MODELS / "placebo_nondevrel_results.csv"
 IN_FUTURE_NEWS = RESULTS_MODELS / "placebo_future_news_results.csv"
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure8_placebo_battery_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure8_placebo_battery.png"
-OUT_PDF = RESULTS_FIGURES / "figure8_placebo_battery.pdf"
 
 FIGDATA_FIELDS = ["panel", "measure", "measure_order", "measure_label", "series", "placebo_type",
                    "coefficient", "se", "ci_lower", "ci_upper", "ci_level", "p_value", "n"]
@@ -178,7 +177,6 @@ def make_plot(fig_df: pd.DataFrame) -> None:
     fig.suptitle("Fig. 8: Temporal and substantive placebo tests of the media-ODA association", fontsize=11)
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=200, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -192,7 +190,7 @@ def main() -> None:
 
     fig_df = pd.read_csv(OUT_FIGDATA, encoding="utf-8-sig")
     make_plot(fig_df)
-    log.info(f"Wrote {OUT_PNG} and {OUT_PDF}")
+    log.info(f"Wrote {OUT_PNG}")
 
 
 if __name__ == "__main__":

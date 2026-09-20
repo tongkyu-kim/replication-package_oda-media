@@ -20,7 +20,7 @@ Writes:
   results/figure_data/figureA2_confusion_matrix_data.csv (2x2 counts --
     not a "curve", kept as its own small file rather than forced into the
     curve schema above)
-  results/figures/figureA2_classifier_performance.png (+ .pdf)
+  results/figures/figureA2_classifier_performance.png
 """
 from __future__ import annotations
 
@@ -46,7 +46,6 @@ IN_PERFORMANCE = RESULTS_DIAGNOSTICS / "classifier_performance.csv"
 OUT_CURVE_DATA = RESULTS_FIGURE_DATA / "figureA2_classifier_performance_data.csv"
 OUT_CM_DATA = RESULTS_FIGURE_DATA / "figureA2_confusion_matrix_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figureA2_classifier_performance.png"
-OUT_PDF = RESULTS_FIGURES / "figureA2_classifier_performance.pdf"
 
 CURVE_FIELDS = ["curve", "x", "y", "threshold"]
 CM_FIELDS = ["true_label", "pred_label", "count"]
@@ -128,7 +127,6 @@ def make_plot(curve_df: pd.DataFrame, cm_df: pd.DataFrame, auc: float, ap: float
                   "(held-out gold-labeled test set, N=1,954)", fontsize=12)
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=200, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -155,7 +153,7 @@ def main() -> None:
     curve_df = pd.read_csv(OUT_CURVE_DATA, encoding="utf-8-sig")
     cm_df = pd.read_csv(OUT_CM_DATA, encoding="utf-8-sig")
     make_plot(curve_df, cm_df, auc, ap)
-    log.info(f"Wrote {OUT_PNG} and {OUT_PDF}")
+    log.info(f"Wrote {OUT_PNG}")
 
 
 if __name__ == "__main__":

@@ -31,7 +31,7 @@ current as of Sep 4, but this port re-derives it directly rather than
 trusting that snapshot stayed in sync with this package's own build.
 
 Writes: results/figure_data/figure6_oda_threshold_data.csv and
-results/figures/figure6_oda_threshold_sensitivity.png (+ .pdf)
+results/figures/figure6_oda_threshold_sensitivity.png
 """
 from __future__ import annotations
 
@@ -56,7 +56,6 @@ log = get_logger("make_figure6_oda_threshold_sensitivity")
 
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure6_oda_threshold_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure6_oda_threshold_sensitivity.png"
-OUT_PDF = RESULTS_FIGURES / "figure6_oda_threshold_sensitivity.pdf"
 
 FIGDATA_FIELDS = ["percentile", "threshold_usd", "coefficient", "se", "ci_lower", "ci_upper",
                    "ci_level", "p_value", "n"]
@@ -116,7 +115,6 @@ def make_plot(fig_df: pd.DataFrame) -> None:
     ax.legend(loc="best", frameon=False)
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=200, bbox_inches="tight")
-    fig.savefig(OUT_PDF, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -132,7 +130,7 @@ def main() -> None:
 
     fig_df = pd.read_csv(OUT_FIGDATA, encoding="utf-8-sig")
     make_plot(fig_df)
-    log.info(f"Wrote {OUT_PNG} and {OUT_PDF}")
+    log.info(f"Wrote {OUT_PNG}")
 
 
 if __name__ == "__main__":
