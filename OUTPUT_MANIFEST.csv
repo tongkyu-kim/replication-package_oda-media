@@ -9,8 +9,8 @@ TA2,Appendix Table A2,table,results/tables/tableA2_media_type_placebo.csv,genera
 TA3,Appendix Table A3,table,results/tables/tableA3_baseline_alt_timing.csv,generate_tables.py,results/models/alt_timing_baseline_results.csv,alt_timing_lag0..lag4
 TA4,Appendix Table A4,table,results/tables/tableA4_emergency_alt_timing.csv,generate_tables.py,results/models/emergency_temporal_results.csv,H4_within_emergency_*
 TA5,Appendix Table A5,table,results/tables/tableA5_leave_one_out.csv,generate_tables.py,results/models/leave_one_out_results.csv,N/A (all rows)
-TA6,Appendix Table A6,table,results/tables/tableA6_crisis_type_heterogeneity.csv,generate_tables.py,results/models/emergency_temporal_results.csv,H4_crisis_type_*
-TA7,Appendix Table A7,table,results/tables/tableA7_h3_bar_sensitivity.csv,generate_tables.py,"results/models/h3_bar_sensitivity_results.csv;results/diagnostics/h3_bar_sensitivity_coverage.csv",H3_bar_sensitivity_*
+TA6,Appendix Table A6,table,results/tables/tableA6_h3_bar_sensitivity.csv,generate_tables.py,"results/models/h3_bar_sensitivity_results.csv;results/diagnostics/h3_bar_sensitivity_coverage.csv",H3_bar_sensitivity_*
+TA7,Appendix Table A7,table,results/tables/tableA7_crisis_type_heterogeneity.csv,generate_tables.py,results/models/emergency_temporal_results.csv,H4_crisis_type_*
 F1,Figure 1,figure,results/figures/figure1_need_media_oda.png,make_figure1_need_media_oda.py,results/figure_data/figure1_need_media_oda_data.csv,N/A
 F2,Figure 2,figure,results/figures/figure2_monthly_temporal_profile.png,make_figure2_monthly_temporal_profile.py,results/figure_data/figure2_monthly_profile_data.csv,N/A
 F3,Figure 3,figure,results/figures/figure3_persistent_attention.png,make_figure3_persistent_attention.py,"results/figure_data/figure3_persistent_attention_data.csv;rolling_persistence_results.csv",H2_devrel_media_roll24/36/60

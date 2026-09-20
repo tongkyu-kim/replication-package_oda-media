@@ -20,7 +20,7 @@ the PPML side.
           comparison (Appendix Table A4).
       (c) per-crisis-type heterogeneity (disaster/climate/conflict/
           health/food/refugee), contemporaneous window, each its own
-          standalone regression -- Appendix Table A6 -- plus a joint Wald
+          standalone regression -- Appendix Table A7 -- plus a joint Wald
           test (all 6 jointly zero, and all 6 jointly equal) computed from
           ONE simultaneous regression with all 6 crisis-type media
           measures entered together (the only way to support a valid

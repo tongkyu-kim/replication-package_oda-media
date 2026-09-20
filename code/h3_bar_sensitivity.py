@@ -11,7 +11,7 @@ crossed with the three streak lengths (>=24, >=36, >=60 consecutive
 months), using lib/devrel_panel.py's attach_streak()/build_country_annual()
 with their covered_article_bar parameter -- no duplicated logic, no
 shortcuts. Added 2026-09-20 in response to a reviewer/editor-facing
-threshold-sensitivity request; reported as Appendix Table A7.
+threshold-sensitivity request; reported as Appendix Table A6.
 
 Writes:
   results/models/h3_bar_sensitivity_results.csv        (standardized schema)

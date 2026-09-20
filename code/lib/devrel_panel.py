@@ -13,7 +13,8 @@ that consume this panel.
 
 Timing convention: the 2-13 month pre-allocation window (not 1-13) excludes
 December of year Y-1, which can contain post-decision media given Korea's
-Dec-2 budget finalization date. Every window in this module shares that
+constitutional budget deadline (within 30 days before the start of the fiscal
+year, i.e., early December). Every window in this module shares that
 same near edge (k=2) for the same reason.
 """
 from __future__ import annotations
@@ -86,7 +87,7 @@ def attach_streak(annual: pd.DataFrame, country_month_long: pd.DataFrame, min_ym
     manuscript), resetting to zero on any month below that bar.
     covered_article_bar is exposed as a parameter only so
     h3_bar_sensitivity.py can rebuild this measure at alternative monthly
-    thresholds for a robustness check (Appendix Table A7); every other
+    thresholds for a robustness check (Appendix Table A6); every other
     caller in this package relies on the default and is unaffected."""
     if covered_article_bar is None:
         covered_article_bar = COVERED_ARTICLE_BAR

@@ -1,7 +1,7 @@
-﻿diagnostic,key_finding,assessment
-Future-news placebo,"Future media does not predict current ODA: gamma=0.048, p=0.144.",Pass
-NonDevRel placebo,"Development-related coverage predicts ODA (beta=0.084, p=0.035). Generic country coverage does not (beta=-0.019, p=0.556). 7 of 7 generic-coverage estimates are null.",Pass
-Baseline alternative timing,"The association remains positive for roughly three years, peaking contemporaneously before fading by year four (see alt_timing_baseline_results.csv).",Mixed
-LOO sensitivity,No sign reversals in any analysis. Only the already-marginal 60-month rolling estimate (p=0.075 in the full sample) shows 6 significance flips (6/140).,Pass
-Development vs. emergency alternative timing,See emergency_temporal_results.csv rows H4_within_emergency_contemporaneous / H4_within_emergency_forward for the contemporaneous-vs-forward-window comparison.,Pass
-Development vs. emergency crisis-type,"All 6 crisis types are individually positive and significant (p<0.05); joint test: chi2(6)=28.06, p=9.168e-05.",Pass
+﻿diagnostic,key_finding,verdict
+Future-news placebo,"Future media does not predict current ODA: γ = 0.048, p = 0.144.",Pass
+Generic news placebo,"Generic country coverage does not predict ODA (β = -0.019, p = 0.556); same across all 7 temporal headlines.",Pass
+Alternative timing_baseline,"The association remains positive for roughly three years, peaking contemporaneously before fading in year four.",Mixed
+Alternative timing_crisis,"Emergency ODA is associated with contemporaneous crisis coverage (β = 0.097, p = 0.009), but not previous news (p = 0.145).",Pass
+LOO sensitivity,No sign reversals in any analysis. Only the roll60 estimate shows six significance-status changes (6/140).,Pass
+Crisis-type heterogeneity,"All 6 crisis types are individually positive and significant (p < 0.05); joint test: χ²(6) = 28.06, p < 0.001.",Pass

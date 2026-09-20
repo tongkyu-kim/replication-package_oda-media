@@ -1,5 +1,5 @@
 """
-Builds every manuscript table (main Tables 1-4 and Appendix Tables A1-A6)
+Builds every manuscript table (main Tables 1-4 and Appendix Tables A1-A7)
 directly from the structured result files in results/models/ and
 results/diagnostics/ -- no table in this package contains a manually typed
 statistical value. Run after every analysis script (see 00_run_all.py for
@@ -235,63 +235,79 @@ def build_table3() -> None:
 # Table 4 -- robustness and diagnostic-test summary (narrative, values interpolated)
 # ---------------------------------------------------------------------------
 
+def _p_fmt(p: float) -> str:
+    return "p < 0.001" if p < 0.001 else f"p = {p:.3f}"
+
+
+_NUMBER_WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine"}
+
+
 def build_table4() -> None:
     fn = pd.read_csv(RESULTS_MODELS / "placebo_future_news_results.csv")
     nd = pd.read_csv(RESULTS_MODELS / "placebo_nondevrel_results.csv")
-    at = pd.read_csv(RESULTS_MODELS / "alt_timing_baseline_results.csv")
     loo = pd.read_csv(RESULTS_MODELS / "leave_one_out_results.csv")
+    et = pd.read_csv(RESULTS_MODELS / "emergency_temporal_results.csv")
     et_wald = pd.read_csv(RESULTS_MODELS / "emergency_temporal_wald_results.csv")
 
-    raw = fn[fn["specification_id"] == "placebo_future_news_raw__future_news_t1"].iloc[0]
     innov = fn[fn["specification_id"] == "placebo_future_news_ar2_innovation__innovation_ar2"].iloc[0]
-    dev_m1_13 = nd[nd["specification_id"] == "placebo_nondevrel_m1_13_devrel"].iloc[0]
     gen_m1_13 = nd[nd["specification_id"] == "placebo_nondevrel_m1_13_generic"].iloc[0]
-    n_null_generic = int((nd["specification_id"].str.endswith("_generic") & (nd["p_value"] > 0.05)).sum())
-    n_generic_total = int(nd["specification_id"].str.endswith("_generic").sum())
+    generic = nd[nd["specification_id"].str.endswith("_generic")]
+    n_null_generic = int((generic["p_value"] > 0.05).sum())
+    n_generic_total = int(len(generic))
+    if n_null_generic == n_generic_total:
+        generic_scope = f"same across all {n_generic_total} temporal headlines"
+    else:
+        generic_scope = f"null in {n_null_generic} of {n_generic_total} temporal headlines"
 
+    contemp = et[et["specification_id"] == "H4_within_emergency_contemporaneous__crisis_media_lag0"].iloc[0]
+    forward = et[et["specification_id"] == "H4_within_emergency_forward__crisis_media_m1_13"].iloc[0]
+
+    ct = et[et["specification_id"].str.startswith("H4_crisis_type_")]
+    n_ct = int(len(ct))
+    n_ct_pos_sig = int(((ct["coefficient"] > 0) & (ct["p_value"] < 0.05)).sum())
+    ct_scope = (f"All {n_ct} crisis types are individually positive and significant (p < 0.05)"
+                if n_ct_pos_sig == n_ct else
+                f"{n_ct_pos_sig} of {n_ct} crisis types are individually positive and significant (p < 0.05)")
     joint_ct = et_wald[et_wald["test_name"].str.contains("crisis-type coefficients = 0")].iloc[0]
 
-    loo_summary = loo[loo["analysis"].isin(["persistent_roll24", "persistent_roll36", "persistent_roll60"])]
     roll60_row = loo[loo["analysis"] == "persistent_roll60"].iloc[0]
+    n_flips = int(roll60_row["n_sig_flips_at_p10"])
+    n_flips_txt = _NUMBER_WORDS.get(n_flips, str(n_flips))
 
     rows = [
         {"diagnostic": "Future-news placebo",
-         "key_finding": f"Future media does not predict current ODA: gamma={innov['coefficient']:.3f}, "
-                         f"p={innov['p_value']:.3f}.",
-         "assessment": "Pass"},
-        {"diagnostic": "NonDevRel placebo",
-         "key_finding": f"Development-related coverage predicts ODA (beta={dev_m1_13['coefficient']:.3f}, "
-                         f"p={dev_m1_13['p_value']:.3f}). Generic country coverage does not "
-                         f"(beta={gen_m1_13['coefficient']:.3f}, p={gen_m1_13['p_value']:.3f}). "
-                         f"{n_null_generic} of {n_generic_total} generic-coverage estimates are null.",
-         "assessment": "Pass"},
-        {"diagnostic": "Baseline alternative timing",
+         "key_finding": f"Future media does not predict current ODA: γ = {innov['coefficient']:.3f}, "
+                         f"{_p_fmt(innov['p_value'])}.",
+         "verdict": "Pass"},
+        {"diagnostic": "Generic news placebo",
+         "key_finding": f"Generic country coverage does not predict ODA (β = {gen_m1_13['coefficient']:.3f}, "
+                         f"{_p_fmt(gen_m1_13['p_value'])}); {generic_scope}.",
+         "verdict": "Pass"},
+        {"diagnostic": "Alternative timing_baseline",
          "key_finding": "The association remains positive for roughly three years, peaking "
-                         "contemporaneously before fading by year four (see alt_timing_baseline_results.csv).",
-         "assessment": "Mixed"},
+                         "contemporaneously before fading in year four.",
+         "verdict": "Mixed"},
+        {"diagnostic": "Alternative timing_crisis",
+         "key_finding": f"Emergency ODA is associated with contemporaneous crisis coverage "
+                         f"(β = {contemp['coefficient']:.3f}, {_p_fmt(contemp['p_value'])}), but not previous news "
+                         f"({_p_fmt(forward['p_value'])}).",
+         "verdict": "Pass"},
         {"diagnostic": "LOO sensitivity",
-         "key_finding": f"No sign reversals in any analysis. Only the already-marginal 60-month rolling "
-                         f"estimate (p={roll60_row['full_sample_p']:.3f} in the full sample) shows "
-                         f"{int(roll60_row['n_sig_flips_at_p10'])} significance flips "
-                         f"({int(roll60_row['n_sig_flips_at_p10'])}/{int(roll60_row['n_exclusions'])}).",
-         "assessment": "Pass"},
-        {"diagnostic": "Development vs. emergency alternative timing",
-         "key_finding": "See emergency_temporal_results.csv rows H4_within_emergency_contemporaneous / "
-                         "H4_within_emergency_forward for the contemporaneous-vs-forward-window comparison.",
-         "assessment": "Pass"},
-        {"diagnostic": "Development vs. emergency crisis-type",
-         "key_finding": f"All 6 crisis types are individually positive and significant (p<0.05); joint test: "
-                         f"chi2({int(joint_ct['df'])})={joint_ct['test_statistic']:.2f}, "
-                         f"p={joint_ct['p_value']:.4g}.",
-         "assessment": "Pass"},
+         "key_finding": f"No sign reversals in any analysis. Only the roll60 estimate shows {n_flips_txt} "
+                         f"significance-status changes ({n_flips}/{int(roll60_row['n_exclusions'])}).",
+         "verdict": "Pass"},
+        {"diagnostic": "Crisis-type heterogeneity",
+         "key_finding": f"{ct_scope}; joint test: χ²({int(joint_ct['df'])}) = "
+                         f"{joint_ct['test_statistic']:.2f}, {_p_fmt(joint_ct['p_value'])}.",
+         "verdict": "Pass"},
     ]
     _write_table("table4_robustness_summary", pd.DataFrame(rows))
-    log.info("Note: Table 4 is a narrative summary of Appendix Tables A1-A6; every number above is "
+    log.info("Note: Table 4 is a narrative summary of Appendix Tables A1-A7; every number above is "
              "interpolated from those result files, not typed manually.")
 
 
 # ---------------------------------------------------------------------------
-# Appendix Tables A1-A6 -- full underlying estimates
+# Appendix Tables A1-A7 -- full underlying estimates
 # ---------------------------------------------------------------------------
 
 def build_appendix_tables() -> None:
@@ -308,17 +324,17 @@ def build_appendix_tables() -> None:
 
     _write_table("tableA5_leave_one_out", pd.read_csv(RESULTS_MODELS / "leave_one_out_results.csv"))
 
-    a6 = et[et["specification_id"].str.startswith("H4_crisis_type_")]
-    _write_table("tableA6_crisis_type_heterogeneity", a6)
+    build_table_a6()
 
-    build_table_a7()
+    a7 = et[et["specification_id"].str.startswith("H4_crisis_type_")]
+    _write_table("tableA7_crisis_type_heterogeneity", a7)
 
 
 # ---------------------------------------------------------------------------
-# Appendix Table A7 -- H3 coverage-bar sensitivity (added 2026-09-20)
+# Appendix Table A6 -- H3 coverage-bar sensitivity
 # ---------------------------------------------------------------------------
 
-def build_table_a7() -> None:
+def build_table_a6() -> None:
     """One row per monthly coverage bar (>=1, >=2, >=3 [baseline], >=4, >=5,
     >=10 devrel-relevant articles/month); for each of the three streak
     lengths (>=24, >=36, >=60 consecutive months), the coefficient, SE,
@@ -347,7 +363,7 @@ def build_table_a7() -> None:
             row[f"streak_ge{thresh}_pct_meeting"] = round(100 * c["share_meeting"], 1)
         rows.append(row)
 
-    _write_table("tableA7_h3_bar_sensitivity", pd.DataFrame(rows))
+    _write_table("tableA6_h3_bar_sensitivity", pd.DataFrame(rows))
 
 
 def main() -> None:

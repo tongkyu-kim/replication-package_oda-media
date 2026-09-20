@@ -1,6 +1,6 @@
 """
 Consolidates every manuscript number that appears only in prose (not
-already visible in Table 1-4 or Appendix Tables A1-A6) into one
+already visible in Table 1-4 or Appendix Tables A1-A7) into one
 machine-readable file, each row traced to its source result file. Run
 after every analysis script and generate_tables.py.
 

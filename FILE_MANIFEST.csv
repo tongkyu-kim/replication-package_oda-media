@@ -124,7 +124,7 @@ results/tables/tableA4_emergency_alt_timing.csv,result_data,Generated manuscript
 results/tables/tableA4_emergency_alt_timing.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA5_leave_one_out.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA5_leave_one_out.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/tables/tableA6_crisis_type_heterogeneity.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/tables/tableA6_crisis_type_heterogeneity.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/tables/tableA7_h3_bar_sensitivity.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/tables/tableA7_h3_bar_sensitivity.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA7_crisis_type_heterogeneity.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA7_crisis_type_heterogeneity.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA6_h3_bar_sensitivity.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA6_h3_bar_sensitivity.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output

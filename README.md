@@ -77,7 +77,7 @@ first if starting from a subset of stages).
   `results/tables/tableA{1-7}_*.csv`
 - **Figures**: `results/figures/figure{1-8}_*.png` and `figureA2_*.png`,
   each with underlying data at `results/figure_data/`. Figure A1 (the
-  research-pipeline diagram) is produced manually and is not part of this
+  data-processing and panel-construction pipeline diagram) is produced manually and is not part of this
   package.
 - **Every reported model coefficient, SE, p-value, CI, and test statistic**:
   `results/models/*.csv`, in the standardized schema documented in
