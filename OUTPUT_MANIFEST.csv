@@ -19,7 +19,6 @@ F5,Figure 5,figure,results/figures/figure5_ppml_contrast.png,make_figure5_ppml_c
 F6,Figure 6,figure,results/figures/figure6_oda_threshold_sensitivity.png,make_figure6_oda_threshold_sensitivity.py,results/figure_data/figure6_oda_threshold_data.csv,N/A (dense threshold grid)
 F7,Figure 7,figure,results/figures/figure7_ideological_breadth.png,"ideological_breadth.py (data); make_figure7_ideological_breadth.py (plot)",results/figure_data/figure7_ideological_breadth_data.csv,N/A
 F8,Figure 8,figure,results/figures/figure8_placebo_battery.png,make_figure8_placebo_battery.py,"results/figure_data/figure8_placebo_battery_data.csv;placebo_future_news_results.csv;placebo_nondevrel_results.csv",N/A
-FA1,Figure A1,figure,results/figures/figureA1_research_pipeline.png,make_figureA1_research_pipeline.py,N/A (diagram; no data),N/A
 FA2,Figure A2,figure,results/figures/figureA2_classifier_performance.png,make_figureA2_classifier_performance.py,"results/figure_data/figureA2_classifier_performance_data.csv;results/diagnostics/classifier_predictions.csv",N/A
 TXT_H1,Section 4.1 H1 coefficient/p-value,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/models/main_baseline_results.csv,H1_preferred__devrel_media_m1_13
 TXT_TEMPORAL,Section 4.2 temporal decomposition coefficients,text_result,results/models/reported_text_results.csv,build_reported_text_results.py,results/models/lag_windows_results.csv,lag_windows_joint__*

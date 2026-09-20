@@ -30,7 +30,6 @@ code/make_figure5_ppml_contrast.py,code,"Analysis, table, or figure generation s
 code/make_figure6_oda_threshold_sensitivity.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/make_figure7_ideological_breadth.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/make_figure8_placebo_battery.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
-code/make_figureA1_research_pipeline.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/make_figureA2_classifier_performance.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/placebo_tests.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/reliability_alpha.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
@@ -86,7 +85,6 @@ results/figures/figure5_ppml_contrast.png,figure,Generated manuscript figure -- 
 results/figures/figure6_oda_threshold_sensitivity.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure7_ideological_breadth.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figure8_placebo_battery.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/figures/figureA1_research_pipeline.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figures/figureA2_classifier_performance.png,figure,Generated manuscript figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/models/allocation_margin_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/alt_timing_baseline_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output

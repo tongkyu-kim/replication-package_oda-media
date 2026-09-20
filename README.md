@@ -48,7 +48,7 @@ replication_package_public/
 ├── results/
 │   ├── models/                   every specification's structured coefficients/tests
 │   ├── tables/                    Table 1-4, Appendix Tables A1-A7 (CSV + XLSX)
-│   ├── figures/                   Figures 1-8, A1-A2 (PNG)
+│   ├── figures/                   Figures 1-8, A2 (PNG)
 │   ├── figure_data/                underlying plotted values for every figure
 │   └── diagnostics/                classifier performance, reliability alpha, known discrepancies
 ├── logs/                        execution log from the last 00_run_all.py run
@@ -75,8 +75,10 @@ first if starting from a subset of stages).
 
 - **Tables**: `results/tables/table{1,2,3,4}_*.csv` (+ `.xlsx`) and
   `results/tables/tableA{1-7}_*.csv`
-- **Figures**: `results/figures/figure{1-8}_*.png` and `figureA{1,2}_*.png`,
-  each with underlying data at `results/figure_data/`
+- **Figures**: `results/figures/figure{1-8}_*.png` and `figureA2_*.png`,
+  each with underlying data at `results/figure_data/`. Figure A1 (the
+  research-pipeline diagram) is produced manually and is not part of this
+  package.
 - **Every reported model coefficient, SE, p-value, CI, and test statistic**:
   `results/models/*.csv`, in the standardized schema documented in
   `code/_common.py`
