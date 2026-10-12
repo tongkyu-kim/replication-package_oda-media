@@ -2,7 +2,7 @@ source_file,specification_id_or_key,field,expected_value,tolerance,note
 main_baseline_results.csv,H1_unadjusted_pooled,coefficient,0.4345,0.001,Table 3 col[0]
 main_baseline_results.csv,H1_preferred__devrel_media_m1_13,coefficient,0.0843,0.001,Table 3 col[1] -- manuscript's headline H1 result
 main_baseline_results.csv,H1_preferred__devrel_media_m1_13,p_value,0.035,0.002,Table 3 col[1]
-main_baseline_results.csv,H1_preferred__devrel_media_m1_13,n,2214,0,Table 3 col[1]
+main_baseline_results.csv,H1_preferred__devrel_media_m1_13,n,2214.0,0.0,Table 3 col[1]
 lag_windows_results.csv,lag_windows_joint__devrel_media_m1_13,coefficient,0.068,0.005,Table 3 col[2] -- small tolerance for legitimate rerun drift
 rolling_persistence_results.csv,H2_devrel_media_roll24__devrel_media_roll24,coefficient,0.2011,0.001,Table 3 col[3]
 rolling_persistence_results.csv,H2_devrel_media_roll36__devrel_media_roll36,coefficient,0.2031,0.001,Table 3 col[3]
@@ -10,21 +10,26 @@ rolling_persistence_results.csv,H2_devrel_media_roll60__devrel_media_roll60,coef
 sustained_coverage_results.csv,H3_streak_ge24__streak_ge24,coefficient,0.2155,0.001,Table 3 col[4]
 sustained_coverage_results.csv,H3_streak_ge36__streak_ge36,coefficient,0.2285,0.001,Table 3 col[4]
 sustained_coverage_results.csv,H3_streak_ge60__streak_ge60,coefficient,0.2019,0.001,Table 3 col[4]
-emergency_temporal_results.csv,H4_within_emergency_contemporaneous__crisis_media_lag0,coefficient,0.0967,0.001,Table 3 col[5]
-emergency_ppml_contrast_results.csv,H4_ppml_contrast__development_contemporaneous,coefficient,0.0957,0.002,Figure 5 / Section 4.5
-emergency_ppml_contrast_results.csv,H4_ppml_contrast__emergency_contemporaneous,coefficient,0.9291,0.002,Figure 5 / Section 4.5
-emergency_ppml_contrast_results.csv,H4_ppml_contrast__diff_emergency_minus_development_contemporaneous,coefficient,0.8334,0.002,Figure 5 / Section 4.5 -- H4's formal test
+emergency_temporal_results.csv,H4_within_emergency_contemporaneous__crisis_media_lag0,coefficient,0.0967,0.001,"Appendix Table A4 Panel B -- exploratory, former H4 specification (crisis media -> emergency ODA)"
 allocation_margin_results.csv,allocation_margin_extensive__devrel_media_m1_13,coefficient,0.0082,0.001,Table 3 col[6]
 allocation_margin_results.csv,allocation_margin_intensive__devrel_media_m1_13,coefficient,0.1924,0.001,Table 3 col[6]
-ideological_breadth_results.csv,ideological_breadth_crosspartisan__media_x_crosspartisan,coefficient,0.0837,0.001,"Table 3 col[7] -- corrected 2026-09-20 to k=2-13 window (was 0.0786 under the uncorrected k=1-13 window)"
+ideological_breadth_results.csv,ideological_breadth_crosspartisan__media_x_crosspartisan,coefficient,0.0837,0.001,Table 3 col[7] -- corrected 2026-09-20 to k=2-13 window (was 0.0786 under the uncorrected k=1-13 window)
 evaluative_tone_results.csv,evaluative_tone_additive__devrel_media_m1_13,coefficient,0.1089,0.001,Table 3 col[8]
 placebo_future_news_results.csv,placebo_future_news_ar2_innovation__innovation_ar2,p_value,0.1445,0.002,Table 4 / Appendix A1 -- must remain non-significant
 placebo_nondevrel_results.csv,placebo_nondevrel_m1_13_generic,p_value,0.556,0.01,Appendix A2 -- must remain non-significant
 alt_timing_baseline_results.csv,alt_timing_lag0__devrel_media_lag0,coefficient,0.1369,0.001,Appendix A3
 classifier_performance.csv,f1,value,0.9007,0.001,Table 1
-classifier_performance.csv,test_n,value,1954,0,Table 1
-reliability_alpha.csv,development_relevance,alpha,0.9231,0.001,"Section 3.1 -- manuscript updated 2026-09-21 to the regenerated 0.923"
+classifier_performance.csv,test_n,value,1954.0,0.0,Table 1
+reliability_alpha.csv,development_relevance,alpha,0.9231,0.001,Section 3.1 -- manuscript updated 2026-09-21 to the regenerated 0.923
 reliability_alpha.csv,crisis_flag,alpha,0.7394,0.001,"Section 3.1 -- corrected 2026-09-20 per documented crisis_flag-requires-devrel=1 precondition (was 0.7263 before the fix, manuscript now updated to 0.739)"
 h3_bar_sensitivity_results.csv,H3_bar_sensitivity_bar3_ge24__streak_ge24,coefficient,0.2155,0.001,"Appendix Table A6, bar>=3 row -- must equal sustained_coverage_results.csv's H3_streak_ge24 exactly (same COVERED_ARTICLE_BAR=3 default)"
 h3_bar_sensitivity_results.csv,H3_bar_sensitivity_bar3_ge36__streak_ge36,coefficient,0.2285,0.001,"Appendix Table A6, bar>=3 row -- must equal sustained_coverage_results.csv's H3_streak_ge36 exactly"
 h3_bar_sensitivity_results.csv,H3_bar_sensitivity_bar3_ge60__streak_ge60,coefficient,0.2019,0.001,"Appendix Table A6, bar>=3 row -- must equal sustained_coverage_results.csv's H3_streak_ge60 exactly"
+h4_common_exposure_results.csv,H4_primary__emergency_contemporaneous,coefficient,0.7122,0.002,"Section 4.5 -- revised H4, emergency ODA (common DevRel exposure)"
+h4_common_exposure_results.csv,H4_primary__nonemergency_contemporaneous,coefficient,0.0384,0.002,"Section 4.5 -- revised H4, non-emergency ODA"
+h4_common_exposure_results.csv,H4_primary__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.6738,0.002,Table 3 col[5] / Section 4.5 -- revised H4 formal test
+h4_common_exposure_results.csv,H4_extended__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.6597,0.002,Figure 5 / Table A4 Panel A
+h4_common_exposure_results.csv,H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.5234,0.002,Section 4.7 / Table 4 -- top-1% emergency trim
+h4_common_exposure_results.csv,H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.0057,0.002,Section 4.7 / Table 4 -- log-linear counterpart
+h4_common_exposure_data_checks.csv,media_exposure_mismatches,value,0.0,0.0,"Section 3.4 -- identical DevRel exposure for both aid types (0 of 23,360 cells)"
+h4_common_exposure_data_checks.csv,max_abs_partition_error_musd,value,0.0,1e-06,Section 3.1 -- emergency + non-emergency = pooled ODA in every country-year

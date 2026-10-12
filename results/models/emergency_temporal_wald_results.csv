@@ -1,5 +1,3 @@
 specification_id,test_name,test_statistic,df,p_value,restriction_tested,n
 H4_crisis_type_joint,"Wald: all 6 crisis-type coefficients = 0 (joint, simultaneous regression)",28.056824464969207,6,9.167540608545632e-05,b_disaster=b_climate=b_conflict=b_health=b_food=b_refugee=0,2080
 H4_crisis_type_joint,"Wald: all 6 crisis-type coefficients are equal (single joint restriction, not pairwise)",8.241486582704074,5,0.1434194247923738,b_disaster=b_climate=b_conflict=b_health=b_food=b_refugee,2080
-H4_ppml_contrast_joint,Wald: temporal response profiles are equal (all 4 emergency-minus-development interactions = 0),39.54543041337358,4,5.3741794072578785e-08,int_contemp=int_m1_13=int_m14_25=int_m26_37=0,3571
-H4_ppml_contrast_joint,"Wald: timing contrast, (emg_contemp - emg_m14_25) - (dev_contemp - dev_m14_25) = 0 [algebraically = int_contemp - int_m14_25]",14.44995696845342,1,0.00014393314494123748,int_contemp - int_m14_25 = 0,3571

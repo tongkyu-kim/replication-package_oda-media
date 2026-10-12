@@ -20,17 +20,17 @@ scripts' own printed diagnostics describe "N sign-flips" alongside the
 N sig-flips they write to CSV; this just also persists it as its own
 column here).
 
-Also includes (H4 family): crisis-timing LOO -- the pooled within-emergency
-contemporaneous association (crisis media -> emergency ODA), ported from
-pipeline/crisis_news/robustness_model6.py's leave_one_out check (manuscript
-Appendix Table A5's crisis-timing row). Reuses the exact same leave_one_out()
-helper below, applied to lib.emergency_panel's within-emergency panel
-instead of the devrel one -- see run_crisis_timing_loo().
+Also includes H4 (revised 2026-10-12): leave-one-country-out for the
+contemporaneous emergency-minus-non-emergency difference in the stacked
+PPML model with common development-relevant media exposure
+(h4_common_exposure.py's primary specification; manuscript Appendix Table
+A5's H4 row). Ported from the original research repository's
+pipeline/devrel_baseline/h4r_ci90.py. This replaces the former
+crisis-timing row (crisis media -> emergency ODA), which belonged to the
+former H4 specification. See run_h4_loo().
 
-Writes: results/models/leave_one_out_results.csv -- if that file already
-exists (e.g. a separate workstream's crisis-timing LOO row got there
-first), this script's rows are APPENDED to whatever is already there,
-reusing that file's own column schema, rather than overwriting it.
+Writes: results/models/leave_one_out_results.csv (overwritten on every run;
+see main()).
 """
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ import pandas as pd
 
 from _common import RESULTS_MODELS, get_logger, write_rows
 from lib import devrel_panel as dp
-from lib import emergency_panel as ep
+from lib import h4_panel as hp
 from lib import panel_windows as pw
 from lib.regressions import fit_fe_ols
 
@@ -144,36 +144,43 @@ def run_sustained_loo(annual_log: pd.DataFrame) -> list[dict]:
     return rows
 
 
-def run_crisis_timing_loo(crisis_annual: pd.DataFrame, focal: str) -> list[dict]:
-    """H4 -- pooled within-emergency contemporaneous association (crisis
-    media, months 0-11 of the commitment year -> emergency ODA),
-    leave-one-country-out. Ported from pipeline/crisis_news/
-    robustness_model6.py's leave_one_out check (manuscript Appendix Table
-    A5's crisis-timing row) -- same focal spec as
-    emergency_temporal.py's run_within_emergency "lag0" window: pooled
-    crisis_media_lag0, log spec, country+year FE, 5 controls, clustered SE.
-    Reuses the leave_one_out() helper above, applied to
-    lib.emergency_panel's within-emergency panel instead of the devrel
-    one."""
-    analysis = "crisis_timing_lag0"
-    res = leave_one_out(crisis_annual, "emergency_commitment_musd", focal, ep.CONTROL_COLS)
-    if res is None:
-        log.info(f"{analysis}: not estimable, skipped")
-        return []
-    res["analysis"] = analysis
-    log.info(f"{analysis}: full_coef={res['full_sample_coef']:.4f} p={res['full_sample_p']:.4f} "
-              f"n_excl={res['n_exclusions']} range=[{res['min_coef']:.4f},{res['max_coef']:.4f}] "
-              f"sign_rev={res['n_sign_reversals']} sig_flips={res['n_sig_flips_at_p10']}")
+def run_h4_loo(country_month_long: pd.DataFrame, sentiment_month: pd.DataFrame) -> list[dict]:
+    """H4 -- contemporaneous emergency-minus-non-emergency difference
+    (interaction term) in h4_common_exposure.py's primary stacked PPML
+    model, refit once per excluded country on the complete-case primary
+    sample. Significance flips use the interaction's own p-value at 0.10."""
+    import h4_common_exposure as h4
+    focal = "devrel_media_contemp:is_emergency"
+    cc = h4.complete_cases(hp.build_stacked_panel(country_month_long, sentiment_month), h4.PRIMARY)
+
+    def fit(d):
+        tidy = h4.fit_ppml(d, h4.PRIMARY).tidy()
+        return float(tidy.loc[focal, "Estimate"]), float(tidy.loc[focal, "Pr(>|t|)"])
+
+    full_coef, full_p = fit(cc)
+    full_sig = full_p < 0.10
+    coefs, sig_flips = [], 0
+    for c in sorted(cc["entity"].unique()):
+        coef, p = fit(cc[cc["entity"] != c])
+        coefs.append(coef)
+        sig_flips += int((p < 0.10) != full_sig)
+    coefs = np.array(coefs)
+    res = {"analysis": "h4_common_exposure_contemp_diff", "focal_term": focal,
+           "full_sample_coef": full_coef, "full_sample_p": full_p, "n_exclusions": len(coefs),
+           "min_coef": float(coefs.min()), "max_coef": float(coefs.max()),
+           "n_sign_reversals": int(np.sum(np.sign(coefs) != np.sign(full_coef))),
+           "n_sig_flips_at_p10": sig_flips}
+    log.info(f"{res['analysis']}: full_coef={full_coef:.4f} p={full_p:.2e} n_excl={len(coefs)} "
+             f"range=[{res['min_coef']:.4f},{res['max_coef']:.4f}] sign_rev={res['n_sign_reversals']} "
+             f"sig_flips={sig_flips}")
     return [res]
 
 
 def main() -> None:
-    """Computes all 7 LOO analyses (persistent x3, sustained x3, crisis-
-    timing x1) in a single run and OVERWRITES results/models/leave_one_out_
-    results.csv -- this script is self-sufficient (it builds the crisis
-    panel itself via lib/emergency_panel.py, not dependent on any other
-    script having run first), so reruns are idempotent by construction:
-    no append/merge step, no risk of duplicate rows across repeated runs."""
+    """Computes all 7 LOO analyses (persistent x3, sustained x3, H4 x1) in
+    a single run and OVERWRITES results/models/leave_one_out_results.csv --
+    this script is self-sufficient (it builds the H4 stacked panel itself
+    via lib/h4_panel.py), so reruns are idempotent by construction."""
     country_month_long = pw.build_country_month_long()
     sentiment_month = dp.build_country_sentiment_month()
     annual_log = dp.build_country_annual(use_log=True, country_month_long=country_month_long,
@@ -181,9 +188,7 @@ def main() -> None:
 
     rows = run_persistent_loo(annual_log) + run_sustained_loo(annual_log)
 
-    crisis_month_long = ep.build_crisis_month_long()
-    crisis_annual, crisis_xcol = ep.build_country_annual(True, crisis_month_long, "crisis_articles", "lag0")
-    rows += run_crisis_timing_loo(crisis_annual, crisis_xcol)
+    rows += run_h4_loo(country_month_long, sentiment_month)
 
     write_rows(OUT_PATH, LOO_FIELDS, rows)
     log.info(f"Wrote {len(rows)} rows -> {OUT_PATH}")

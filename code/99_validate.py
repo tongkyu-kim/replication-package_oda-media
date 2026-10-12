@@ -94,7 +94,7 @@ REQUIRED_MODEL_RESULT_FILES = [
     "main_baseline_results.csv", "lag_windows_results.csv", "lag_windows_wald_results.csv",
     "rolling_persistence_results.csv", "sustained_coverage_results.csv",
     "emergency_temporal_results.csv", "emergency_temporal_wald_results.csv",
-    "emergency_ppml_contrast_results.csv", "allocation_margin_results.csv",
+    "h4_common_exposure_results.csv", "h4_common_exposure_wald_results.csv", "allocation_margin_results.csv",
     "ideological_breadth_results.csv", "evaluative_tone_results.csv", "evaluative_tone_wald_results.csv",
     "placebo_future_news_results.csv", "placebo_nondevrel_results.csv",
     "alt_timing_baseline_results.csv", "leave_one_out_results.csv", "h3_bar_sensitivity_results.csv",
@@ -135,7 +135,8 @@ def check_required_outputs() -> None:
         check(f"results/figures/{fig}.png exists", png_exists)
 
     for diag in ["classifier_performance.csv", "classifier_predictions.csv", "reliability_alpha.csv",
-                 "known_discrepancies.csv", "h3_bar_sensitivity_coverage.csv"]:
+                 "known_discrepancies.csv", "h3_bar_sensitivity_coverage.csv",
+                 "h4_common_exposure_data_checks.csv"]:
         check(f"results/diagnostics/{diag} exists", (RESULTS_DIAGNOSTICS / diag).exists())
 
 
@@ -146,7 +147,7 @@ def check_required_outputs() -> None:
 
 _MAIN_RESULT_FILES = [
     "main_baseline_results.csv", "lag_windows_results.csv", "rolling_persistence_results.csv",
-    "sustained_coverage_results.csv", "emergency_temporal_results.csv", "emergency_ppml_contrast_results.csv",
+    "sustained_coverage_results.csv", "emergency_temporal_results.csv", "h4_common_exposure_results.csv",
     "allocation_margin_results.csv", "ideological_breadth_results.csv", "evaluative_tone_results.csv",
     "placebo_future_news_results.csv", "placebo_nondevrel_results.csv", "alt_timing_baseline_results.csv",
     "h3_bar_sensitivity_results.csv",
@@ -197,6 +198,17 @@ def check_figure_data_consistency() -> None:
         interaction = mr[mr["specification_id"] == "ideological_breadth_crosspartisan__media_x_crosspartisan"]
         check("figure7 data file is non-empty and interaction coefficient exists in source model results",
               len(fd) > 0 and len(interaction) == 1)
+
+    fig5 = RESULTS_FIGURE_DATA / "figure5_ppml_contrast_data.csv"
+    h4 = RESULTS_MODELS / "h4_common_exposure_results.csv"
+    if fig5.exists() and h4.exists():
+        fd = pd.read_csv(fig5)
+        mr = pd.read_csv(h4)
+        src = mr.loc[mr["specification_id"] == "H4_extended__diff_emergency_minus_nonemergency_contemporaneous",
+                     "coefficient"]
+        plotted = fd.loc[(fd["window"] == "contemp") & (fd["aid_type"] == "diff"), "coefficient"]
+        check("figure5 plots the revised-H4 extended model (contemporaneous difference matches source)",
+              len(src) == 1 and len(plotted) == 1 and abs(float(src.iloc[0]) - float(plotted.iloc[0])) < 1e-12)
 
 
 # ---------------------------------------------------------------------------

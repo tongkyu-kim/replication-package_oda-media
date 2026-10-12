@@ -29,6 +29,13 @@ what is and is not included/redistributable.
 - **Emergency definition**: OECD CRS sector_code in `{72010, 72040, 72050, 73010, 74010}` or with prefix in `{720, 730, 740}` -- the humanitarian-response purpose-code family, read directly from the raw sector code (not from any downstream SDG label).
 - Confirmed: 2,167 emergency-flagged projects (2.30% of all ODA projects), matching Table 2.
 
+### H4 stacked panel (`lib/h4_panel.py`, built in memory by `h4_common_exposure.py` and `leave_one_out.py`)
+
+- **Outcomes**: the pooled development-relevant outcome used for H1-H3 (`devrel_commitment_musd`) is partitioned into two mutually exclusive components per country-year: **emergency ODA** (`emergency_commitment_musd` from `emergency_country_year.csv`) and **non-emergency ODA** (pooled minus emergency). Every emergency-flagged project already satisfies `devrel_flag`, so the partition is exact: emergency + non-emergency = pooled in all 2,336 country-years (max absolute error 3e-14 $M). One non-emergency country-year is negative (a downward commitment revision) and is clipped to 0 for PPML, as everywhere else.
+- **Stacking**: each country-year contributes one emergency and one non-emergency row (4,672 rows), with `is_emergency`, `entity_x` = country x aid type, and `time_x` = year x aid type for the aid-type-specific fixed effects. Standard errors are clustered on the original country.
+- **Common exposure**: both rows carry IDENTICAL development-relevant media measures -- the production DevRel measure, which intentionally includes crisis-related coverage. Windows: contemporaneous (`devrel_media_contemp`, months 0-11 of the commitment year, k=-11..0, ln(1+sum)), plus the H1-H3 measures (`devrel_media_m1_13`, `_m14_25`, `_m26_37`, `_roll24/36/60`, `streak_ge24/36/60`).
+- **Checks** (`results/diagnostics/h4_common_exposure_data_checks.csv`, enforced by `h4_common_exposure.py` and `99_validate.py`): 0 media-exposure mismatches across 23,360 country-year x measure cells; partition reconciles to the pooled outcome; emergency ODA is zero in 65.3% of country-years, non-emergency in 11.9%.
+
 ## Country x year analytical panel (`lib/devrel_panel.py`, used by every regression script)
 
 Built fresh by each analysis script from the panels above (not itself cached to disk, since it's inexpensive to rebuild and every script needs a slightly different subset of its columns):

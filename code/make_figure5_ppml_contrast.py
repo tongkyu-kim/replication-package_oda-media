@@ -1,30 +1,24 @@
 """
-Figure 5 -- Contemporaneous versus lagged media responsiveness, development
-ODA versus emergency ODA (stacked PPML). The manuscript's key H4 figure.
+Figure 5 -- Common development-relevant media exposure and emergency versus
+non-emergency ODA across temporal windows (stacked PPML). Revised H4.
 
-Data: results/models/emergency_ppml_contrast_results.csv (already complete
--- written by code/emergency_temporal.py's run_ppml_contrast(): 12 rows,
-development / emergency / emergency-minus-development-difference
-coefficients x 4 temporal windows (contemporaneous, 2-13, 14-25, 26-37
-months pre-allocation)). No new estimation happens here -- this script only
-reshapes that file for plotting and renders the figure.
+UPDATED 2026-10-12 (revised H4): previously plotted the former H4 contrast
+(crisis media -> emergency ODA vs. DevRel media -> development ODA) from
+results/models/emergency_ppml_contrast_results.csv. Now plots
+h4_common_exposure.py's EXTENDED model (contemporaneous, 2-13, 14-25 and
+26-37 months entered jointly, N = 3,803 stacked observations, 137
+countries): both aid types share the identical DevRel exposure. The
+headline H4 estimate in the text (difference 0.674) comes from the
+primary two-window model; the extended model's contemporaneous difference
+is 0.660. No new estimation happens here.
 
-Layout ported (visual design only, no statistics) from the original
-research repository's
-pipeline/manuscript_tables/make_figure8_ppml_temporal_contrast.py (old
-filename "figure8" -- promoted to the permanent pipeline 2026-09-08,
-renumbered here as manuscript Figure 5): two panels, windows ordered
-most-distant to nearest-in-time (26-37mo, 14-25mo, 2-13mo, contemporaneous
--- a chronological left-to-right read). Panel A: raw development (filled
-circle, solid whisker) vs. emergency (hollow square, dashed whisker)
-coefficients, 90% CI. Panel B: emergency-minus-development difference
-(filled square, dashed whisker), 90% CI, zero line. Per the source data,
-the contemporaneous window is the only one where the two aid processes are
-statistically distinguishable (development~0.096, emergency~0.929,
-diff p<0.001); the three lagged windows are not (diff p>0.20 in each).
+Layout unchanged: windows ordered most-distant to nearest-in-time. Panel A:
+non-emergency (filled circle, solid whisker) vs. emergency (hollow square,
+dashed whisker) coefficients, 90% CI. Panel B: emergency-minus-non-
+emergency difference (filled square, dashed whisker), 90% CI, zero line.
 
 Writes: results/figure_data/figure5_ppml_contrast_data.csv and
-results/figures/figure5_ppml_contrast.png
+results/figures/figure5_ppml_contrast.png (file names kept for continuity)
 """
 from __future__ import annotations
 
@@ -43,7 +37,8 @@ from _common import RESULTS_MODELS, RESULTS_FIGURES, RESULTS_FIGURE_DATA, get_lo
 
 log = get_logger("make_figure5_ppml_contrast")
 
-IN_PATH = RESULTS_MODELS / "emergency_ppml_contrast_results.csv"
+IN_PATH = RESULTS_MODELS / "h4_common_exposure_results.csv"
+MODEL_PREFIX = "H4_extended__"
 OUT_FIGDATA = RESULTS_FIGURE_DATA / "figure5_ppml_contrast_data.csv"
 OUT_PNG = RESULTS_FIGURES / "figure5_ppml_contrast.png"
 
@@ -54,13 +49,13 @@ FIGDATA_FIELDS = ["window", "window_order", "window_label", "aid_type", "coeffic
 # left-to-right read), matching the source figure's own convention.
 WINDOW_ORDER = {"m26_37": 0, "m14_25": 1, "m1_13": 2, "contemp": 3}
 WINDOW_LABELS = {"m26_37": "26-37 mo", "m14_25": "14-25 mo", "m1_13": "2-13 mo", "contemp": "Contemporaneous"}
-AID_TYPE_ORDER = {"development": 0, "emergency": 1, "diff": 2}
+AID_TYPE_ORDER = {"nonemergency": 0, "emergency": 1, "diff": 2}
 
 
 def _parse_row(key_predictor: str, timing_window: str) -> tuple[str, str]:
     """(aid_type, window) parsed from the source CSV's own key_predictor /
     timing_window text -- no new classification logic, just reading back
-    the labels emergency_temporal.py already wrote."""
+    the labels h4_common_exposure.py already wrote."""
     if timing_window.startswith("contemporaneous"):
         window = "contemp"
     elif timing_window.startswith("2-13"):
@@ -72,10 +67,10 @@ def _parse_row(key_predictor: str, timing_window: str) -> tuple[str, str]:
     else:
         raise ValueError(f"Unrecognized timing_window: {timing_window!r}")
 
-    if key_predictor.startswith("diff_emergency_minus_development_"):
+    if key_predictor.startswith("diff_emergency_minus_nonemergency_"):
         aid_type = "diff"
-    elif key_predictor.startswith("development_"):
-        aid_type = "development"
+    elif key_predictor.startswith("nonemergency_"):
+        aid_type = "nonemergency"
     elif key_predictor.startswith("emergency_"):
         aid_type = "emergency"
     else:
@@ -112,12 +107,12 @@ def make_plot(fig_df: pd.DataFrame) -> None:
 
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.0, 4.6))
 
-    # ---- Panel A: raw dev vs. emergency coefficients, side by side ----
+    # ---- Panel A: raw non-emergency vs. emergency coefficients, side by side ----
     for i, w in enumerate(windows):
-        dev = fig_df[(fig_df["window"] == w) & (fig_df["aid_type"] == "development")].iloc[0]
+        nonemg = fig_df[(fig_df["window"] == w) & (fig_df["aid_type"] == "nonemergency")].iloc[0]
         emg = fig_df[(fig_df["window"] == w) & (fig_df["aid_type"] == "emergency")].iloc[0]
-        axA.vlines(i - offset, dev["ci_lower"], dev["ci_upper"], color="black", lw=1.3, zorder=3)
-        axA.plot(i - offset, dev["coefficient"], marker="o", color="black", ms=7, zorder=4)
+        axA.vlines(i - offset, nonemg["ci_lower"], nonemg["ci_upper"], color="black", lw=1.3, zorder=3)
+        axA.plot(i - offset, nonemg["coefficient"], marker="o", color="black", ms=7, zorder=4)
         axA.vlines(i + offset, emg["ci_lower"], emg["ci_upper"], color="black", lw=1.3,
                    linestyles=(0, (1.5, 1)), zorder=3)
         axA.plot(i + offset, emg["coefficient"], marker="s", mfc="white", mec="black", ms=7, zorder=4)
@@ -133,7 +128,7 @@ def make_plot(fig_df: pd.DataFrame) -> None:
     axA.set_axisbelow(True)
     handles_a = [
         Line2D([0], [0], marker="o", color="none", markerfacecolor="black", markeredgecolor="black",
-               markersize=7, label="Development ODA"),
+               markersize=7, label="Non-emergency ODA"),
         Line2D([0], [0], marker="s", color="none", markerfacecolor="white", markeredgecolor="black",
                markersize=7, label="Emergency ODA"),
     ]
@@ -150,17 +145,17 @@ def make_plot(fig_df: pd.DataFrame) -> None:
     axB.set_xticklabels(labels)
     axB.set_xlim(-0.55, len(windows) - 0.45)
     axB.set_ylabel("PPML coefficient")
-    axB.set_title("Emergency minus development difference")
+    axB.set_title("Emergency minus non-emergency difference")
     axB.spines[["top", "right"]].set_visible(False)
     axB.grid(axis="y", color="#E5E5E5", linewidth=0.6, zorder=0)
     axB.set_axisbelow(True)
     handles_b = [
         Line2D([0], [0], marker="s", color="none", markerfacecolor="black", markeredgecolor="black",
-               markersize=7, label="Emergency - development (interaction)"),
+               markersize=7, label="Emergency - non-emergency (interaction)"),
     ]
     axB.legend(handles=handles_b, loc="upper center", bbox_to_anchor=(0.5, -0.16), ncol=1, frameon=False)
 
-    fig.suptitle("Fig. 5: Contemporaneous vs. lagged media responsiveness -- development vs. emergency ODA "
+    fig.suptitle("Fig. 5: Common development-relevant media exposure -- non-emergency vs. emergency ODA "
                   "(stacked PPML, country x aid-type + year x aid-type FE, clustered SE)", fontsize=10.5)
     fig.tight_layout()
     fig.savefig(OUT_PNG, dpi=200, bbox_inches="tight")
@@ -169,6 +164,7 @@ def make_plot(fig_df: pd.DataFrame) -> None:
 
 def main() -> None:
     df = pd.read_csv(IN_PATH, encoding="utf-8-sig")
+    df = df[df["specification_id"].str.startswith(MODEL_PREFIX)]
     rows = build_figure_data(df)
     write_rows(OUT_FIGDATA, FIGDATA_FIELDS, rows)
     log.info(f"Wrote {len(rows)} rows -> {OUT_FIGDATA}")

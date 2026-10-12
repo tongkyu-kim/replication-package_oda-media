@@ -42,7 +42,7 @@ def main() -> None:
         "data/analytical/devrel_country_year.csv", "nunique(country_iso3)")
 
     emergency = pd.read_csv(DATA_ANALYTICAL / "emergency_country_year.csv")
-    add("Full emergency-ODA panel N (pre crisis-media merge)", "3.2", len(emergency),
+    add("Full emergency-ODA panel N (country-years; H4 stacks these with non-emergency ODA)", "3.2", len(emergency),
         "data/analytical/emergency_country_year.csv", "row count")
 
     # --- Classifier performance (Section 3.1, Table 1) ---
@@ -92,21 +92,51 @@ def main() -> None:
         add(f"H3 {pred} p-value", "4.4", r["p_value"], "results/models/sustained_coverage_results.csv",
             f"key_predictor=={pred}")
 
-    # --- H4 development vs. emergency (Section 4.5) ---
-    et = pd.read_csv(RESULTS_MODELS / "emergency_temporal_results.csv")
-    pooled = et[et["specification_id"] == "H4_within_emergency_contemporaneous__crisis_media_lag0"].iloc[0]
-    add("H4 within-emergency pooled contemporaneous coefficient", "4.5", pooled["coefficient"],
-        "results/models/emergency_temporal_results.csv",
-        "specification_id==H4_within_emergency_contemporaneous__crisis_media_lag0")
+    # --- H4 emergency vs. non-emergency ODA, common DevRel exposure (Sections 3.2, 3.4, 4.5, 4.7) ---
+    src = "results/models/h4_common_exposure_results.csv"
+    h4 = pd.read_csv(RESULTS_MODELS / "h4_common_exposure_results.csv")
+    h4_items = [
+        ("H4_primary__emergency_contemporaneous", "H4 contemporaneous, emergency ODA", "4.5"),
+        ("H4_primary__nonemergency_contemporaneous", "H4 contemporaneous, non-emergency ODA", "4.5"),
+        ("H4_primary__diff_emergency_minus_nonemergency_contemporaneous",
+         "H4 contemporaneous, emergency-minus-non-emergency difference", "4.5"),
+        ("H4_primary__diff_emergency_minus_nonemergency_m1_13", "H4 2-13 mo difference (primary model)", "4.5"),
+        ("H4_extended__diff_emergency_minus_nonemergency_contemporaneous",
+         "H4 contemporaneous difference (extended model, Figure 5)", "4.5"),
+        ("H4_streak60__diff_emergency_minus_nonemergency_streak_ge60", "H4 streak >= 60 difference", "4.5"),
+        ("H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous",
+         "H4 top-1% emergency trim, contemporaneous difference", "4.7"),
+        ("H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous",
+         "H4 log-linear counterpart, contemporaneous difference", "4.7"),
+    ]
+    for spec, label, section in h4_items:
+        r = h4[h4["specification_id"] == spec].iloc[0]
+        for field in ("coefficient", "se", "p_value", "ci_lower", "ci_upper", "n"):
+            add(f"{label} {field}", section, r[field], src, f"specification_id=={spec}")
+    for window in ("m1_13", "m14_25", "m26_37"):
+        spec = f"H4_extended__diff_emergency_minus_nonemergency_{window}"
+        r = h4[h4["specification_id"] == spec].iloc[0]
+        add(f"H4 {window} difference p-value (extended model)", "4.5", r["p_value"], src, f"specification_id=={spec}")
+    for w in ("roll24", "roll36", "roll60", "streak24", "streak36"):
+        key = w.replace("streak", "streak_ge")
+        spec = f"H4_{w}__diff_emergency_minus_nonemergency_{key}"
+        r = h4[h4["specification_id"] == spec].iloc[0]
+        add(f"H4 {w} difference p-value", "4.5", r["p_value"], src, f"specification_id=={spec}")
+    chk = pd.read_csv(RESULTS_DIAGNOSTICS / "h4_common_exposure_data_checks.csv")
+    for metric in ("stacked_rows", "media_cells_checked", "media_exposure_mismatches",
+                   "max_abs_partition_error_musd", "emergency_zero_share"):
+        add(f"H4 data check: {metric}", "3.2/3.4", float(chk.loc[chk["metric"] == metric, "value"].iloc[0]),
+            "results/diagnostics/h4_common_exposure_data_checks.csv", f"metric=={metric}")
 
-    ppml = pd.read_csv(RESULTS_MODELS / "emergency_ppml_contrast_results.csv")
-    for pred, label in [("development_contemporaneous", "development"), ("emergency_contemporaneous", "emergency"),
-                         ("diff_emergency_minus_development_contemporaneous", "emergency-minus-development difference")]:
-        r = ppml[ppml["key_predictor"] == pred].iloc[0]
-        add(f"H4 stacked PPML, contemporaneous {label} coefficient", "4.5", r["coefficient"],
-            "results/models/emergency_ppml_contrast_results.csv", f"key_predictor=={pred}")
-        add(f"H4 stacked PPML, contemporaneous {label} p-value", "4.5", r["p_value"],
-            "results/models/emergency_ppml_contrast_results.csv", f"key_predictor=={pred}")
+    # --- Exploratory crisis-media -> emergency ODA (former H4 specification; Section 4.7) ---
+    et = pd.read_csv(RESULTS_MODELS / "emergency_temporal_results.csv")
+    for spec, label in [("H4_within_emergency_contemporaneous__crisis_media_lag0", "contemporaneous"),
+                         ("H4_within_emergency_forward__crisis_media_m1_13", "2-13 mo")]:
+        r = et[et["specification_id"] == spec].iloc[0]
+        add(f"Exploratory crisis media -> emergency ODA, {label} coefficient", "4.7", r["coefficient"],
+            "results/models/emergency_temporal_results.csv", f"specification_id=={spec}")
+        add(f"Exploratory crisis media -> emergency ODA, {label} p-value", "4.7", r["p_value"],
+            "results/models/emergency_temporal_results.csv", f"specification_id=={spec}")
 
     # --- Secondary analyses (Section 4.6) ---
     am = pd.read_csv(RESULTS_MODELS / "allocation_margin_results.csv")

@@ -2,6 +2,7 @@
 Future-news placebo,"Future media does not predict current ODA: γ = 0.048, p = 0.144.",Pass
 Generic news placebo,"Generic country coverage does not predict ODA (β = -0.019, p = 0.556); same across all 7 temporal headlines.",Pass
 Alternative timing_baseline,"The association remains positive for roughly three years, peaking contemporaneously before fading in year four.",Mixed
-Alternative timing_crisis,"Emergency ODA is associated with contemporaneous crisis coverage (β = 0.097, p = 0.009), but not previous news (p = 0.145).",Pass
+Alternative timing_H4,"The emergency−non-emergency difference is concentrated in the contemporaneous window (β = 0.674, p < 0.001); lagged-window, rolling-average and streak differences are not consistently significant (streak ≥ 60: β = 0.663, p = 0.058).",Pass
 LOO sensitivity,No sign reversals in any analysis. Only the roll60 estimate shows six significance-status changes (6/140).,Pass
-Crisis-type heterogeneity,"All 6 crisis types are individually positive and significant (p < 0.05); joint test: χ²(6) = 28.057, p < 0.001.",Pass
+Influential observations_H4,"Top-1% trim of emergency commitments: β = 0.523, p = 0.007. A log(x+1) OLS counterpart does not reproduce the difference (β = 0.006, p = 0.864).",Mixed
+Crisis-type heterogeneity (exploratory),"All 6 crisis types are individually positive and significant (p < 0.05); joint test: χ²(6) = 28.057, p < 0.001.",—

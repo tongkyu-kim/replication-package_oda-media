@@ -1,0 +1,9 @@
+metric,value
+country_years,2336
+stacked_rows,4672
+media_cells_checked,23360
+media_exposure_mismatches,0
+max_abs_partition_error_musd,2.842170943040401e-14
+negative_nonemergency_rows_clipped,1
+emergency_zero_share,0.6528253424657534
+nonemergency_zero_share,0.11943493150684932

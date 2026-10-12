@@ -1,0 +1,3 @@
+specification_id,test_name,test_statistic,df,p_value,restriction_tested,n
+H4_primary,Wald: all 2 emergency-minus-non-emergency interactions = 0,23.25456822463596,2,8.919380073108035e-06,devrel_media_contemp:is_emergency = devrel_media_m1_13:is_emergency = 0,4122
+H4_extended,Wald: all 4 emergency-minus-non-emergency interactions = 0,23.161064112015936,4,0.00011758118675979479,devrel_media_contemp:is_emergency = devrel_media_m1_13:is_emergency = devrel_media_m14_25:is_emergency = devrel_media_m26_37:is_emergency = 0,3803

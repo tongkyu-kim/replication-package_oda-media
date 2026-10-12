@@ -2,7 +2,7 @@ item,manuscript_section,value,source_file,source_row_or_field
 "Total ODA projects, 2010-2025",3.1,94412,data/analytical/oda_clean.csv,row count
 Main development-ODA panel N,3.2,2336,data/analytical/devrel_country_year.csv,row count
 Main development-ODA panel countries,3.2,146,data/analytical/devrel_country_year.csv,nunique(country_iso3)
-Full emergency-ODA panel N (pre crisis-media merge),3.2,2336,data/analytical/emergency_country_year.csv,row count
+Full emergency-ODA panel N (country-years; H4 stacks these with non-emergency ODA),3.2,2336,data/analytical/emergency_country_year.csv,row count
 Classifier F1 score,3.1,0.9006993006993007,results/diagnostics/classifier_performance.csv,metric==f1
 Classifier Precision,3.1,0.8655913978494624,results/diagnostics/classifier_performance.csv,metric==precision
 Classifier Recall,3.1,0.9387755102040816,results/diagnostics/classifier_performance.csv,metric==recall
@@ -26,13 +26,71 @@ H3 streak_ge36 coefficient,4.4,0.2285087916131138,results/models/sustained_cover
 H3 streak_ge36 p-value,4.4,0.0079544221301282,results/models/sustained_coverage_results.csv,key_predictor==streak_ge36
 H3 streak_ge60 coefficient,4.4,0.2019054059065828,results/models/sustained_coverage_results.csv,key_predictor==streak_ge60
 H3 streak_ge60 p-value,4.4,0.0441753969838323,results/models/sustained_coverage_results.csv,key_predictor==streak_ge60
-H4 within-emergency pooled contemporaneous coefficient,4.5,0.0966519096493873,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_contemporaneous__crisis_media_lag0
-"H4 stacked PPML, contemporaneous development coefficient",4.5,0.0956538093966458,results/models/emergency_ppml_contrast_results.csv,key_predictor==development_contemporaneous
-"H4 stacked PPML, contemporaneous development p-value",4.5,0.2762570611925321,results/models/emergency_ppml_contrast_results.csv,key_predictor==development_contemporaneous
-"H4 stacked PPML, contemporaneous emergency coefficient",4.5,0.9290504681277088,results/models/emergency_ppml_contrast_results.csv,key_predictor==emergency_contemporaneous
-"H4 stacked PPML, contemporaneous emergency p-value",4.5,1.674216321134736e-13,results/models/emergency_ppml_contrast_results.csv,key_predictor==emergency_contemporaneous
-"H4 stacked PPML, contemporaneous emergency-minus-development difference coefficient",4.5,0.833396658731063,results/models/emergency_ppml_contrast_results.csv,key_predictor==diff_emergency_minus_development_contemporaneous
-"H4 stacked PPML, contemporaneous emergency-minus-development difference p-value",4.5,3.2607887501256982e-09,results/models/emergency_ppml_contrast_results.csv,key_predictor==diff_emergency_minus_development_contemporaneous
+"H4 contemporaneous, emergency ODA coefficient",4.5,0.7122303642066709,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__emergency_contemporaneous
+"H4 contemporaneous, emergency ODA se",4.5,0.1095783057645093,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__emergency_contemporaneous
+"H4 contemporaneous, emergency ODA p_value",4.5,8.045959464351963e-11,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__emergency_contemporaneous
+"H4 contemporaneous, emergency ODA ci_lower",4.5,0.5319900905347201,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__emergency_contemporaneous
+"H4 contemporaneous, emergency ODA ci_upper",4.5,0.8924706378786216,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__emergency_contemporaneous
+"H4 contemporaneous, emergency ODA n",4.5,4122,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__emergency_contemporaneous
+"H4 contemporaneous, non-emergency ODA coefficient",4.5,0.0384045001513007,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__nonemergency_contemporaneous
+"H4 contemporaneous, non-emergency ODA se",4.5,0.0855021921149051,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__nonemergency_contemporaneous
+"H4 contemporaneous, non-emergency ODA p_value",4.5,0.6533134095524482,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__nonemergency_contemporaneous
+"H4 contemporaneous, non-emergency ODA ci_lower",4.5,-0.1022340906612025,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__nonemergency_contemporaneous
+"H4 contemporaneous, non-emergency ODA ci_upper",4.5,0.1790430909638039,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__nonemergency_contemporaneous
+"H4 contemporaneous, non-emergency ODA n",4.5,4122,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__nonemergency_contemporaneous
+"H4 contemporaneous, emergency-minus-non-emergency difference coefficient",4.5,0.6738258640553701,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous, emergency-minus-non-emergency difference se",4.5,0.1406223479559541,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous, emergency-minus-non-emergency difference p_value",4.5,1.6534029287917915e-06,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous, emergency-minus-non-emergency difference ci_lower",4.5,0.4425226849895871,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous, emergency-minus-non-emergency difference ci_upper",4.5,0.9051290431211532,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous, emergency-minus-non-emergency difference n",4.5,4122,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_contemporaneous
+H4 2-13 mo difference (primary model) coefficient,4.5,0.2034666049750011,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_m1_13
+H4 2-13 mo difference (primary model) se,4.5,0.1963056250334354,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_m1_13
+H4 2-13 mo difference (primary model) p_value,4.5,0.2999788573078061,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_m1_13
+H4 2-13 mo difference (primary model) ci_lower,4.5,-0.1194274143522208,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_m1_13
+H4 2-13 mo difference (primary model) ci_upper,4.5,0.5263606243022232,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_m1_13
+H4 2-13 mo difference (primary model) n,4.5,4122,results/models/h4_common_exposure_results.csv,specification_id==H4_primary__diff_emergency_minus_nonemergency_m1_13
+"H4 contemporaneous difference (extended model, Figure 5) coefficient",4.5,0.659666333117827,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous difference (extended model, Figure 5) se",4.5,0.1494705490368564,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous difference (extended model, Figure 5) p_value",4.5,1.017817192749959e-05,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous difference (extended model, Figure 5) ci_lower",4.5,0.4138091584121257,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous difference (extended model, Figure 5) ci_upper",4.5,0.9055235078235282,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_contemporaneous
+"H4 contemporaneous difference (extended model, Figure 5) n",4.5,3803,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_contemporaneous
+H4 streak >= 60 difference coefficient,4.5,0.6628023111981703,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
+H4 streak >= 60 difference se,4.5,0.3500087470018668,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
+H4 streak >= 60 difference p_value,4.5,0.0582683524340725,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
+H4 streak >= 60 difference ci_lower,4.5,0.0870891542274094,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
+H4 streak >= 60 difference ci_upper,4.5,1.2385154681689312,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
+H4 streak >= 60 difference n,4.5,4122,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
+"H4 top-1% emergency trim, contemporaneous difference coefficient",4.7,0.5234017459953458,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
+"H4 top-1% emergency trim, contemporaneous difference se",4.7,0.1933950308186833,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
+"H4 top-1% emergency trim, contemporaneous difference p_value",4.7,0.0068019781349719,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
+"H4 top-1% emergency trim, contemporaneous difference ci_lower",4.7,0.2052952281188428,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
+"H4 top-1% emergency trim, contemporaneous difference ci_upper",4.7,0.8415082638718488,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
+"H4 top-1% emergency trim, contemporaneous difference n",4.7,4099,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
+"H4 log-linear counterpart, contemporaneous difference coefficient",4.7,0.0057109837694964,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
+"H4 log-linear counterpart, contemporaneous difference se",4.7,0.0331994420242138,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
+"H4 log-linear counterpart, contemporaneous difference p_value",4.7,0.863669844185531,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
+"H4 log-linear counterpart, contemporaneous difference ci_lower",4.7,-0.0488972388567968,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
+"H4 log-linear counterpart, contemporaneous difference ci_upper",4.7,0.0603192063957898,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
+"H4 log-linear counterpart, contemporaneous difference n",4.7,4428,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
+H4 m1_13 difference p-value (extended model),4.5,0.2064946000487029,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_m1_13
+H4 m14_25 difference p-value (extended model),4.5,0.2756020173956011,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_m14_25
+H4 m26_37 difference p-value (extended model),4.5,0.3261938398847144,results/models/h4_common_exposure_results.csv,specification_id==H4_extended__diff_emergency_minus_nonemergency_m26_37
+H4 roll24 difference p-value,4.5,0.92149273985668,results/models/h4_common_exposure_results.csv,specification_id==H4_roll24__diff_emergency_minus_nonemergency_roll24
+H4 roll36 difference p-value,4.5,0.6912097347756223,results/models/h4_common_exposure_results.csv,specification_id==H4_roll36__diff_emergency_minus_nonemergency_roll36
+H4 roll60 difference p-value,4.5,0.7097195202714066,results/models/h4_common_exposure_results.csv,specification_id==H4_roll60__diff_emergency_minus_nonemergency_roll60
+H4 streak24 difference p-value,4.5,0.2182139010734394,results/models/h4_common_exposure_results.csv,specification_id==H4_streak24__diff_emergency_minus_nonemergency_streak_ge24
+H4 streak36 difference p-value,4.5,0.2177090923436413,results/models/h4_common_exposure_results.csv,specification_id==H4_streak36__diff_emergency_minus_nonemergency_streak_ge36
+H4 data check: stacked_rows,3.2/3.4,4672.0,results/diagnostics/h4_common_exposure_data_checks.csv,metric==stacked_rows
+H4 data check: media_cells_checked,3.2/3.4,23360.0,results/diagnostics/h4_common_exposure_data_checks.csv,metric==media_cells_checked
+H4 data check: media_exposure_mismatches,3.2/3.4,0.0,results/diagnostics/h4_common_exposure_data_checks.csv,metric==media_exposure_mismatches
+H4 data check: max_abs_partition_error_musd,3.2/3.4,2.8421709430404014e-14,results/diagnostics/h4_common_exposure_data_checks.csv,metric==max_abs_partition_error_musd
+H4 data check: emergency_zero_share,3.2/3.4,0.6528253424657534,results/diagnostics/h4_common_exposure_data_checks.csv,metric==emergency_zero_share
+"Exploratory crisis media -> emergency ODA, contemporaneous coefficient",4.7,0.0966519096493873,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_contemporaneous__crisis_media_lag0
+"Exploratory crisis media -> emergency ODA, contemporaneous p-value",4.7,0.0088559718944802,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_contemporaneous__crisis_media_lag0
+"Exploratory crisis media -> emergency ODA, 2-13 mo coefficient",4.7,0.0405039334663114,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_forward__crisis_media_m1_13
+"Exploratory crisis media -> emergency ODA, 2-13 mo p-value",4.7,0.1445240444231859,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_forward__crisis_media_m1_13
 Allocation-margin extensive margin coefficient,4.6,0.0082017570324921,results/models/allocation_margin_results.csv,specification_id==allocation_margin_extensive__devrel_media_m1_13
 Allocation-margin intensive margin coefficient,4.6,0.1923535792013992,results/models/allocation_margin_results.csv,specification_id==allocation_margin_intensive__devrel_media_m1_13
 Ideological-breadth interaction coefficient,4.6,0.0837090871670516,results/models/ideological_breadth_results.csv,specification_id==ideological_breadth_crosspartisan__media_x_crosspartisan
@@ -47,6 +105,6 @@ LOO persistent_roll60 sig-flip count,4.7,6,results/models/leave_one_out_results.
 LOO sustained_streak24 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak24
 LOO sustained_streak36 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak36
 LOO sustained_streak60 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak60
-LOO crisis_timing_lag0 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==crisis_timing_lag0
+LOO h4_common_exposure_contemp_diff sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==h4_common_exposure_contemp_diff
 Sports-based IV partial first-stage F,4.8,Not reported (manuscript revised 2026-09-20 to a qualitative-only statement; specific F-statistic could not be traced to any script in the source repository),N/A,N/A
 Entertainment-based IV partial first-stage F,4.8,Not reported (manuscript revised 2026-09-20 to a qualitative-only statement; specific F-statistic could not be traced to any script in the source repository),N/A,N/A
