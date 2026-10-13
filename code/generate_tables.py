@@ -273,7 +273,6 @@ def build_table4() -> None:
 
     h4 = pd.read_csv(RESULTS_MODELS / "h4_common_exposure_results.csv")
     h4_main = _row(h4, "H4_primary__diff_emergency_minus_nonemergency_contemporaneous")
-    h4_trim = _row(h4, "H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous")
     h4_ll = _row(h4, "H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous")
     # every non-contemporaneous aid-type difference: extended-model lags, rolling, streak
     other = h4[h4["key_predictor"].str.startswith("diff_")
@@ -300,6 +299,18 @@ def build_table4() -> None:
     n_flips = int(roll60_row["n_sig_flips_at_p10"])
     n_flips_txt = _NUMBER_WORDS.get(n_flips, str(n_flips))
 
+    # H3 coverage-threshold sensitivity (Table A6): highest bar up to which every streak estimate is positive,
+    # and the >=60-month estimate at the most stringent bar
+    hb = pd.read_csv(RESULTS_MODELS / "h3_bar_sensitivity_results.csv")
+    hb["bar"] = hb["specification_id"].str.extract(r"_bar(\d+)_ge")[0].astype(int)
+    all_pos = hb.groupby("bar")["coefficient"].apply(lambda c: bool((c > 0).all())).sort_index()
+    pos_upto = int(all_pos.index[(~all_pos).cumsum() == 0].max())
+    top_bar = int(hb["bar"].max())
+    top60 = hb[(hb["bar"] == top_bar) & hb["specification_id"].str.endswith("__streak_ge60")].iloc[0]
+    bar_txt = (f"Streak estimates remain positive at every streak length for thresholds of "
+               f"{int(all_pos.index.min())}–{pos_upto} articles per month; at {top_bar} articles the ≥ 60-month "
+               f"estimate is β = {top60['coefficient']:.3f}, {_p_fmt(top60['p_value'])}.")
+
     rows = [
         {"diagnostic": "Future-news placebo",
          "key_finding": f"Future media does not predict current ODA: γ = {innov['coefficient']:.3f}, "
@@ -309,23 +320,25 @@ def build_table4() -> None:
          "key_finding": f"Generic country coverage does not predict ODA (β = {gen_m1_13['coefficient']:.3f}, "
                          f"{_p_fmt(gen_m1_13['p_value'])}); {generic_scope}.",
          "verdict": "Pass"},
-        {"diagnostic": "Alternative timing_baseline",
+        {"diagnostic": "Alternative timing (baseline)",
          "key_finding": "The association remains positive for roughly three years, peaking "
                          "contemporaneously before fading in year four.",
          "verdict": "Mixed"},
-        {"diagnostic": "Alternative timing_H4",
+        {"diagnostic": "Alternative timing (H4)",
          "key_finding": timing_txt,
          "verdict": "Pass"},
         {"diagnostic": "LOO sensitivity",
          "key_finding": f"No sign reversals in any analysis. Only the roll60 estimate shows {n_flips_txt} "
                          f"significance-status changes ({n_flips}/{int(roll60_row['n_exclusions'])}).",
          "verdict": "Pass"},
-        {"diagnostic": "Influential observations_H4",
-         "key_finding": f"Top-1% trim of emergency commitments: β = {h4_trim['coefficient']:.3f}, "
-                         f"{_p_fmt(h4_trim['p_value'])}. A log(x+1) OLS counterpart does not reproduce the "
+        {"diagnostic": "Coverage-threshold sensitivity (H3)",
+         "key_finding": bar_txt,
+         "verdict": "Mixed"},
+        {"diagnostic": "Estimator sensitivity (H4)",
+         "key_finding": f"A log(x+1) OLS counterpart of the stacked model does not reproduce the contemporaneous "
                          f"difference (β = {h4_ll['coefficient']:.3f}, {_p_fmt(h4_ll['p_value'])}).",
          "verdict": "Mixed"},
-        {"diagnostic": "Crisis-type heterogeneity (exploratory)",
+        {"diagnostic": "Crisis-type heterogeneity",
          "key_finding": f"{ct_scope}; joint test: χ²({int(joint_ct['df'])}) = "
                          f"{joint_ct['test_statistic']:.3f}, {_p_fmt(joint_ct['p_value'])}.",
          "verdict": "—"},
@@ -347,19 +360,14 @@ def build_appendix_tables() -> None:
     _write_table("tableA3_baseline_alt_timing",
                  pd.read_csv(RESULTS_MODELS / "alt_timing_baseline_results.csv"))
 
-    # A4 Panel A: revised H4 (primary model in full; extended-model, rolling, streak and trimmed
-    # aid-type differences). Panel B: former-specification within-emergency rows (exploratory).
+    # A4: H4 under common development-relevant media exposure (primary model in full;
+    # extended-model, rolling and streak aid-type differences)
     h4 = pd.read_csv(RESULTS_MODELS / "h4_common_exposure_results.csv")
     sid = h4["specification_id"]
-    panel_a = h4[sid.str.startswith("H4_primary__")
-                 | (sid.str.match(r"H4_(extended|roll|streak|trim)") & h4["key_predictor"].str.startswith("diff_"))]
-    et = pd.read_csv(RESULTS_MODELS / "emergency_temporal_results.csv")
-    panel_b = et[et["specification_id"].str.startswith("H4_within_emergency_")]
-    a4 = pd.concat([panel_a.assign(panel="A: H4, common development-relevant media exposure (stacked PPML)"),
-                    panel_b.assign(panel="B: exploratory, crisis-related media -> emergency ODA "
-                                         "(former H4 specification, log OLS)")], ignore_index=True)
-    a4 = a4[["panel"] + [c for c in a4.columns if c != "panel"]]
+    a4 = h4[sid.str.startswith("H4_primary__")
+            | (sid.str.match(r"H4_(extended|roll|streak)") & h4["key_predictor"].str.startswith("diff_"))]
     _write_table("tableA4_emergency_alt_timing", a4)
+    et = pd.read_csv(RESULTS_MODELS / "emergency_temporal_results.csv")
 
     _write_table("tableA5_leave_one_out", pd.read_csv(RESULTS_MODELS / "leave_one_out_results.csv"))
 

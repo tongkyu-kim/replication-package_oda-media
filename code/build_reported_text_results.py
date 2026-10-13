@@ -104,8 +104,6 @@ def main() -> None:
         ("H4_extended__diff_emergency_minus_nonemergency_contemporaneous",
          "H4 contemporaneous difference (extended model, Figure 5)", "4.5"),
         ("H4_streak60__diff_emergency_minus_nonemergency_streak_ge60", "H4 streak >= 60 difference", "4.5"),
-        ("H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous",
-         "H4 top-1% emergency trim, contemporaneous difference", "4.7"),
         ("H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous",
          "H4 log-linear counterpart, contemporaneous difference", "4.7"),
     ]

@@ -62,12 +62,6 @@ H4 streak >= 60 difference p_value,4.5,0.0582683524340725,results/models/h4_comm
 H4 streak >= 60 difference ci_lower,4.5,0.0870891542274094,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
 H4 streak >= 60 difference ci_upper,4.5,1.2385154681689312,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
 H4 streak >= 60 difference n,4.5,4122,results/models/h4_common_exposure_results.csv,specification_id==H4_streak60__diff_emergency_minus_nonemergency_streak_ge60
-"H4 top-1% emergency trim, contemporaneous difference coefficient",4.7,0.5234017459953458,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
-"H4 top-1% emergency trim, contemporaneous difference se",4.7,0.1933950308186833,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
-"H4 top-1% emergency trim, contemporaneous difference p_value",4.7,0.0068019781349719,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
-"H4 top-1% emergency trim, contemporaneous difference ci_lower",4.7,0.2052952281188428,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
-"H4 top-1% emergency trim, contemporaneous difference ci_upper",4.7,0.8415082638718488,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
-"H4 top-1% emergency trim, contemporaneous difference n",4.7,4099,results/models/h4_common_exposure_results.csv,specification_id==H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous
 "H4 log-linear counterpart, contemporaneous difference coefficient",4.7,0.0057109837694964,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
 "H4 log-linear counterpart, contemporaneous difference se",4.7,0.0331994420242138,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
 "H4 log-linear counterpart, contemporaneous difference p_value",4.7,0.863669844185531,results/models/h4_common_exposure_results.csv,specification_id==H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous
