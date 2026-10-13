@@ -318,33 +318,25 @@ def build_table4() -> None:
     rows = [
         {"diagnostic": "Future-news placebo",
          "key_finding": f"Future media does not predict current ODA: γ = {innov['coefficient']:.3f}, "
-                         f"{_p_fmt(innov['p_value'])}.",
-         "verdict": "Pass"},
+                         f"{_p_fmt(innov['p_value'])}."},
         {"diagnostic": "News-substance placebo",
-         "key_finding": substance_txt,
-         "verdict": "Pass"},
+         "key_finding": substance_txt},
         {"diagnostic": "Alternative timing (baseline)",
          "key_finding": "The association remains positive for roughly three years, peaking "
-                         "contemporaneously before fading in year four.",
-         "verdict": "Mixed"},
+                         "contemporaneously before fading in year four."},
         {"diagnostic": "Alternative timing (H4)",
-         "key_finding": timing_txt,
-         "verdict": "Pass"},
+         "key_finding": timing_txt},
         {"diagnostic": "LOO sensitivity",
          "key_finding": f"No sign reversals in any analysis. Only the roll60 estimate shows {n_flips_txt} "
-                         f"significance-status changes ({n_flips}/{int(roll60_row['n_exclusions'])}).",
-         "verdict": "Pass"},
+                         f"significance-status changes ({n_flips}/{int(roll60_row['n_exclusions'])})."},
         {"diagnostic": "Coverage-threshold sensitivity (H3)",
-         "key_finding": bar_txt,
-         "verdict": "Mixed"},
+         "key_finding": bar_txt},
         {"diagnostic": "Estimator sensitivity (H4)",
          "key_finding": f"A log(x+1) OLS counterpart of the stacked model does not reproduce the contemporaneous "
-                         f"difference (β = {h4_ll['coefficient']:.3f}, {_p_fmt(h4_ll['p_value'])}).",
-         "verdict": "Mixed"},
+                         f"difference (β = {h4_ll['coefficient']:.3f}, {_p_fmt(h4_ll['p_value'])})."},
         {"diagnostic": "Crisis-type heterogeneity",
          "key_finding": f"{ct_scope}; joint test: χ²({int(joint_ct['df'])}) = "
-                         f"{joint_ct['test_statistic']:.3f}, {_p_fmt(joint_ct['p_value'])}.",
-         "verdict": "—"},
+                         f"{joint_ct['test_statistic']:.3f}, {_p_fmt(joint_ct['p_value'])}."},
     ]
     _write_table("table4_robustness_summary", pd.DataFrame(rows))
     log.info("Note: Table 4 is a narrative summary of Appendix Tables A1-A7; every number above is "

@@ -1,9 +1,9 @@
-﻿diagnostic,key_finding,verdict
-Future-news placebo,"Future media does not predict current ODA: γ = 0.048, p = 0.144.",Pass
-News-substance placebo,"DevRel coverage is significant (p < 0.10) on 7/7 headline measures, all country news on 4/7, and sports news on 0/7; all news exceeds DevRel only at streak ≥ 60.",Pass
-Alternative timing (baseline),"The association remains positive for roughly three years, peaking contemporaneously before fading in year four.",Mixed
-Alternative timing (H4),"The emergency−non-emergency difference is concentrated in the contemporaneous window (β = 0.674, p < 0.001); lagged-window, rolling-average and streak differences are not consistently significant (streak ≥ 60: β = 0.663, p = 0.058).",Pass
-LOO sensitivity,No sign reversals in any analysis. Only the roll60 estimate shows six significance-status changes (6/140).,Pass
-Coverage-threshold sensitivity (H3),"Streak estimates remain positive at every streak length for thresholds of 1–5 articles per month; at 10 articles the ≥ 60-month estimate is β = -0.032, p = 0.816.",Mixed
-Estimator sensitivity (H4),"A log(x+1) OLS counterpart of the stacked model does not reproduce the contemporaneous difference (β = 0.006, p = 0.864).",Mixed
-Crisis-type heterogeneity,"All 6 crisis types are individually positive and significant (p < 0.05); joint test: χ²(6) = 28.057, p < 0.001.",—
+﻿diagnostic,key_finding
+Future-news placebo,"Future media does not predict current ODA: γ = 0.048, p = 0.144."
+News-substance placebo,"DevRel coverage is significant (p < 0.10) on 7/7 headline measures, all country news on 4/7, and sports news on 0/7; all news exceeds DevRel only at streak ≥ 60."
+Alternative timing (baseline),"The association remains positive for roughly three years, peaking contemporaneously before fading in year four."
+Alternative timing (H4),"The emergency−non-emergency difference is concentrated in the contemporaneous window (β = 0.674, p < 0.001); lagged-window, rolling-average and streak differences are not consistently significant (streak ≥ 60: β = 0.663, p = 0.058)."
+LOO sensitivity,No sign reversals in any analysis. Only the roll60 estimate shows six significance-status changes (6/140).
+Coverage-threshold sensitivity (H3),"Streak estimates remain positive at every streak length for thresholds of 1–5 articles per month; at 10 articles the ≥ 60-month estimate is β = -0.032, p = 0.816."
+Estimator sensitivity (H4),"A log(x+1) OLS counterpart of the stacked model does not reproduce the contemporaneous difference (β = 0.006, p = 0.864)."
+Crisis-type heterogeneity,"All 6 crisis types are individually positive and significant (p < 0.05); joint test: χ²(6) = 28.057, p < 0.001."
