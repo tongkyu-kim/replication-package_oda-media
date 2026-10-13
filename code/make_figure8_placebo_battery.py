@@ -88,8 +88,11 @@ def build_figure_data(df_nondevrel: pd.DataFrame, df_future: pd.DataFrame) -> li
     rows = []
     for i, (measure, label) in enumerate(NONDEVREL_MEASURES):
         real = df_nondevrel[df_nondevrel["specification_id"] == f"placebo_nondevrel_{measure}_devrel"].iloc[0]
+        alln = df_nondevrel[df_nondevrel["specification_id"] == f"placebo_nondevrel_{measure}_allnews"].iloc[0]
         pla = df_nondevrel[df_nondevrel["specification_id"] == f"placebo_nondevrel_{measure}_generic"].iloc[0]
         rows.append(_row_to_dict("nondevrel", measure, i, label, "real", "devrel media (headline measure)", real))
+        rows.append(_row_to_dict("nondevrel", measure, i, label, "allnews",
+                                  "all news mentioning the country (total visibility)", alln))
         rows.append(_row_to_dict("nondevrel", measure, i, label, "placebo",
                                   "sports media (non-development placebo)", pla))
 
@@ -121,6 +124,17 @@ def draw_pair(ax, x: float, real_val, real_lo, real_hi, pla_val, pla_lo, pla_hi,
     ax.scatter(xp, pla_val, facecolors="white", edgecolors="black", marker="s", s=34, linewidths=1.1, zorder=4)
 
 
+def draw_triple(ax, x: float, real, alln, pla, offset=0.22, cap=0.045):
+    """devrel (solid, filled circle) | all news (dash-dot, open triangle) | sports (dotted, open square)."""
+    for xi, r, ls, marker, face in [(x - offset, real, "solid", "o", "black"),
+                                    (x, alln, (0, (4, 1.5, 1, 1.5)), "^", "white"),
+                                    (x + offset, pla, (0, (1.5, 1)), "s", "white")]:
+        ax.vlines(xi, r["ci_lower"], r["ci_upper"], color="black", lw=1.2, linestyles=ls, zorder=3)
+        ax.hlines([r["ci_lower"], r["ci_upper"]], xi - cap, xi + cap, color="black", lw=1.2, zorder=3)
+        ax.scatter(xi, r["coefficient"], facecolors=face, edgecolors="black", marker=marker, s=34,
+                   linewidths=1.1, zorder=4)
+
+
 def style_axes(ax):
     ax.set_axisbelow(True)
     ax.grid(axis="y", color="#E5E5E5", linewidth=0.6, zorder=0)
@@ -134,24 +148,24 @@ def make_plot(fig_df: pd.DataFrame) -> None:
 
     # Panel A -- substantive (devrel vs. nondevrel) placebo
     for i, (measure, label) in enumerate(NONDEVREL_MEASURES):
-        real = fig_df[(fig_df["panel"] == "nondevrel") & (fig_df["measure"] == measure) & (fig_df["series"] == "real")].iloc[0]
-        pla = fig_df[(fig_df["panel"] == "nondevrel") & (fig_df["measure"] == measure) & (fig_df["series"] == "placebo")].iloc[0]
-        draw_pair(axA, i, real["coefficient"], real["ci_lower"], real["ci_upper"],
-                  pla["coefficient"], pla["ci_lower"], pla["ci_upper"])
+        sel = fig_df[(fig_df["panel"] == "nondevrel") & (fig_df["measure"] == measure)].set_index("series")
+        draw_triple(axA, i, sel.loc["real"], sel.loc["allnews"], sel.loc["placebo"])
     axA.axhline(0, color="black", lw=0.7, ls=(0, (1.5, 1)), zorder=2)
     axA.set_xticks(range(len(NONDEVREL_MEASURES)))
     axA.set_xticklabels([lbl for _, lbl in NONDEVREL_MEASURES], fontsize=8.5)
     axA.set_xlim(-0.5, len(NONDEVREL_MEASURES) - 0.5)
     style_axes(axA)
     axA.set_ylabel("Coefficient on media attention")
-    axA.set_title("Substantive placebo: devrel vs. sports\n(non-development) media coverage")
+    axA.set_title("News-substance placebo: development-relevant vs.\nall country news vs. sports news")
     handles_a = [
         Line2D([0], [0], color="none", marker="o", markerfacecolor="black", markeredgecolor="black",
-               markersize=6, label="DevRel media (real)"),
+               markersize=6, label="DevRel media"),
+        Line2D([0], [0], color="none", marker="^", markerfacecolor="white", markeredgecolor="black",
+               markeredgewidth=1.1, markersize=6, label="All country news"),
         Line2D([0], [0], color="none", marker="s", markerfacecolor="white", markeredgecolor="black",
-               markeredgewidth=1.1, markersize=6, label="Sports media (placebo)"),
+               markeredgewidth=1.1, markersize=6, label="Sports news"),
     ]
-    axA.legend(handles=handles_a, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, frameon=False, fontsize=8)
+    axA.legend(handles=handles_a, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=3, frameon=False, fontsize=8)
 
     # Panel B -- temporal (future-news) placebo
     for i, (measure, label) in enumerate(FUTURE_NEWS_MEASURES):

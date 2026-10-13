@@ -262,14 +262,18 @@ def build_table4() -> None:
     et_wald = pd.read_csv(RESULTS_MODELS / "emergency_temporal_wald_results.csv")
 
     innov = fn[fn["specification_id"] == "placebo_future_news_ar2_innovation__innovation_ar2"].iloc[0]
-    gen_m1_13 = nd[nd["specification_id"] == "placebo_nondevrel_m1_13_generic"].iloc[0]
-    generic = nd[nd["specification_id"].str.endswith("_generic")]
-    n_null_generic = int((generic["p_value"] >= 0.10).sum())
-    n_generic_total = int(len(generic))
-    if n_null_generic == n_generic_total:
-        generic_scope = f"same across all {n_generic_total} temporal headlines"
-    else:
-        generic_scope = f"null in {n_null_generic} of {n_generic_total} temporal headlines"
+    # news-substance placebo: devrel vs. all country news vs. sports news, same 7 measures
+    sub = nd.assign(measure=nd["specification_id"].str.extract(r"placebo_nondevrel_(.+)_(?:devrel|allnews|generic)$")[0],
+                    series=nd["specification_id"].str.extract(r"_(devrel|allnews|generic)$")[0])
+    wide = sub.pivot(index="measure", columns="series", values=["coefficient", "p_value"])
+    n_meas = len(wide)
+    sig = {s: int((wide[("p_value", s)] < 0.10).sum()) for s in ["devrel", "allnews", "generic"]}
+    larger = wide[wide[("coefficient", "allnews")] > wide[("coefficient", "devrel")]].index.tolist()
+    larger_txt = ("" if not larger else
+                  f"; all news exceeds DevRel only at {', '.join(_H4_LABEL.get(m.replace('streak', 'streak_ge'), m) for m in larger)}")
+    substance_txt = (f"DevRel coverage is significant (p < 0.10) on {sig['devrel']}/{n_meas} headline measures, "
+                     f"all country news on {sig['allnews']}/{n_meas}, and sports news on {sig['generic']}/{n_meas}"
+                     f"{larger_txt}.")
 
     h4 = pd.read_csv(RESULTS_MODELS / "h4_common_exposure_results.csv")
     h4_main = _row(h4, "H4_primary__diff_emergency_minus_nonemergency_contemporaneous")
@@ -316,9 +320,8 @@ def build_table4() -> None:
          "key_finding": f"Future media does not predict current ODA: γ = {innov['coefficient']:.3f}, "
                          f"{_p_fmt(innov['p_value'])}.",
          "verdict": "Pass"},
-        {"diagnostic": "Sports news placebo",
-         "key_finding": f"Sports coverage of the same countries does not predict ODA (β = {gen_m1_13['coefficient']:.3f}, "
-                         f"{_p_fmt(gen_m1_13['p_value'])}); {generic_scope}.",
+        {"diagnostic": "News-substance placebo",
+         "key_finding": substance_txt,
          "verdict": "Pass"},
         {"diagnostic": "Alternative timing (baseline)",
          "key_finding": "The association remains positive for roughly three years, peaking "

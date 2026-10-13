@@ -19,19 +19,20 @@ year's devrel ODA the same way past coverage does? Two variants:
   + FE), each on its own maximal complete-case sample -- never estimated
   jointly with the pre-allocation regressor.
 
-(B) Non-development (sports) news placebo (negative control) -- does Korean
-sports coverage of a country (BigKinds categories 스포츠*), excluding
-devrel-relevant articles, "predict" devrel ODA the same way devrel-specific
-coverage does? Sports coverage carries no plausible information about
-development needs, so an association would point to generic visibility or
-a shared confounder rather than development-relevant information.
+(B) News-substance placebo -- is the association specific to the SUBSTANCE
+of coverage? For each of the 7 headline attention measures (the 2-13mo
+window (H1), the three persistent-attention rolling averages (H2:
+roll24/36/60) and the three sustained-coverage streak thresholds (H3:
+>=24/36/60 consecutive covered months)), the same model is estimated with
+three media series on the IDENTICAL (matched) sample:
+  devrel   development-relevant coverage (the headline measure)
+  allnews  ALL news mentioning the country (includes devrel), i.e. total
+           country visibility
+  generic  non-devrel SPORTS coverage of the country (BigKinds categories
+           스포츠*), a topically unrelated negative control
 Entertainment/celebrity coverage, also counted in the source file, is not
 used: a plausible affinity channel (favorable celebrity exposure ->
-goodwill toward the country -> aid) makes it an invalid negative control. Compared against DEVREL on the IDENTICAL (matched) sample for
-each of the 7 headline attention measures: the 2-13mo window (H1), the
-three persistent-attention rolling averages (H2: roll24/36/60), and the
-three sustained-coverage streak thresholds (H3: >=24/36/60 consecutive
-covered months).
+goodwill toward the country -> aid) makes it an invalid negative control.
 
 Ported unchanged (statistical logic identical) from the original research
 repository's pipeline/devrel_baseline/estimate_future_news_innovation.py,
@@ -62,6 +63,7 @@ OUT_FUTURE_NEWS = RESULTS_MODELS / "placebo_future_news_results.csv"
 OUT_NONDEVREL = RESULTS_MODELS / "placebo_nondevrel_results.csv"
 
 TOPIC_PLACEBO_PATH = DATA_ANALYTICAL / "topic_placebo_country_month.csv"
+ALLNEWS_PATH = DATA_ANALYTICAL / "allnews_country_month.csv"
 
 
 # ---------------------------------------------------------------------------
@@ -129,7 +131,7 @@ def run_future_news_placebo(annual_log: pd.DataFrame, country_month_long: pd.Dat
 
 
 # ---------------------------------------------------------------------------
-# (B) NonDevRel (generic-coverage) placebo
+# (B) News-substance placebo (devrel vs. all country news vs. sports news)
 # ---------------------------------------------------------------------------
 
 COVERED_ARTICLE_BAR = 3  # same "covered month" bar as the devrel-side streak (lib/devrel_panel.py)
@@ -175,6 +177,23 @@ def build_nondevrel_month_long(country_month_long: pd.DataFrame) -> pd.DataFrame
     return d[["entity", "year", "month", "sports"]].rename(columns={"sports": "freq_articles"})
 
 
+def build_allnews_month_long(country_month_long: pd.DataFrame) -> pd.DataFrame:
+    """All news mentioning the country (any topic, devrel included), monthly
+    counts from the raw corpus (research pipeline
+    stage0_general_media/build_stage0_panel.py; identical to the devrel
+    detector's counts for every recipient country-month). Rows exist only
+    for country-months with at least one article."""
+    require_file(ALLNEWS_PATH, "Country x year x month counts of all news mentioning the country "
+                               "(column all_news) -- see docs/DATA_CONSTRUCTION.md.")
+    d = pd.read_csv(ALLNEWS_PATH, encoding="utf-8-sig").rename(columns={"country_iso3": "entity"})
+    chk = d.merge(country_month_long, on=["entity", "year", "month"], how="inner")
+    n_bad = int((chk["freq_articles"] > chk["all_news"]).sum())
+    if n_bad:
+        raise ValueError(f"{n_bad} country-months where devrel coverage exceeds all news")
+    log.info(f"All-news series: {len(d):,} country-months, {int(d['all_news'].sum()):,} article-country mentions")
+    return d[["entity", "year", "month", "all_news"]].rename(columns={"all_news": "freq_articles"})
+
+
 def attach_window_safe(annual: pd.DataFrame, month_long: pd.DataFrame, valid_ym: set, use_log: bool,
                         start_k: int, end_k: int, colname: str, agg: str = "sum") -> pd.DataFrame:
     """Same construction as lib/panel_windows.attach_window, but "in range"
@@ -216,7 +235,7 @@ def _running_streak_nan_aware(s: pd.Series) -> pd.Series:
 
 
 def attach_nondevrel_streak(base: pd.DataFrame, nondevrel_m: pd.DataFrame, valid_ym: set,
-                             min_ym: int, max_ym: int) -> pd.DataFrame:
+                             min_ym: int, max_ym: int, colname: str = "nondevrel_streak") -> pd.DataFrame:
     """Consecutive-coverage streak on the generic (non-devrel) side, at the
     SAME true monthly granularity and >=3-articles/month bar as the
     devrel-side streak (lib/devrel_panel.attach_streak) -- an
@@ -244,45 +263,51 @@ def attach_nondevrel_streak(base: pd.DataFrame, nondevrel_m: pd.DataFrame, valid
     out = out.drop(columns=["_target_ym"])
     # A target month before the corpus began is true zero streak, not
     # missing -- matches the devrel side's own fillna(0) treatment.
-    out["nondevrel_streak"] = out["_streak_months"].fillna(0.0)
+    out[colname] = out["_streak_months"].fillna(0.0)
     return out.drop(columns=["_streak_months"])
 
 
-def build_nondevrel_panel(annual_log: pd.DataFrame, country_month_long: pd.DataFrame) -> pd.DataFrame:
-    nondevrel_m = build_nondevrel_month_long(country_month_long)
-    valid_ym = set(zip(nondevrel_m["year"], nondevrel_m["month"]))
-    min_ym, max_ym = pw.corpus_month_bounds(country_month_long)
+COMPARISON_SERIES = [("allnews", build_allnews_month_long), ("generic", build_nondevrel_month_long)]
 
+
+def build_nondevrel_panel(annual_log: pd.DataFrame, country_month_long: pd.DataFrame) -> pd.DataFrame:
+    min_ym, max_ym = pw.corpus_month_bounds(country_month_long)
     base = annual_log[["entity", "year", "devrel_commitment_musd", "devrel_media_m1_13", "devrel_media_roll24",
                         "devrel_media_roll36", "devrel_media_roll60", "consecutive_periods_covered"]
                        + dp.CONTROL_COLS].copy()
-    base = attach_window_safe(base, nondevrel_m, valid_ym, True, 2, 13, "nondevrel_m1_13", agg="sum")
-    base = attach_window_safe(base, nondevrel_m, valid_ym, True, 2, 25, "nondevrel_roll24", agg="mean")
-    base = attach_window_safe(base, nondevrel_m, valid_ym, True, 2, 37, "nondevrel_roll36", agg="mean")
-    base = attach_window_safe(base, nondevrel_m, valid_ym, True, 2, 61, "nondevrel_roll60", agg="mean")
-    base = attach_nondevrel_streak(base, nondevrel_m, valid_ym, min_ym, max_ym)
+    for name, builder in COMPARISON_SERIES:
+        month_long = builder(country_month_long)
+        valid_ym = set(zip(month_long["year"], month_long["month"]))
+        base = attach_window_safe(base, month_long, valid_ym, True, 2, 13, f"{name}_m1_13", agg="sum")
+        base = attach_window_safe(base, month_long, valid_ym, True, 2, 25, f"{name}_roll24", agg="mean")
+        base = attach_window_safe(base, month_long, valid_ym, True, 2, 37, f"{name}_roll36", agg="mean")
+        base = attach_window_safe(base, month_long, valid_ym, True, 2, 61, f"{name}_roll60", agg="mean")
+        base = attach_nondevrel_streak(base, month_long, valid_ym, min_ym, max_ym, colname=f"{name}_streak")
     return base
 
 
 def run_nondevrel_placebo(annual_log: pd.DataFrame, country_month_long: pd.DataFrame) -> list[ModelResultRow]:
     base = build_nondevrel_panel(annual_log, country_month_long)
+    names = [n for n, _ in COMPARISON_SERIES]
 
-    pairs = list(MEASURES)
+    specs = [(label, dcol, {n: f"{n}_{label}" for n in names}) for label, dcol, _ in MEASURES]
     for thresh in STREAK_THRESHOLDS:
         label = f"streak{thresh}"
-        dcol, ncol = f"_devrel_{label}", f"_nondevrel_{label}"
-        base[dcol] = (base["consecutive_periods_covered"] >= thresh).astype(float)
-        base[ncol] = (base["nondevrel_streak"] >= thresh).astype(float)
-        pairs.append((label, dcol, ncol))
+        base[f"_devrel_{label}"] = (base["consecutive_periods_covered"] >= thresh).astype(float)
+        cols = {}
+        for n in names:
+            base[f"_{n}_{label}"] = (base[f"{n}_streak"] >= thresh).astype(float)
+            cols[n] = f"_{n}_{label}"
+        specs.append((label, f"_devrel_{label}", cols))
 
     rows: list[ModelResultRow] = []
-    for label, dcol, ncol in pairs:
-        # Matched sample: dropna on BOTH regressors (+ controls), so DEVREL
-        # and NonDevRel/generic are each fit on the identical set of rows.
-        sample = base.dropna(subset=["devrel_commitment_musd", dcol, ncol] + dp.CONTROL_COLS).copy()
-        for kind, col in [("devrel", dcol), ("generic", ncol)]:
+    for label, dcol, cols in specs:
+        # Matched sample: dropna on ALL three media regressors (+ controls),
+        # so devrel, all-news and sports are fit on the identical set of rows.
+        sample = base.dropna(subset=["devrel_commitment_musd", dcol] + list(cols.values()) + dp.CONTROL_COLS).copy()
+        for kind, col in [("devrel", dcol)] + [(n, cols[n]) for n in names]:
             res = fit_fe_ols(sample, "devrel_commitment_musd", [col] + dp.CONTROL_COLS,
-                              verbose_label=f"nondevrel placebo {label} ({kind})")
+                              verbose_label=f"news-substance placebo {label} ({kind})")
             if res is None:
                 continue
             rows.append(ModelResultRow(
@@ -295,7 +320,7 @@ def run_nondevrel_placebo(annual_log: pd.DataFrame, country_month_long: pd.DataF
                 n=int(res.nobs),
                 n_entities=int(sample["entity"].nunique()),
                 controls=";".join(dp.CONTROL_COLS),
-                sample_definition=f"Devrel-ODA panel, matched sample (dropna on both devrel and generic "
+                sample_definition=f"Devrel-ODA panel, matched sample (dropna on the devrel, all-news and sports "
                                    f"{label} regressors + controls)",
                 timing_window=TIMING_WINDOWS[label],
                 transformation=TRANSFORMATIONS[label],
