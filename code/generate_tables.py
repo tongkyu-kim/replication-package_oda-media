@@ -264,7 +264,7 @@ def build_table4() -> None:
     innov = fn[fn["specification_id"] == "placebo_future_news_ar2_innovation__innovation_ar2"].iloc[0]
     gen_m1_13 = nd[nd["specification_id"] == "placebo_nondevrel_m1_13_generic"].iloc[0]
     generic = nd[nd["specification_id"].str.endswith("_generic")]
-    n_null_generic = int((generic["p_value"] > 0.05).sum())
+    n_null_generic = int((generic["p_value"] >= 0.10).sum())
     n_generic_total = int(len(generic))
     if n_null_generic == n_generic_total:
         generic_scope = f"same across all {n_generic_total} temporal headlines"
@@ -316,8 +316,8 @@ def build_table4() -> None:
          "key_finding": f"Future media does not predict current ODA: γ = {innov['coefficient']:.3f}, "
                          f"{_p_fmt(innov['p_value'])}.",
          "verdict": "Pass"},
-        {"diagnostic": "Generic news placebo",
-         "key_finding": f"Generic country coverage does not predict ODA (β = {gen_m1_13['coefficient']:.3f}, "
+        {"diagnostic": "Sports news placebo",
+         "key_finding": f"Sports coverage of the same countries does not predict ODA (β = {gen_m1_13['coefficient']:.3f}, "
                          f"{_p_fmt(gen_m1_13['p_value'])}); {generic_scope}.",
          "verdict": "Pass"},
         {"diagnostic": "Alternative timing (baseline)",

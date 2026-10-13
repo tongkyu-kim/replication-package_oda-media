@@ -57,7 +57,7 @@ def check(label: str, condition: bool, detail: str = "") -> None:
 def check_required_inputs() -> None:
     for f in ["oda_clean.csv", "panel_country_sdg_month.csv", "country_year_controls.csv",
               "crisis_news_country_month.csv", "devrel_country_year.csv", "emergency_country_year.csv",
-              "outlet_article_counts_long.csv", "stage0_noncrisis_country_month.csv"]:
+              "outlet_article_counts_long.csv", "topic_placebo_country_month.csv"]:
         check(f"data/analytical/{f} exists", (DATA_ANALYTICAL / f).exists())
     check("classifier checkpoint present", (DATA_VALIDATION / "classifier_checkpoint" / "model.safetensors").exists())
     check("classifier gold set present", (DATA_VALIDATION / "precision_gold_devrel.csv").exists())

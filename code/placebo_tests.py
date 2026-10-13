@@ -19,13 +19,15 @@ year's devrel ODA the same way past coverage does? Two variants:
   + FE), each on its own maximal complete-case sample -- never estimated
   jointly with the pre-allocation regressor.
 
-(B) NonDevRel (generic-coverage) placebo -- does GENERIC (non-devrel,
-non-crisis) Korean media coverage of a country "predict" devrel ODA the
-same way devrel-specific coverage does? NonDevRel_it = general
-noncrisis-media count - devrel count, at the monthly level (crisis
-coverage is excluded at the article-classification stage upstream, not
-subtracted post hoc, so no double-subtraction / no clip-at-zero
-artifact). Compared against DEVREL on the IDENTICAL (matched) sample for
+(B) Non-development (sports) news placebo (negative control) -- does Korean
+sports coverage of a country (BigKinds categories 스포츠*), excluding
+devrel-relevant articles, "predict" devrel ODA the same way devrel-specific
+coverage does? Sports coverage carries no plausible information about
+development needs, so an association would point to generic visibility or
+a shared confounder rather than development-relevant information.
+Entertainment/celebrity coverage, also counted in the source file, is not
+used: a plausible affinity channel (favorable celebrity exposure ->
+goodwill toward the country -> aid) makes it an invalid negative control. Compared against DEVREL on the IDENTICAL (matched) sample for
 each of the 7 headline attention measures: the 2-13mo window (H1), the
 three persistent-attention rolling averages (H2: roll24/36/60), and the
 three sustained-coverage streak thresholds (H3: >=24/36/60 consecutive
@@ -59,7 +61,7 @@ log = get_logger("placebo_tests")
 OUT_FUTURE_NEWS = RESULTS_MODELS / "placebo_future_news_results.csv"
 OUT_NONDEVREL = RESULTS_MODELS / "placebo_nondevrel_results.csv"
 
-STAGE0_NONCRISIS_PATH = DATA_ANALYTICAL / "stage0_noncrisis_country_month.csv"
+TOPIC_PLACEBO_PATH = DATA_ANALYTICAL / "topic_placebo_country_month.csv"
 
 
 # ---------------------------------------------------------------------------
@@ -156,41 +158,28 @@ TRANSFORMATIONS = {
 }
 
 
-def build_stage0_noncrisis_month_long() -> pd.DataFrame:
-    require_file(STAGE0_NONCRISIS_PATH,
-                 "Generic (non-devrel, non-crisis) Korean media monthly counts, country x year x month, "
-                 "with column freq_articles_general_noncrisis -- see DATA_AVAILABILITY.md.")
-    d = pd.read_csv(STAGE0_NONCRISIS_PATH, encoding="utf-8-sig")
-    d = d.rename(columns={"country_iso3": "entity", "freq_articles_general_noncrisis": "freq_articles"})
-    return d[["entity", "year", "month", "freq_articles"]]
-
-
 def build_nondevrel_month_long(country_month_long: pd.DataFrame) -> pd.DataFrame:
-    """NonDevRel_it = GeneralNoncrisisNews_it - DevRelNews_it, at the
-    monthly-count level, restricted to months the noncrisis source panel
-    actually covers (a devrel-only row with no matching general-media row
-    is genuinely unmeasured, not zero)."""
-    devrel_m = country_month_long.rename(columns={"freq_articles": "devrel_count"})
-    stage0_m = build_stage0_noncrisis_month_long().rename(columns={"freq_articles": "stage0_count"})
-    merged = devrel_m.merge(stage0_m, on=["entity", "year", "month"], how="outer")
-    merged["devrel_count"] = merged["devrel_count"].fillna(0.0)
-    both_present = merged["stage0_count"].notna()
-    merged["nondevrel_count"] = np.where(both_present, merged["stage0_count"] - merged["devrel_count"], np.nan)
-    n_negative = int((merged.loc[both_present, "nondevrel_count"] < 0).sum())
-    if n_negative:
-        log.info(f"{n_negative:,} rows where devrel count exceeds the crisis-excluded general count "
-                  f"(devrel/crisis overlap articles double-counted across classifications) -- clipping at 0.")
-    merged["nondevrel_count"] = merged["nondevrel_count"].clip(lower=0.0)
-    nondevrel_m = merged.loc[both_present, ["entity", "year", "month", "nondevrel_count"]].rename(
-        columns={"nondevrel_count": "freq_articles"})
-    return nondevrel_m
+    """Generic placebo series: monthly count of non-devrel sports articles
+    mentioning the country (built from the
+    raw corpus by the research pipeline's
+    stage0_general_media/build_topic_placebo_panel.py, with the devrel
+    pipeline's own country detector). Rows exist only for country-months
+    with at least one such article; within the months the file covers, a
+    missing row is a true zero."""
+    require_file(TOPIC_PLACEBO_PATH,
+                 "Country x year x month counts of non-devrel sports / entertainment articles "
+                 "(columns sports, entertainment, topic) -- see docs/DATA_CONSTRUCTION.md.")
+    d = pd.read_csv(TOPIC_PLACEBO_PATH, encoding="utf-8-sig").rename(columns={"country_iso3": "entity"})
+    d = d[d["sports"] > 0]  # row convention: a missing country-month is a true zero
+    log.info(f"Sports placebo: {len(d):,} country-months, {int(d['sports'].sum()):,} article-country mentions")
+    return d[["entity", "year", "month", "sports"]].rename(columns={"sports": "freq_articles"})
 
 
 def attach_window_safe(annual: pd.DataFrame, month_long: pd.DataFrame, valid_ym: set, use_log: bool,
                         start_k: int, end_k: int, colname: str, agg: str = "sum") -> pd.DataFrame:
     """Same construction as lib/panel_windows.attach_window, but "in range"
     is decided per-(year,month) against valid_ym (the set of (year,month)
-    the generic-noncrisis source panel actually has rows for) rather than
+    the generic placebo source panel actually has rows for) rather than
     a single contiguous [min_ym,max_ym] bound -- gap-aware, kept for
     correctness even though the current corpus has no whole-year gaps."""
     out = annual.copy()

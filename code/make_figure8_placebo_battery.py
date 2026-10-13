@@ -3,7 +3,7 @@ Figure 8 -- Temporal and substantive placebo tests of the media-ODA
 association.
 
 Data: results/models/placebo_nondevrel_results.csv (14 rows: 7 devrel/
-generic pairs -- the SUBSTANTIVE placebo, does generic non-devrel Korean
+sports pairs -- the SUBSTANTIVE placebo, does non-devrel sports Korean
 media coverage "predict" devrel ODA the same way devrel-specific coverage
 does, on the identical matched sample for each of the 7 headline attention
 measures) and results/models/placebo_future_news_results.csv (2 rows --
@@ -60,7 +60,7 @@ OUT_PNG = RESULTS_FIGURES / "figure8_placebo_battery.png"
 FIGDATA_FIELDS = ["panel", "measure", "measure_order", "measure_label", "series", "placebo_type",
                    "coefficient", "se", "ci_lower", "ci_upper", "ci_level", "p_value", "n"]
 
-# ---- Panel A: substantive (devrel vs. generic non-devrel media) placebo ----
+# ---- Panel A: substantive (devrel vs. non-devrel sports media) placebo ----
 NONDEVREL_MEASURES = [
     ("m1_13", "2-13 mo\nattention"), ("roll24", "Rolling\n24-mo"), ("roll36", "Rolling\n36-mo"),
     ("roll60", "Rolling\n60-mo"), ("streak24", "Streak\n>=24mo"), ("streak36", "Streak\n>=36mo"),
@@ -91,7 +91,7 @@ def build_figure_data(df_nondevrel: pd.DataFrame, df_future: pd.DataFrame) -> li
         pla = df_nondevrel[df_nondevrel["specification_id"] == f"placebo_nondevrel_{measure}_generic"].iloc[0]
         rows.append(_row_to_dict("nondevrel", measure, i, label, "real", "devrel media (headline measure)", real))
         rows.append(_row_to_dict("nondevrel", measure, i, label, "placebo",
-                                  "nondevrel media (generic-visibility placebo)", pla))
+                                  "sports media (non-development placebo)", pla))
 
     real_m1_13 = df_nondevrel[df_nondevrel["specification_id"] == "placebo_nondevrel_m1_13_devrel"].iloc[0]
     future_specs = {
@@ -144,12 +144,12 @@ def make_plot(fig_df: pd.DataFrame) -> None:
     axA.set_xlim(-0.5, len(NONDEVREL_MEASURES) - 0.5)
     style_axes(axA)
     axA.set_ylabel("Coefficient on media attention")
-    axA.set_title("Substantive placebo: devrel vs. generic\n(non-development) media coverage")
+    axA.set_title("Substantive placebo: devrel vs. sports\n(non-development) media coverage")
     handles_a = [
         Line2D([0], [0], color="none", marker="o", markerfacecolor="black", markeredgecolor="black",
                markersize=6, label="DevRel media (real)"),
         Line2D([0], [0], color="none", marker="s", markerfacecolor="white", markeredgecolor="black",
-               markeredgewidth=1.1, markersize=6, label="NonDevRel media (placebo)"),
+               markeredgewidth=1.1, markersize=6, label="Sports media (placebo)"),
     ]
     axA.legend(handles=handles_a, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, frameon=False, fontsize=8)
 

@@ -16,7 +16,7 @@ allocation_margin_results.csv,allocation_margin_intensive__devrel_media_m1_13,co
 ideological_breadth_results.csv,ideological_breadth_crosspartisan__media_x_crosspartisan,coefficient,0.0837,0.001,Table 3 col[7] -- corrected 2026-09-20 to k=2-13 window (was 0.0786 under the uncorrected k=1-13 window)
 evaluative_tone_results.csv,evaluative_tone_additive__devrel_media_m1_13,coefficient,0.1089,0.001,Table 3 col[8]
 placebo_future_news_results.csv,placebo_future_news_ar2_innovation__innovation_ar2,p_value,0.1445,0.002,Table 4 / Appendix A1 -- must remain non-significant
-placebo_nondevrel_results.csv,placebo_nondevrel_m1_13_generic,p_value,0.556,0.01,Appendix A2 -- must remain non-significant
+placebo_nondevrel_results.csv,placebo_nondevrel_m1_13_generic,p_value,0.183,0.01,Appendix A2 -- sports placebo; must remain non-significant
 alt_timing_baseline_results.csv,alt_timing_lag0__devrel_media_lag0,coefficient,0.1369,0.001,Appendix A3
 classifier_performance.csv,f1,value,0.9007,0.001,Table 1
 classifier_performance.csv,test_n,value,1954.0,0.0,Table 1

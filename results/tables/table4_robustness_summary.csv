@@ -1,6 +1,6 @@
 ﻿diagnostic,key_finding,verdict
 Future-news placebo,"Future media does not predict current ODA: γ = 0.048, p = 0.144.",Pass
-Generic news placebo,"Generic country coverage does not predict ODA (β = -0.019, p = 0.556); same across all 7 temporal headlines.",Pass
+Sports news placebo,"Sports coverage of the same countries does not predict ODA (β = 0.032, p = 0.183); same across all 7 temporal headlines.",Pass
 Alternative timing (baseline),"The association remains positive for roughly three years, peaking contemporaneously before fading in year four.",Mixed
 Alternative timing (H4),"The emergency−non-emergency difference is concentrated in the contemporaneous window (β = 0.674, p < 0.001); lagged-window, rolling-average and streak differences are not consistently significant (streak ≥ 60: β = 0.663, p = 0.058).",Pass
 LOO sensitivity,No sign reversals in any analysis. Only the roll60 estimate shows six significance-status changes (6/140).,Pass

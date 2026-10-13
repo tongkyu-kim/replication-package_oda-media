@@ -52,7 +52,7 @@ data/analytical/emergency_country_year.csv,data,"Analysis-ready panel or aggrega
 data/analytical/oda_clean.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/analytical/outlet_article_counts_long.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/analytical/panel_country_sdg_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
-data/analytical/stage0_noncrisis_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/topic_placebo_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/validation/classifier_checkpoint/config.json,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/validation/classifier_checkpoint/model.safetensors,model_weights,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/validation/classifier_checkpoint/tokenizer.json,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
