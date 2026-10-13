@@ -1,3 +1,8 @@
-﻿specification_id,outcome,key_predictor,coefficient,se,p_value,sig,ci_lower,ci_upper,ci_level,n,n_entities,year_range,fe_structure,cluster_level,controls,sample_definition,timing_window,transformation
-placebo_future_news_raw__future_news_t1,ln_devrel_commitment_musd,future_news_t1,0.0480744591291271,0.0328988971704961,0.1441026766242277,,-0.0060394112044669,0.1021883294627213,0.9,2080,141,,country + year,country,ln_gdppc;ln_population;log_bilateral_trade;ln_conflict_deaths;ln_disaster_affected,"Devrel-ODA panel, complete cases (raw future-news placebo, its own maximal sample)","future news, Jan-Dec of calendar year t+1 (raw, unresidualized)",ln(x+1)
-placebo_future_news_ar2_innovation__innovation_ar2,ln_devrel_commitment_musd,innovation_ar2,0.0476889951911409,0.0326653359814922,0.1444865908404664,,-0.0060407011736049,0.1014186915558868,0.9,1941,141,,country + year,country,ln_gdppc;ln_population;log_bilateral_trade;ln_conflict_deaths;ln_disaster_affected,"Devrel-ODA panel, complete cases (AR(2)-innovation placebo, restricted to the AR(2) first-stage sample)","AR(2) innovation (residual) of Jan-Dec year t+1 future news, net of news_t and news_t-1",AR(2) residual (unitless)
+﻿specification,specification_id,coefficient,se,p_value,n,n_entities
+2-13 mo pre-allocation (reference),H1_preferred__devrel_media_m1_13,0.0842931125485394,0.0399627426453581,0.0350401845896148,2214,141.0
+Future-news raw placebo (t+1),placebo_future_news_raw__future_news_t1,0.0480744591291271,0.0328988971704961,0.1441026766242277,2080,141.0
+Future-news innovation placebo (AR(2) residual of t+1),placebo_future_news_ar2_innovation__innovation_ar2,0.0476889951911409,0.0326653359814922,0.1444865908404664,1941,141.0
+14-25 mo pre-allocation window,placebo_future_news_m14_25_pre__devrel_media_m14_25,0.0630506819103047,0.0341364075200196,0.0648878900749831,2214,141.0
+14-25 mo future-media placebo (t+13..t+24),placebo_future_news_m14_25_future__future_m14_25,0.0258002425161464,0.0297498920040281,0.3859282107086426,1943,141.0
+26-37 mo pre-allocation window,placebo_future_news_m26_37_pre__devrel_media_m26_37,0.0442077948114511,0.0293328515590822,0.1319478291150173,2075,141.0
+26-37 mo future-media placebo (t+25..t+36),placebo_future_news_m26_37_future__future_m26_37,0.0463944535755606,0.0316957545994971,0.1434548772958428,1806,141.0

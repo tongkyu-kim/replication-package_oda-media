@@ -1,88 +1,23 @@
 """
-Held-out performance of the development-relevance ("devrel") classifier on
-the gold-labeled validation file (N=1,954) -- Manuscript Table 1 and Figure
-A2 (confusion matrix / ROC / PR curve).
+Held-out performance of the fine-tuned KLUE-RoBERTa development-relevance
+classifier on the gold-labeled test set (N = 1,954): Table 1 and Figure A2.
 
-Ported from the original repository's pipeline/evaluate_devrel_classifier_gold.py,
-which fine-tunes and evaluates a KLUE-RoBERTa-base binary classifier
-(1 = article discusses a development-related situation in a developing
-country; 0 = otherwise). This script only re-runs INFERENCE with the
-already-fine-tuned checkpoint; no training happens here.
+Inference only: the fine-tuned checkpoint is applied to the gold set on CPU
+(fixed batch order). The classifier input is the first two non-empty fields
+among title, keywords and top keywords, truncated to 512 characters.
 
-Text construction (build_text) and the inference Dataset class are ported
-verbatim from the original pipeline/train_devrel_classifier.py: for each
-row, the first two non-empty fields among
-["title", "keywords", "top_keywords", "제목", "키워드"] are concatenated
-with a space and truncated to 512 characters. This must match exactly what
-the checkpoint was fine-tuned on.
+Modes: "infer" runs the checkpoint and writes the predictions; "recompute"
+recomputes the metrics from saved predictions; "auto" (default) recomputes
+when predictions exist and otherwise infers.
 
-Two known bugs in the original script were fixed during porting (confirmed
-by an earlier audit pass, not reproduced here):
-
-1. Path resolution. The original script computed
-   ORIG_MODEL_DIR = PROJECT_ROOT / "models" / "devrel_classifier", which
-   does not exist -- the checkpoint actually lives at
-   PROJECT_ROOT / "pipeline" / "models" / "devrel_classifier". In this
-   package the checkpoint is copied to DATA_VALIDATION/classifier_checkpoint/
-   (resolved via _common.py, no hardcoded absolute path).
-
-2. Hardcoded scratch path. The original script unconditionally copied the
-   ~440MB checkpoint to a hardcoded C:\\tmp_devrel_model before loading, to
-   work around a claimed transformers from_pretrained() local-path
-   detection failure attributed to the special characters ("'", "[...]")
-   in this project's directory names. That workaround was tested directly
-   against this package's own (similarly special-character-laden) path
-   during porting and was found to be UNNECESSARY: transformers loads the
-   checkpoint directly from DATA_VALIDATION/classifier_checkpoint/ without
-   any copying, even though that path also contains an apostrophe and
-   brackets. So this script loads the checkpoint in place. As a purely
-   defensive fallback (in case some future environment really does hit a
-   local-path detection issue), if direct loading fails, it falls back to
-   copying the checkpoint into a Python tempfile.TemporaryDirectory (auto-
-   cleaned on exit) rather than any hardcoded location -- nothing is ever
-   written outside this package or the OS temp directory.
-
-Not ported: the original script's train/gold title-overlap leakage check.
-That check reads src/labels/sample_labeled.csv (the raw training-label
-file), which is not part of this public package (see DATA_AVAILABILITY.md)
-and is not needed to compute the performance metrics themselves. The
-original repo's own docstring already records that check's result (zero
-title overlap, N=1,954 gold vs. training file) -- it is a one-time
-provenance check on the gold set's construction, not a re-derivable
-research finding, so it is not reproduced here.
-
-Two run modes (pick automatically, or force with --mode):
-  - "infer":     load the checkpoint, run inference over the gold set on
-                 CPU (matches the original script exactly -- deterministic,
-                 fixed batch order, no train/val split), write
-                 classifier_predictions.csv, then compute metrics from it.
-  - "recompute": if classifier_predictions.csv already exists, just
-                 recompute classifier_performance.csv from the saved
-                 predictions -- no torch/transformers import needed, runs
-                 in well under a second.
-  "auto" (the default) does "recompute" if predictions already exist on
-  disk, else "infer". This script was tested end-to-end in "infer" mode
-  (full CPU inference over N=1,954) and reproduced the manuscript's stated
-  Table 1 values exactly (Accuracy=0.9637, Precision=0.8656, Recall=0.9388,
-  F1=0.9007, AUC-ROC=0.9896); "recompute" mode was then verified against
-  the resulting classifier_predictions.csv.
-
-Writes:
-  results/diagnostics/classifier_performance.csv  (metric, value)
-  results/diagnostics/classifier_predictions.csv  (row_id, article_id,
-                                                     y_true, y_pred_proba,
-                                                     y_pred_label)
-
-Usage:
-  python classifier_validation.py               # auto mode
-  python classifier_validation.py --mode infer
-  python classifier_validation.py --mode recompute
+Input:  data/validation/classifier_checkpoint/, data/validation/precision_gold_devrel.csv
+Output: results/diagnostics/classifier_performance.csv,
+        results/diagnostics/classifier_predictions.csv
 """
 from __future__ import annotations
 
 import argparse
 import sys
-import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -102,17 +37,11 @@ GOLD_PATH = DATA_VALIDATION / "precision_gold_devrel.csv"
 PERF_OUT = RESULTS_DIAGNOSTICS / "classifier_performance.csv"
 PRED_OUT = RESULTS_DIAGNOSTICS / "classifier_predictions.csv"
 
-MAX_LEN = 128          # matches train_devrel_classifier.py: title + keywords fits in 128 tokens
-BATCH_INFER = 64        # matches train_devrel_classifier.py
+MAX_LEN = 128
+BATCH_INFER = 64
 THRESHOLD = 0.5
 LABEL_COL = "label_development_relevant"
 
-
-# ---------------------------------------------------------------------------
-# Ported verbatim from the original pipeline/train_devrel_classifier.py so
-# that inference reproduces exactly the input representation the checkpoint
-# was fine-tuned on.
-# ---------------------------------------------------------------------------
 
 def build_text(row: "pd.Series") -> str:
     """Concatenate title + keywords for classification input."""
@@ -127,7 +56,7 @@ def build_text(row: "pd.Series") -> str:
 
 
 class ArticleDataset:
-    """Minimal torch Dataset, ported from train_devrel_classifier.py."""
+    """Minimal torch Dataset for tokenized inputs."""
 
     def __init__(self, encodings: dict, labels: "list[int] | None" = None):
         self.encodings = encodings
@@ -153,27 +82,11 @@ def load_gold() -> pd.DataFrame:
 
 
 def _load_model_and_tokenizer(model_dir: Path):
-    """Load the checkpoint from model_dir. Tries the path directly first
-    (this is expected to always work -- see module docstring, bug 2); falls
-    back to a self-cleaning tempfile copy only if that somehow fails."""
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-    try:
-        tokenizer = AutoTokenizer.from_pretrained(str(model_dir), local_files_only=True)
-        model = AutoModelForSequenceClassification.from_pretrained(str(model_dir), local_files_only=True)
-        return tokenizer, model
-    except Exception as exc:  # pragma: no cover -- defensive fallback, not expected to trigger
-        log.warning(f"Direct load from {model_dir} failed ({exc}); "
-                    f"falling back to a temporary local copy.")
-        required = ["config.json", "model.safetensors", "tokenizer.json", "tokenizer_config.json"]
-        with tempfile.TemporaryDirectory(prefix="devrel_classifier_") as tmp:
-            tmp_path = Path(tmp)
-            import shutil
-            for fname in required:
-                shutil.copy2(model_dir / fname, tmp_path / fname)
-            tokenizer = AutoTokenizer.from_pretrained(str(tmp_path), local_files_only=True)
-            model = AutoModelForSequenceClassification.from_pretrained(str(tmp_path), local_files_only=True)
-            return tokenizer, model
+    tokenizer = AutoTokenizer.from_pretrained(str(model_dir), local_files_only=True)
+    model = AutoModelForSequenceClassification.from_pretrained(str(model_dir), local_files_only=True)
+    return tokenizer, model
 
 
 def run_inference() -> pd.DataFrame:
@@ -184,14 +97,10 @@ def run_inference() -> pd.DataFrame:
 
     torch.manual_seed(RANDOM_SEED)
     np.random.seed(RANDOM_SEED)
-    device = torch.device("cpu")  # matches the original script -- deterministic, no GPU dependency
+    device = torch.device("cpu")
 
     if not MODEL_DIR.exists():
-        raise FileNotFoundError(
-            f"Classifier checkpoint not found at {MODEL_DIR}. "
-            f"See DATA_AVAILABILITY.md -- it must be copied there from the original "
-            f"repository's pipeline/models/devrel_classifier/ before running this script."
-        )
+        raise FileNotFoundError(f"Classifier checkpoint not found at {MODEL_DIR}; see DATA_AVAILABILITY.md.")
 
     gold = load_gold()
     texts = [build_text(row) for _, row in gold.iterrows()]
@@ -206,7 +115,7 @@ def run_inference() -> pd.DataFrame:
 
     enc = tokenizer(texts, padding=True, truncation=True, max_length=MAX_LEN, return_tensors="pt")
     ds = ArticleDataset({k: v.numpy() for k, v in enc.items()})
-    loader = DataLoader(ds, batch_size=BATCH_INFER, shuffle=False)  # fixed order -> reproducible
+    loader = DataLoader(ds, batch_size=BATCH_INFER, shuffle=False)
 
     probs_all: list[float] = []
     with torch.no_grad():

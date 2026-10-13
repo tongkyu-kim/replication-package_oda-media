@@ -1,49 +1,16 @@
 """
-Secondary analysis -- ideological breadth of media coverage (cross-partisan
-salience). Does the association between development-related media
-attention and development ODA differ according to the ideological breadth
-of Korean media coverage -- i.e. is attention that appears in BOTH the
-conservative and progressive press blocs more allocatively consequential
-than attention confined to a single bloc? Reported as Table 3 column [7].
+Ideological breadth of coverage (Section 4.6; Table 3 column [7]; Figure 7).
 
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/mechanisms/estimate_media_ideology.py ("Model G" /
-"Model 8" -- both names refer to the same script across the project's
-renumbering history), primary specification only (its own "G4": the
-cross-partisan-salience interaction model; the conservative-vs-progressive
-level comparison, "G3", is a secondary diagnostic in the original script,
-not a competing primary spec, and is not ported here).
+CrossPartisan = 1 when development-relevant coverage of the recipient appears
+in both the conservative bloc (Chosun Ilbo, JoongAng Ilbo, Dong-A Ilbo) and the
+progressive bloc (Kyunghyang Shinmun, Hankyoreh) within the 2-13-month window.
+The model interacts CrossPartisan with 2-13-month media volume (country and
+year FE, five controls, country-clustered standard errors). Figure 7 data:
+predicted ln(ODA) over the 5th-95th percentile of media attention, controls
+at their means, with delta-method 90% confidence intervals.
 
-Outlet classification, ex ante, into conservative (Chosun Ilbo, JoongAng
-Ilbo, Dong-A Ilbo) and progressive (Kyunghyang Shinmun, Hankyoreh) blocs
-follows the standard grouping used in the Korean media studies literature
-(Lee, S.-M., & Koh, Y.-C. (2010). Analysis of ideological orientation of
-Korean newspapers. Korean Journal of Journalism & Communication Studies).
-See code/lib/ideology_panel.py for the outlet lists and the country x year
-aggregation (article counts pooled over the SAME k=2-13 pre-allocation
-window as the finalized baseline -- CORRECTED 2026-09-20 from the original
-script's k=1-13 pooling; see that module's WINDOW NOTE for detail).
-
-cross_partisan = 1 if a recipient's development-related coverage appears
-in BOTH blocs within that window, else 0. media_x_crosspartisan = the
-baseline media measure (devrel_media_m1_13) x cross_partisan.
-
-ALSO writes the Figure 7 predicted-value data (predicted ln(ODA) for
-cross-partisan vs. single-bloc coverage across the observed range of media
-attention, with delta-method 90% CI ribbons) -- ported from the
-DATA-COMPUTATION portion only of the original repository's
-pipeline/manuscript_tables/make_figure_model6_crosspartisan_prediction_ci.py
-(its docx/plotting code is not ported; a later step in this package,
-generate_figures.py, renders the actual figure from this data file).
-Predictions are centered at the estimation sample's means (predicted value
-= sample mean of the outcome when media and cross_partisan are both at
-their sample means), the same "predicted at means" convention the original
-figure script uses -- this ignores uncertainty in the FE-absorbed
-intercept itself, a standard simplification for an illustrative marginal-
-prediction plot.
-
-Writes: results/models/ideological_breadth_results.csv and
-results/figure_data/figure7_ideological_breadth_data.csv
+Output: results/models/ideological_breadth_results.csv,
+        results/figure_data/figure7_ideological_breadth_data.csv
 """
 from __future__ import annotations
 

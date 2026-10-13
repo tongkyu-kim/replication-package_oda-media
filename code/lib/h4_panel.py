@@ -1,36 +1,8 @@
 """
-Builds the stacked panel for H4: emergency vs. non-emergency ODA under a
-COMMON development-relevant (DevRel) media exposure.
-
-Each country-year in the development-relevant ODA panel
-(devrel_country_year.csv, 2,336 country-years, 146 countries) contributes
-two rows:
-
-  - aid_type = "emergency":    emergency ODA commitments
-                               (emergency_country_year.csv; emergency /
-                               humanitarian purpose codes)
-  - aid_type = "nonemergency": all remaining bilateral development-relevant
-                               commitments = pooled devrel ODA - emergency ODA
-
-Both rows carry IDENTICAL DevRel media measures (the production DevRel
-measure, which intentionally includes crisis-related coverage). The two
-outcomes are mutually exclusive and sum exactly to the pooled outcome used
-for H1-H3; verify_panel() checks both properties programmatically.
-
-Media windows (all from lib.devrel_panel / lib.panel_windows, same
-construction as the H1-H3 measures):
-  devrel_media_contemp   months 0-11 of the commitment year (k=-11..0), ln(1+sum)
-  devrel_media_m1_13     2-13 months pre-allocation (k=2..13), ln(1+sum)
-  devrel_media_m14_25    14-25 months, ln(1+sum)
-  devrel_media_m26_37    26-37 months, ln(1+sum)
-  devrel_media_roll24/36/60   rolling averages, ln(1+mean)
-  streak_ge24/36/60      consecutive-coverage indicators (>=3 articles/month)
-
-Ported (statistical logic identical) from the original research
-repository's pipeline/devrel_baseline/h4r_build_stacked_panel.py, which
-reads the same quantities from that repository's own files
-(devrel_country_year_excl_emergency.csv for the non-emergency outcome --
-identical to pooled minus emergency here, max difference 6e-14).
+Stacked panel for H4: each country-year contributes an emergency-ODA and a
+non-emergency-ODA observation (which sum to the development-ODA outcome),
+both matched to the same development-relevant media measures, with
+country x aid-type and year x aid-type fixed-effect identifiers.
 """
 from __future__ import annotations
 

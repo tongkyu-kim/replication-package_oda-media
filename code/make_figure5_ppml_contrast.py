@@ -1,24 +1,10 @@
 """
-Figure 5 -- Common development-relevant media exposure and emergency versus
-non-emergency ODA across temporal windows (stacked PPML). Revised H4.
+Figure 5: emergency and non-emergency ODA under common development-relevant
+media exposure, by temporal window (extended stacked PPML model from
+h4_common_exposure.py; 90% confidence intervals).
 
-UPDATED 2026-10-12 (revised H4): previously plotted the former H4 contrast
-(crisis media -> emergency ODA vs. DevRel media -> development ODA) from
-results/models/emergency_ppml_contrast_results.csv. Now plots
-h4_common_exposure.py's EXTENDED model (contemporaneous, 2-13, 14-25 and
-26-37 months entered jointly, N = 3,803 stacked observations, 137
-countries): both aid types share the identical DevRel exposure. The
-headline H4 estimate in the text (difference 0.674) comes from the
-primary two-window model; the extended model's contemporaneous difference
-is 0.660. No new estimation happens here.
-
-Layout unchanged: windows ordered most-distant to nearest-in-time. Panel A:
-non-emergency (filled circle, solid whisker) vs. emergency (hollow square,
-dashed whisker) coefficients, 90% CI. Panel B: emergency-minus-non-
-emergency difference (filled square, dashed whisker), 90% CI, zero line.
-
-Writes: results/figure_data/figure5_ppml_contrast_data.csv and
-results/figures/figure5_ppml_contrast.png (file names kept for continuity)
+Output: results/figures/figure5_ppml_contrast.png,
+        results/figure_data/figure5_ppml_contrast_data.csv
 """
 from __future__ import annotations
 

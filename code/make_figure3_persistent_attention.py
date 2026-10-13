@@ -1,44 +1,10 @@
 """
-Figure 3 -- Persistent media attention across rolling exposure horizons.
+Figure 3: persistent attention across rolling-window widths of 1-60 months,
+one regression per width, as in rolling_persistence.py (90% confidence
+intervals).
 
-Extends the study's H2 (persistent-attention) specification --
-results/models/rolling_persistence_results.csv, three separate
-regressions at rolling-average window widths of 24/36/60 months -- to a
-DENSE grid of every window width from 1 to 60 months, one separate
-single-regressor regression per width (60 regressions, not mutually
-adjusted, matching H2's own three-separate-specifications design).
-
-Ported from the original research repository's
-pipeline/devrel_baseline/estimate_monthly_temporal_profile.py, Panel B
-(the dense L=1..60 companion to the headline roll24/roll36/roll60
-specifications, saved there as cumulative_window_profile_results.csv) --
-same construction as H2's own devrel_media_roll24/36/60 measures (rolling
-mean of the k=2..(L+1) window, log1p'd after averaging), just swept across
-every width rather than only the three headline ones. This package
-reproduces that dense sweep directly with lib/panel_windows.py's
-attach_window() (the exact function -- "ported unchanged" -- the original
-Panel B calls), rather than reading a cached CSV, so it needs no input
-beyond this package's own analytical data.
-
-Cross-check: at L=24/36/60 this reproduces H2's own coefficients exactly
-(rolling_persistence_results.csv: roll24=0.2011, roll36=0.2031,
-roll60=0.2072) -- verified against the original repository's own dense-grid
-CSV (streak/window profile) before writing this script; not re-verified
-programmatically here since results/models/rolling_persistence_results.csv
-already carries the L=24/36/60 rows from the identical construction.
-
-Manuscript text: "the right panel shows that the rolling-average estimates
-remain positive as the averaging window expands." Full dense grid (no
-windows dropped) is written to the figure-data CSV and plotted; markers
-are drawn only at 6-month multiples to keep the line legible, matching the
-original figure's convention, but the underlying line/CI band is drawn
-from the complete L=1..60 series.
-
-CI convention: 90% (Z_90, this package's standard, see code/_common.py).
-
-Writes: results/figure_data/figure3_persistent_attention_data.csv (one row
-per window width, L=1..60) and
-results/figures/figure3_persistent_attention.png.
+Output: results/figures/figure3_persistent_attention.png,
+        results/figure_data/figure3_persistent_attention_data.csv
 """
 from __future__ import annotations
 

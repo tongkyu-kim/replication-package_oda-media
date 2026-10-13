@@ -1,16 +1,10 @@
 """
-H1 -- Recent development-related media attention -> development ODA.
+H1 baseline (Section 4.1; Table 3 columns [0]-[1]): an unadjusted pooled
+benchmark and the preferred specification with country and year FE, five
+controls and country-clustered standard errors, using media attention over
+the 2-13 months preceding the allocation year.
 
-Estimates: (a) an unadjusted pooled benchmark (no FE, no controls -- Table 3
-column [0], the raw bivariate relationship before any adjustment), and
-(b) the preferred, fully-adjusted specification (Table 3 column [1]):
-country + year fixed effects, country-clustered SE, five controls, media
-attention accumulated over the 2-13 months preceding the allocation year.
-
-Outcome: ln(devrel ODA commitment + 1). Predictor: ln(1 + article count)
-summed over the 2-13 month window.
-
-Writes: results/models/main_baseline_results.csv
+Output: results/models/main_baseline_results.csv
 """
 from __future__ import annotations
 

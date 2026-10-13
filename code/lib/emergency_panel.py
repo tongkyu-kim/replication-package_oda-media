@@ -1,26 +1,7 @@
 """
-Builds the country x year crisis-media -> emergency-ODA panel used by
-code/emergency_temporal.py's EXPLORATORY within-emergency diagnostics
-(Appendix Tables A4 Panel B and A7).
-
-UPDATED 2026-10-12 (revised H4): the stacked development/emergency PPML
-panel builders that used to live here (build_dev_ppml_panel,
-build_emg_ppml_panel, build_stacked_ppml_panel) served the former H4 test
-and have been removed. The revised H4 panel -- emergency vs. non-emergency
-ODA under a common development-relevant media exposure -- is built by
-lib/h4_panel.py.
-
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/crisis_news/estimate_crisis_model.py
-(build_crisis_month_long, build_country_annual). This is shared plumbing,
-not a model in its own right.
-
-CONTROL_COLS/CONTROLS_PATH are re-exported from lib.devrel_panel rather
-than redefined here -- the original repository's own estimate_crisis_
-model.py imports the identical list from its own shared
-estimate_hypotheses module (eh.CONTROL_COLS) rather than maintaining a
-second copy, and this package preserves that "one control list, shared by
-every model" convention.
+Country x year panel for the exploratory crisis-media diagnostics: emergency
+ODA, crisis-related media coverage (all types and by type) and the shared
+controls.
 """
 from __future__ import annotations
 

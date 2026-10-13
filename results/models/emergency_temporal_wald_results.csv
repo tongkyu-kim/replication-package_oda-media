@@ -1,3 +1,2 @@
 specification_id,test_name,test_statistic,df,p_value,restriction_tested,n
-H4_crisis_type_joint,"Wald: all 6 crisis-type coefficients = 0 (joint, simultaneous regression)",28.056824464969207,6,9.167540608545632e-05,b_disaster=b_climate=b_conflict=b_health=b_food=b_refugee=0,2080
-H4_crisis_type_joint,"Wald: all 6 crisis-type coefficients are equal (single joint restriction, not pairwise)",8.241486582704074,5,0.1434194247923738,b_disaster=b_climate=b_conflict=b_health=b_food=b_refugee,2080
+crisis_type_joint,Wald: all 6 crisis-type coefficients = 0,28.056824464969207,6,9.167540608545632e-05,b_disaster=b_climate=b_conflict=b_health=b_food=b_refugee=0,2080

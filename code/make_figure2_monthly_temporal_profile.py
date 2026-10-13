@@ -1,36 +1,11 @@
 """
-Figure 2 -- Monthly temporal profile of development-related media attention.
+Figure 2: monthly temporal profile. Fifty separate regressions of ln(ODA) on
+development-relevant coverage in a single month, from 37 months before to 12
+months after the start of the allocation year (country and year FE, five
+controls, country-clustered standard errors, 90% confidence intervals).
 
-50 separate single-month regressions, t=-37 (37 months before the
-allocation year) through t=+12 (12 months after), each a bivariate
-single-regressor specification: devrel_commitment_musd ~ media_month +
-controls, entity+year FE, country-clustered SE. NOT an event study, NOT a
-joint distributed lag -- each point is estimated independently, exactly as
-the original repository's pipeline/devrel_baseline/
-estimate_monthly_temporal_profile.py (Panel A) and plotted by
-pipeline/manuscript_tables/make_figure3_monthly_temporal_profile.py (old
-filename -- "figure3" predates a manuscript renumbering; this is now
-Figure 2). t=-37..-2 spans exactly the pre-allocation range covered by
-this study's three lag-window specifications (k=2-13/14-25/26-37, see
-code/lag_windows.py); t=-1..+12 is a post-allocation placebo/falsification
-extension -- does media attention AFTER the allocation decision also
-"predict" it, which would undercut the pre-allocation timing story.
-
-Sign convention (matches the original exactly): codebase_k = -relative_month,
-i.e. relative_month is standard event-time (positive = after t0) while k is
-"months before Jan 1 of year t" as used throughout lib/panel_windows.py.
-
-Manuscript text: "the left panel shows month-specific associations are
-generally positive across a broad pre-allocation period."
-
-CI convention: this package's figures use a 90% CI throughout (Z_90 =
-1.6448536269514722, see code/_common.py), recomputed here from each
-month's own coefficient/SE -- the same convention every other figure in
-this package uses, whatever CI multiplier a given script in the original
-research repository happened to use for its own intermediate CSV.
-
-Writes: results/figure_data/figure2_monthly_profile_data.csv (one row per
-relative month) and results/figures/figure2_monthly_temporal_profile.png.
+Output: results/figures/figure2_monthly_temporal_profile.png,
+        results/figure_data/figure2_monthly_profile_data.csv
 """
 from __future__ import annotations
 

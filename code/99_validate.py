@@ -1,25 +1,9 @@
 """
-Validates the regenerated release outputs. Two kinds of checks:
-
-1. INTERNAL CONSISTENCY (the primary purpose): required inputs exist,
-   panel dimensions and key counts match what the pipeline itself should
-   produce, no duplicate keys, no missing required output file, figure
-   data matches the model-result file it was built from. These checks do
-   NOT depend on manuscript values -- they would catch a broken pipeline
-   even if the manuscript were never written.
-
-2. VERIFICATION SNAPSHOT comparison against expected_final_results.csv --
-   a small, hand-curated set of values confirmed during this package's
-   construction to match the manuscript (with small tolerances for
-   legitimate floating-point/rerun drift). This is a SANITY CHECK, not a
-   source of truth: expected_final_results.csv was generated ONCE from a
-   verified reconciliation pass and is never used to compute or adjust any
-   analytical result -- see README.md's "Known discrepancies" section for
-   the (small number of) values that are EXPECTED to differ from the
-   manuscript's currently-printed text, and are therefore deliberately
-   excluded from this snapshot.
-
-Exit code 0 = all checks passed. Exit code 1 = one or more checks failed.
+Validates the pipeline outputs: required inputs exist, panel dimensions and
+keys are as expected, every required result, table and figure file exists
+and follows the result schema, no unexpected files are present, and a small
+set of headline values matches code/expected_final_results.csv within
+tolerance.
 """
 from __future__ import annotations
 
@@ -57,7 +41,7 @@ def check(label: str, condition: bool, detail: str = "") -> None:
 def check_required_inputs() -> None:
     for f in ["oda_clean.csv", "panel_country_sdg_month.csv", "country_year_controls.csv",
               "crisis_news_country_month.csv", "devrel_country_year.csv", "emergency_country_year.csv",
-              "outlet_article_counts_long.csv", "topic_placebo_country_month.csv", "allnews_country_month.csv"]:
+              "outlet_article_counts_long.csv", "sports_country_month.csv", "allnews_country_month.csv"]:
         check(f"data/analytical/{f} exists", (DATA_ANALYTICAL / f).exists())
     check("classifier checkpoint present", (DATA_VALIDATION / "classifier_checkpoint" / "model.safetensors").exists())
     check("classifier gold set present", (DATA_VALIDATION / "precision_gold_devrel.csv").exists())
@@ -91,12 +75,12 @@ def check_panel_dimensions() -> None:
 # ---------------------------------------------------------------------------
 
 REQUIRED_MODEL_RESULT_FILES = [
-    "main_baseline_results.csv", "lag_windows_results.csv", "lag_windows_wald_results.csv",
+    "main_baseline_results.csv", "lag_windows_results.csv",
     "rolling_persistence_results.csv", "sustained_coverage_results.csv",
     "emergency_temporal_results.csv", "emergency_temporal_wald_results.csv",
-    "h4_common_exposure_results.csv", "h4_common_exposure_wald_results.csv", "allocation_margin_results.csv",
-    "ideological_breadth_results.csv", "evaluative_tone_results.csv", "evaluative_tone_wald_results.csv",
-    "placebo_future_news_results.csv", "placebo_nondevrel_results.csv",
+    "h4_common_exposure_results.csv", "allocation_margin_results.csv",
+    "ideological_breadth_results.csv", "evaluative_tone_results.csv",
+    "placebo_future_news_results.csv", "placebo_news_substance_results.csv",
     "alt_timing_baseline_results.csv", "leave_one_out_results.csv", "h3_bar_sensitivity_results.csv",
     "reported_text_results.csv",
 ]
@@ -104,7 +88,7 @@ REQUIRED_MODEL_RESULT_FILES = [
 REQUIRED_TABLES = [
     "table1_classifier_performance", "table2_panelB_data_construction", "table2_panelC_descriptives",
     "table3_main_results", "table4_robustness_summary",
-    "tableA1_temporal_placebo", "tableA2_media_type_placebo", "tableA3_baseline_alt_timing",
+    "tableA1_temporal_placebo", "tableA2_news_substance_placebo", "tableA3_baseline_alt_timing",
     "tableA4_emergency_alt_timing", "tableA5_leave_one_out", "tableA6_h3_bar_sensitivity",
     "tableA7_crisis_type_heterogeneity",
 ]
@@ -135,7 +119,7 @@ def check_required_outputs() -> None:
         check(f"results/figures/{fig}.png exists", png_exists)
 
     for diag in ["classifier_performance.csv", "classifier_predictions.csv", "reliability_alpha.csv",
-                 "known_discrepancies.csv", "h3_bar_sensitivity_coverage.csv",
+                 "h3_bar_sensitivity_coverage.csv",
                  "h4_common_exposure_data_checks.csv"]:
         check(f"results/diagnostics/{diag} exists", (RESULTS_DIAGNOSTICS / diag).exists())
 
@@ -149,7 +133,7 @@ _MAIN_RESULT_FILES = [
     "main_baseline_results.csv", "lag_windows_results.csv", "rolling_persistence_results.csv",
     "sustained_coverage_results.csv", "emergency_temporal_results.csv", "h4_common_exposure_results.csv",
     "allocation_margin_results.csv", "ideological_breadth_results.csv", "evaluative_tone_results.csv",
-    "placebo_future_news_results.csv", "placebo_nondevrel_results.csv", "alt_timing_baseline_results.csv",
+    "placebo_future_news_results.csv", "placebo_news_substance_results.csv", "alt_timing_baseline_results.csv",
     "h3_bar_sensitivity_results.csv",
 ]
 
@@ -173,8 +157,7 @@ def check_schema_compliance() -> None:
 # ---------------------------------------------------------------------------
 
 def check_no_stale_outputs() -> None:
-    known_model_files = set(REQUIRED_MODEL_RESULT_FILES) | {"evaluative_tone_wald_results.csv",
-                                                              "lag_windows_wald_results.csv"}
+    known_model_files = set(REQUIRED_MODEL_RESULT_FILES)
     on_disk = {p.name for p in RESULTS_MODELS.glob("*.csv")}
     unexpected = on_disk - known_model_files
     check("no unexpected files in results/models/", not unexpected, f"unexpected: {sorted(unexpected)}")

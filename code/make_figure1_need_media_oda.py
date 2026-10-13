@@ -1,68 +1,11 @@
 """
-Figure 1 -- Media attention, development need, and Korean ODA by recipient.
+Figure 1: media attention, development need and Korean ODA by recipient
+(descriptive). One bubble per recipient: development need (equally weighted
+composite of income, conflict and disaster indicators) against development-
+relevant media attention, sized by average annual ODA.
 
-Purely DESCRIPTIVE (no regression, no significance test, no causal
-language) -- one bubble per recipient country in media-attention x
-development-need space, sized by average annual Korean ODA. Ported from
-the original research repository's pipeline/make_figure_oda_attention_need.py
-(data-computation logic only; that script's exact bubble-size legend inset
-and Korean-name label lookup are not reproduced here -- see SIMPLIFICATIONS
-below).
-
-DEVELOPMENT-NEED COMPOSITE (country-year, then averaged to country level):
-  development_need_it = mean( z(-ln_gdppc_it), z(ln_conflict_deaths_it),
-                               z(ln_disaster_affected_it) ), skipna
-  z(.) = standardized ACROSS THE FULL country-year analytical panel (every
-  recipient, every year) using that variable's panel-wide mean/SD.
-  ln_gdppc is negated before standardizing so higher score = lower income =
-  greater need; the other two components are already "higher = more need"
-  (conflict deaths / disaster-affected population). Equal weights (mean of
-  3 z-scores) -- matches the manuscript's own description: "Development
-  need is measured descriptively as an equally weighted composite of
-  income, conflict, and disaster indicators." Country-level
-  development_need = mean of the annual score across the years that
-  country appears in the panel.
-
-MEDIA ATTENTION: mean of the RAW (not logged) k=2-13 pre-allocation-window
-article count (devrel_media_m1_13 computed with use_log=False, which is
-exactly the original script's "current_media_raw" -- see
-build_mechanism_panel.py in the original repo: both call
-monthly_lags.attach_window(..., start_k=2, end_k=13, agg="sum",
-use_log=False)) across a country's panel years, THEN log1p-transformed for
-the x-axis (average-then-transform, not transform-then-average, matching
-the original).
-
-ODA: mean of devrel_commitment_musd (raw, million USD) across a country's
-panel years.
-
-TOP_N / ODA_COLOR_THRESHOLD: identical constants to the original (top 50
-by average annual ODA highlighted/sized; countries above $10M average
-annual ODA get the colored/sized bubble treatment, everyone else is a
-plain small gray background dot).
-
-SIMPLIFICATIONS relative to the original journal-quality script (this
-package's figures are meant to be correct and legible, not
-publication-polished -- see task brief):
-  - Recipients are labeled by ISO3 code, not full English country name --
-    the original's Korean/English name lookup (reference/countries_ko.py)
-    is a project-internal reference file not part of this public package's
-    data directory.
-  - Quadrant reference lines: the original HARDCODES x_ref=4.0 (its own
-    docstring explains this is a "clean round number" chosen because it
-    was indistinguishable from that run's actual country-level median of
-    4.038 -- not a principled zero). Rather than carry over a number
-    tuned to a data snapshot this package does not necessarily reproduce
-    exactly, this script computes x_ref as the ACTUAL country-level
-    median of avg_annual_media_log in this package's own panel every time
-    it runs. y_ref=0.0 is preserved unchanged -- that one IS principled:
-    each need component is z-scored across the full country-year panel,
-    so 0 is that panel's true average need by construction, not a tuned
-    constant.
-  - No bubble-size legend inset / no adjustText label-collision avoidance
-    -- plain scatter with labels on the largest recipients only.
-
-Writes: results/figure_data/figure1_need_media_oda_data.csv (one row per
-country) and results/figures/figure1_need_media_oda.png.
+Output: results/figures/figure1_need_media_oda.png,
+        results/figure_data/figure1_need_media_oda_data.csv
 """
 from __future__ import annotations
 

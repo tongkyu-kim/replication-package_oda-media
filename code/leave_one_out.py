@@ -1,36 +1,11 @@
 """
-Leave-one-country-out robustness for the persistent-attention (H2:
-roll24/36/60) and sustained-coverage (H3: streak >=24/36/60mo)
-specifications: refit each preferred spec once per country, excluding
-that country, and summarize how much the focal coefficient moves.
+Leave-one-country-out sensitivity (Appendix Table A5): each persistent-
+attention, sustained-attention and H4 specification is refitted once per
+country with that country excluded. Reported per analysis: full-sample
+estimate, range of refitted estimates, sign reversals, and changes in
+significance at p < 0.10.
 
-This does not fit the standard ModelResultRow schema (one row = one
-estimate); it reports a DISTRIBUTION of refit estimates per analysis, so
-it uses its own simple schema instead (see LOO_FIELDS below).
-
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/devrel_baseline/robustness_models_2to5.py
-(leave_one_out(), Model3 battery -- roll24/roll36/roll60) and
-pipeline/devrel_baseline/robustness_model4_streak_loo.py (streak
->=24/36/60mo). Both source scripts report the coefficient range and a
-significance-flip count (at p<0.10); this port additionally derives a
-sign-reversal count directly from the same per-country refit coefficients
-each source script already collects (not a new statistic -- both source
-scripts' own printed diagnostics describe "N sign-flips" alongside the
-N sig-flips they write to CSV; this just also persists it as its own
-column here).
-
-Also includes H4 (revised 2026-10-12): leave-one-country-out for the
-contemporaneous emergency-minus-non-emergency difference in the stacked
-PPML model with common development-relevant media exposure
-(h4_common_exposure.py's primary specification; manuscript Appendix Table
-A5's H4 row). Ported from the original research repository's
-pipeline/devrel_baseline/h4r_ci90.py. This replaces the former
-crisis-timing row (crisis media -> emergency ODA), which belonged to the
-former H4 specification. See run_h4_loo().
-
-Writes: results/models/leave_one_out_results.csv (overwritten on every run;
-see main()).
+Output: results/models/leave_one_out_results.csv
 """
 from __future__ import annotations
 

@@ -1,26 +1,10 @@
 """
-Figure A2 -- Classification performance of the development-relevance
-("devrel") model (Appendix).
+Figure A2: confusion matrix, ROC curve and precision-recall curve of the
+development-relevance classifier on the held-out gold set, from the output of
+classifier_validation.py.
 
-Data: results/diagnostics/classifier_predictions.csv (row_id, article_id,
-y_true, y_pred_proba, y_pred_label -- N=1,954 held-out gold-labeled
-articles) and results/diagnostics/classifier_performance.csv (summary
-metrics), both already-complete output of code/classifier_validation.py.
-No new inference happens here -- this script only derives plotting curves
-(confusion matrix counts, ROC, precision-recall) from those predictions
-via sklearn.metrics (a pinned dependency) and plots them.
-
-Three panels in one figure: (1) confusion matrix (y_true x y_pred_label),
-(2) ROC curve (sklearn.metrics.roc_curve / roc_auc_score), (3)
-precision-recall curve (sklearn.metrics.precision_recall_curve).
-
-Writes:
-  results/figure_data/figureA2_classifier_performance_data.csv (long
-    format, "curve" column distinguishes "roc" and "pr" point series)
-  results/figure_data/figureA2_confusion_matrix_data.csv (2x2 counts --
-    not a "curve", kept as its own small file rather than forced into the
-    curve schema above)
-  results/figures/figureA2_classifier_performance.png
+Output: results/figures/figureA2_classifier_performance.png,
+        results/figure_data/figureA2_*.csv
 """
 from __future__ import annotations
 

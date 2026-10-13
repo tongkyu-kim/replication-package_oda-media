@@ -10,14 +10,14 @@ rolling_persistence_results.csv,H2_devrel_media_roll60__devrel_media_roll60,coef
 sustained_coverage_results.csv,H3_streak_ge24__streak_ge24,coefficient,0.2155,0.001,Table 3 col[4]
 sustained_coverage_results.csv,H3_streak_ge36__streak_ge36,coefficient,0.2285,0.001,Table 3 col[4]
 sustained_coverage_results.csv,H3_streak_ge60__streak_ge60,coefficient,0.2019,0.001,Table 3 col[4]
-emergency_temporal_results.csv,H4_within_emergency_contemporaneous__crisis_media_lag0,coefficient,0.0967,0.001,"Appendix Table A4 Panel B -- exploratory, former H4 specification (crisis media -> emergency ODA)"
+emergency_temporal_results.csv,crisis_media_contemporaneous__crisis_media_lag0,coefficient,0.0967,0.001,"Appendix Table A4 Panel B -- exploratory, former H4 specification (crisis media -> emergency ODA)"
 allocation_margin_results.csv,allocation_margin_extensive__devrel_media_m1_13,coefficient,0.0082,0.001,Table 3 col[6]
 allocation_margin_results.csv,allocation_margin_intensive__devrel_media_m1_13,coefficient,0.1924,0.001,Table 3 col[6]
 ideological_breadth_results.csv,ideological_breadth_crosspartisan__media_x_crosspartisan,coefficient,0.0837,0.001,Table 3 col[7] -- corrected 2026-09-20 to k=2-13 window (was 0.0786 under the uncorrected k=1-13 window)
 evaluative_tone_results.csv,evaluative_tone_additive__devrel_media_m1_13,coefficient,0.1089,0.001,Table 3 col[8]
 placebo_future_news_results.csv,placebo_future_news_ar2_innovation__innovation_ar2,p_value,0.1445,0.002,Table 4 / Appendix A1 -- must remain non-significant
-placebo_nondevrel_results.csv,placebo_nondevrel_m1_13_generic,p_value,0.183,0.01,Appendix A2 -- sports placebo; must remain non-significant
-placebo_nondevrel_results.csv,placebo_nondevrel_m1_13_allnews,coefficient,0.0729,0.002,Appendix A2 -- all country news (news-substance placebo)
+placebo_news_substance_results.csv,placebo_substance_m1_13_sports,p_value,0.183,0.01,Appendix A2 -- sports placebo; must remain non-significant
+placebo_news_substance_results.csv,placebo_substance_m1_13_allnews,coefficient,0.0729,0.002,Appendix A2 -- all country news (news-substance placebo)
 alt_timing_baseline_results.csv,alt_timing_lag0__devrel_media_lag0,coefficient,0.1369,0.001,Appendix A3
 classifier_performance.csv,f1,value,0.9007,0.001,Table 1
 classifier_performance.csv,test_n,value,1954.0,0.0,Table 1
@@ -30,7 +30,6 @@ h4_common_exposure_results.csv,H4_primary__emergency_contemporaneous,coefficient
 h4_common_exposure_results.csv,H4_primary__nonemergency_contemporaneous,coefficient,0.0384,0.002,"Section 4.5 -- revised H4, non-emergency ODA"
 h4_common_exposure_results.csv,H4_primary__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.6738,0.002,Table 3 col[5] / Section 4.5 -- revised H4 formal test
 h4_common_exposure_results.csv,H4_extended__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.6597,0.002,Figure 5 / Table A4 Panel A
-h4_common_exposure_results.csv,H4_trim_top1pct__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.5234,0.002,top-1% emergency trim (estimated; not reported in manuscript)
 h4_common_exposure_results.csv,H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous,coefficient,0.0057,0.002,Section 4.7 / Table 4 -- log-linear counterpart
 h4_common_exposure_data_checks.csv,media_exposure_mismatches,value,0.0,0.0,"Section 3.4 -- identical DevRel exposure for both aid types (0 of 23,360 cells)"
 h4_common_exposure_data_checks.csv,max_abs_partition_error_musd,value,0.0,1e-06,Section 3.1 -- emergency + non-emergency = pooled ODA in every country-year

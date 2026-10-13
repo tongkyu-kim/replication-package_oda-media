@@ -9204,3 +9204,771 @@ SUMMARY (457.2s total)
 2026-10-13 07:18:45  INFO     run_all                         OK    validate                  2.6s
 2026-10-13 07:18:45  INFO     run_all                       
 All stages completed successfully.
+2026-10-13 16:14:25  INFO     placebo_tests                 placebo_future_news_raw__future_news_t1: coef=0.0481 se=0.0329 p=0.1441 n=2080
+2026-10-13 16:14:25  INFO     placebo_tests                 placebo_future_news_ar2_innovation__innovation_ar2: coef=0.0477 se=0.0327 p=0.1445 n=1941
+2026-10-13 16:14:25  INFO     placebo_tests                 placebo_future_news_m14_25_pre__devrel_media_m14_25: coef=0.0631 se=0.0341 p=0.0649 n=2214
+2026-10-13 16:14:25  INFO     placebo_tests                 placebo_future_news_m14_25_future__future_m14_25: coef=0.0258 se=0.0297 p=0.3859 n=1943
+2026-10-13 16:14:25  INFO     placebo_tests                 placebo_future_news_m26_37_pre__devrel_media_m26_37: coef=0.0442 se=0.0293 p=0.1319 n=2075
+2026-10-13 16:14:25  INFO     placebo_tests                 placebo_future_news_m26_37_future__future_m26_37: coef=0.0464 se=0.0317 p=0.1435 n=1806
+2026-10-13 16:14:29  INFO     placebo_tests                 placebo_substance_m1_13_devrel: coef=0.0843 se=0.0400 p=0.0350 n=2214
+2026-10-13 16:14:32  INFO     placebo_tests                 placebo_substance_m1_13_allnews: coef=0.0729 se=0.0453 p=0.1075 n=2214
+2026-10-13 16:14:38  INFO     placebo_tests                 placebo_substance_m1_13_sports: coef=0.0319 se=0.0239 p=0.1827 n=2214
+2026-10-13 16:14:45  INFO     placebo_tests                 placebo_substance_roll24_devrel: coef=0.2011 se=0.0787 p=0.0106 n=2214
+2026-10-13 16:14:54  INFO     placebo_tests                 placebo_substance_roll24_allnews: coef=0.1648 se=0.0751 p=0.0282 n=2214
+2026-10-13 16:15:00  INFO     placebo_tests                 placebo_substance_roll24_sports: coef=0.0383 se=0.0476 p=0.4216 n=2214
+2026-10-13 16:15:03  INFO     placebo_tests                 placebo_substance_roll36_devrel: coef=0.2031 se=0.0911 p=0.0259 n=2075
+2026-10-13 16:15:07  INFO     placebo_tests                 placebo_substance_roll36_allnews: coef=0.1534 se=0.0898 p=0.0878 n=2075
+2026-10-13 16:15:15  INFO     placebo_tests                 placebo_substance_roll36_sports: coef=0.0342 se=0.0591 p=0.5635 n=2075
+2026-10-13 16:15:24  INFO     placebo_tests                 placebo_substance_roll60_devrel: coef=0.2072 se=0.1163 p=0.0749 n=1797
+2026-10-13 16:15:30  INFO     placebo_tests                 placebo_substance_roll60_allnews: coef=0.1748 se=0.1160 p=0.1319 n=1797
+2026-10-13 16:15:31  INFO     placebo_tests                 placebo_substance_roll60_sports: coef=0.0565 se=0.0770 p=0.4634 n=1797
+2026-10-13 16:15:31  INFO     placebo_tests                 placebo_substance_streak24_devrel: coef=0.2155 se=0.0889 p=0.0155 n=2214
+2026-10-13 16:15:31  INFO     placebo_tests                 placebo_substance_streak24_allnews: coef=0.1030 se=0.1200 p=0.3911 n=2214
+2026-10-13 16:15:31  INFO     placebo_tests                 placebo_substance_streak24_sports: coef=-0.0850 se=0.1336 p=0.5246 n=2214
+2026-10-13 16:15:31  INFO     placebo_tests                 placebo_substance_streak36_devrel: coef=0.2285 se=0.0860 p=0.0080 n=2214
+2026-10-13 16:15:36  INFO     placebo_tests                 placebo_substance_streak36_allnews: coef=0.2264 se=0.1163 p=0.0516 n=2214
+2026-10-13 16:15:44  INFO     placebo_tests                 placebo_substance_streak36_sports: coef=0.0913 se=0.1224 p=0.4559 n=2214
+2026-10-13 16:15:51  INFO     placebo_tests                 placebo_substance_streak60_devrel: coef=0.2019 se=0.1003 p=0.0442 n=2214
+2026-10-13 16:15:58  INFO     placebo_tests                 placebo_substance_streak60_allnews: coef=0.2958 se=0.0976 p=0.0025 n=2214
+2026-10-13 16:16:02  INFO     placebo_tests                 placebo_substance_streak60_sports: coef=-0.0943 se=0.1270 p=0.4579 n=2214
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_media_contemporaneous__crisis_media_lag0: coef=0.0967 se=0.0369 p=0.0089 n=2080
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_media_m1_13__crisis_media_m1_13: coef=0.0405 se=0.0277 p=0.1445 n=2214
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_type_disaster__crisis_disaster_lag0: coef=0.1007 se=0.0296 p=0.0007 n=2080
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_type_climate__crisis_climate_lag0: coef=0.0937 se=0.0276 p=0.0007 n=2080
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_type_conflict__crisis_conflict_lag0: coef=0.0826 se=0.0381 p=0.0304 n=2080
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_type_health__crisis_health_lag0: coef=0.0831 se=0.0235 p=0.0004 n=2080
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_type_food__crisis_food_lag0: coef=0.0842 se=0.0284 p=0.0030 n=2080
+2026-10-13 16:23:16  INFO     emergency_temporal            crisis_type_refugee__crisis_refugee_lag0: coef=0.1027 se=0.0271 p=0.0002 n=2080
+2026-10-13 16:23:16  INFO     emergency_temporal            Wald: all 6 crisis-type coefficients = 0: chi2(6)=28.057
+2026-10-13 16:25:47  INFO     h4_common_exposure            Wrote 42 rows -> C:\Users\tkkim\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\h4_common_exposure_results.csv
+2026-10-13 16:27:25  INFO     lag_windows                   devrel_media_m1_13: coef=0.0685 se=0.0389 p=0.0789
+2026-10-13 16:27:25  INFO     lag_windows                   devrel_media_m14_25: coef=0.0371 se=0.0318 p=0.2443
+2026-10-13 16:27:25  INFO     lag_windows                   devrel_media_m26_37: coef=0.0293 se=0.0278 p=0.2916
+2026-10-13 16:28:32  INFO     evaluative_tone               devrel_media_m1_13: coef=0.1089 se=0.0467 p=0.0197
+2026-10-13 16:28:32  INFO     evaluative_tone               share_positive: coef=5.3359 se=3.8060 p=0.1611
+2026-10-13 16:28:32  INFO     evaluative_tone               share_negative: coef=-0.3502 se=0.3549 p=0.3238
+2026-10-13 16:28:52  INFO     generate_tables               Wrote table1_classifier_performance
+2026-10-13 16:28:57  INFO     generate_tables               Wrote table2_panelB_data_construction
+2026-10-13 16:29:28  INFO     generate_tables               Wrote table2_panelC_descriptives
+2026-10-13 16:29:29  INFO     generate_tables               Wrote table3_main_results
+2026-10-13 16:29:30  INFO     generate_tables               Wrote table4_robustness_summary
+2026-10-13 16:29:31  INFO     generate_tables               Wrote tableA1_temporal_placebo
+2026-10-13 16:29:31  INFO     generate_tables               Wrote tableA2_news_substance_placebo
+2026-10-13 16:29:32  INFO     generate_tables               Wrote tableA3_baseline_alt_timing
+2026-10-13 16:29:32  INFO     generate_tables               Wrote tableA4_emergency_alt_timing
+2026-10-13 16:29:33  INFO     generate_tables               Wrote tableA5_leave_one_out
+2026-10-13 16:29:35  INFO     generate_tables               Wrote tableA6_h3_bar_sensitivity
+2026-10-13 16:29:35  INFO     generate_tables               Wrote tableA7_crisis_type_heterogeneity
+2026-10-13 16:30:02  INFO     make_figure8_placebo_battery  Wrote C:\Users\tkkim\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure8_placebo_battery.png
+2026-10-13 19:36:45  INFO     run_all                       Running 28 stage(s)
+2026-10-13 19:36:45  INFO     run_all                       ======================================================================
+1. Build analytical datasets
+======================================================================
+2026-10-13 19:36:56  INFO     build_analytical_panels       Total ODA: n=94,412 commitment=$58,311.30M
+2026-10-13 19:36:56  INFO     build_analytical_panels       IO/MDB (excluded): n=1,127 ($5,452.79M)
+2026-10-13 19:36:56  INFO     build_analytical_panels       Devrel (= total - IO/MDB): n=93,285 ($52,858.51M)
+2026-10-13 19:36:56  INFO     build_analytical_panels       Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\data\analytical\devrel_country_year.csv (2,336 rows, 146 countries)
+2026-10-13 19:36:56  INFO     build_analytical_panels       Emergency/humanitarian rows: 2,167 of 94,412 (2.30%)
+2026-10-13 19:36:56  INFO     build_analytical_panels       Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\data\analytical\emergency_country_year.csv (2,336 rows, 146 countries)
+2026-10-13 19:36:57  INFO     run_all                       [build_data] OK (11.5s)
+2026-10-13 19:36:57  INFO     run_all                       ======================================================================
+2. Classifier validation
+======================================================================
+2026-10-13 19:37:10  INFO     classifier_validation         Mode 'auto' resolved to 'recompute' (found C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\diagnostics\classifier_predictions.csv).
+2026-10-13 19:37:10  INFO     classifier_validation         Recomputing metrics from saved predictions -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\diagnostics\classifier_predictions.csv (N=1954)
+2026-10-13 19:37:10  INFO     classifier_validation         Classifier performance on gold set (N=1954): Accuracy=0.9637  Precision=0.8656  Recall=0.9388  F1=0.9007  AUC-ROC=0.9896
+2026-10-13 19:37:10  INFO     classifier_validation         Wrote 9 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\diagnostics\classifier_performance.csv
+2026-10-13 19:37:11  INFO     run_all                       [classifier] OK (13.6s)
+2026-10-13 19:37:11  INFO     run_all                       ======================================================================
+2b. Human-coding reliability (Krippendorff's alpha)
+======================================================================
+2026-10-13 19:37:20  INFO     reliability_alpha             development_relevance (nominal): alpha=0.9231, n=2000
+2026-10-13 19:37:20  INFO     reliability_alpha             sentiment (ordinal): alpha=0.8143, n=333
+2026-10-13 19:37:20  INFO     reliability_alpha             crisis_flag (nominal): alpha=0.7394, n=282
+2026-10-13 19:37:20  INFO     run_all                       [reliability] OK (9.5s)
+2026-10-13 19:37:20  INFO     run_all                       ======================================================================
+3. Main model: H1 recent attention
+======================================================================
+2026-10-13 19:37:30  INFO     main_baseline                 Building analytical panel (log spec)...
+2026-10-13 19:37:42  INFO     main_baseline                 Unadjusted pooled benchmark: coef=0.4345 se=0.0134 p=0.0000 n=2336
+2026-10-13 19:37:42  INFO     main_baseline                 H1 preferred: coef=0.0843 se=0.0400 p=0.0350 n=2214
+2026-10-13 19:37:42  INFO     main_baseline                 Wrote 8 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\main_baseline_results.csv
+2026-10-13 19:37:42  INFO     run_all                       [main_baseline] OK (22.3s)
+2026-10-13 19:37:42  INFO     run_all                       ======================================================================
+3b. Temporal decomposition diagnostic
+======================================================================
+2026-10-13 19:37:53  INFO     lag_windows                   devrel_media_m1_13: coef=0.0685 se=0.0389 p=0.0789
+2026-10-13 19:37:53  INFO     lag_windows                   devrel_media_m14_25: coef=0.0371 se=0.0318 p=0.2443
+2026-10-13 19:37:53  INFO     lag_windows                   devrel_media_m26_37: coef=0.0293 se=0.0278 p=0.2916
+2026-10-13 19:37:53  INFO     run_all                       [lag_windows] OK (10.5s)
+2026-10-13 19:37:53  INFO     run_all                       ======================================================================
+4. Temporal model: H2 persistent attention
+======================================================================
+2026-10-13 19:38:03  INFO     rolling_persistence           24-month rolling average: coef=0.2011 se=0.0787 p=0.0106 n=2214
+2026-10-13 19:38:03  INFO     rolling_persistence           36-month rolling average: coef=0.2031 se=0.0911 p=0.0259 n=2075
+2026-10-13 19:38:03  INFO     rolling_persistence           60-month rolling average: coef=0.2072 se=0.1163 p=0.0749 n=1797
+2026-10-13 19:38:03  INFO     rolling_persistence           Wrote 3 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\rolling_persistence_results.csv
+2026-10-13 19:38:03  INFO     run_all                       [rolling_persistence] OK (10.6s)
+2026-10-13 19:38:03  INFO     run_all                       ======================================================================
+4b. Temporal model: H3 sustained attention
+======================================================================
+2026-10-13 19:38:16  INFO     sustained_coverage            streak>=24: coef=0.2155 se=0.0889 p=0.0155 n=2214
+2026-10-13 19:38:16  INFO     sustained_coverage            streak>=36: coef=0.2285 se=0.0860 p=0.0080 n=2214
+2026-10-13 19:38:16  INFO     sustained_coverage            streak>=60: coef=0.2019 se=0.1003 p=0.0442 n=2214
+2026-10-13 19:38:16  INFO     sustained_coverage            Wrote 3 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\sustained_coverage_results.csv
+2026-10-13 19:38:16  INFO     run_all                       [sustained_coverage] OK (12.8s)
+2026-10-13 19:38:16  INFO     run_all                       ======================================================================
+4c. Exploratory: crisis media and emergency ODA
+======================================================================
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_media_contemporaneous__crisis_media_lag0: coef=0.0967 se=0.0369 p=0.0089 n=2080
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_media_m1_13__crisis_media_m1_13: coef=0.0405 se=0.0277 p=0.1445 n=2214
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_type_disaster__crisis_disaster_lag0: coef=0.1007 se=0.0296 p=0.0007 n=2080
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_type_climate__crisis_climate_lag0: coef=0.0937 se=0.0276 p=0.0007 n=2080
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_type_conflict__crisis_conflict_lag0: coef=0.0826 se=0.0381 p=0.0304 n=2080
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_type_health__crisis_health_lag0: coef=0.0831 se=0.0235 p=0.0004 n=2080
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_type_food__crisis_food_lag0: coef=0.0842 se=0.0284 p=0.0030 n=2080
+2026-10-13 19:38:37  INFO     emergency_temporal            crisis_type_refugee__crisis_refugee_lag0: coef=0.1027 se=0.0271 p=0.0002 n=2080
+2026-10-13 19:38:37  INFO     emergency_temporal            Wald: all 6 crisis-type coefficients = 0: chi2(6)=28.057
+2026-10-13 19:38:37  INFO     run_all                       [emergency_temporal] OK (20.6s)
+2026-10-13 19:38:37  INFO     run_all                       ======================================================================
+4d. Main model: H4 emergency vs. non-emergency ODA (common DevRel exposure)
+======================================================================
+2026-10-13 19:39:09  INFO     h4_common_exposure            Wrote 42 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\h4_common_exposure_results.csv
+2026-10-13 19:39:11  INFO     run_all                       [h4_common_exposure] OK (34.2s)
+2026-10-13 19:39:11  INFO     run_all                       ======================================================================
+5. Secondary analysis: allocation margin
+======================================================================
+2026-10-13 19:39:20  INFO     allocation_margin             Zero-filled panel: 2,336 rows (146 countries x 16 years), 2,085 positive-ODA rows (89.3%)
+2026-10-13 19:39:20  INFO     allocation_margin             Extensive margin (D1): coef=0.0082 se=0.0103 p=0.4252 n=2214
+2026-10-13 19:39:20  INFO     allocation_margin             Intensive margin (D2): coef=0.1924 se=0.0675 p=0.0044 n=2020
+2026-10-13 19:39:20  INFO     allocation_margin             Wrote 2 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\allocation_margin_results.csv
+2026-10-13 19:39:20  INFO     run_all                       [allocation_margin] OK (9.1s)
+2026-10-13 19:39:20  INFO     run_all                       ======================================================================
+5b. Secondary analysis: ideological breadth
+======================================================================
+2026-10-13 19:39:41  INFO     ideological_breadth           media_x_crosspartisan: coef=0.0837 p=0.0184 n=2214
+2026-10-13 19:39:41  INFO     ideological_breadth           Wrote 3 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\ideological_breadth_results.csv
+2026-10-13 19:39:41  INFO     ideological_breadth           Figure 7 data (cross_partisan): predicted range [1.013, 1.750] across media attention [0.000, 6.763]
+2026-10-13 19:39:41  INFO     ideological_breadth           Figure 7 data (single_bloc): predicted range [1.224, 1.394] across media attention [0.000, 6.763]
+2026-10-13 19:39:41  INFO     ideological_breadth           Wrote 200 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figure7_ideological_breadth_data.csv
+2026-10-13 19:39:42  INFO     run_all                       [ideological_breadth] OK (21.5s)
+2026-10-13 19:39:42  INFO     run_all                       ======================================================================
+5c. Secondary analysis: evaluative tone
+======================================================================
+2026-10-13 19:39:56  INFO     evaluative_tone               devrel_media_m1_13: coef=0.1089 se=0.0467 p=0.0197
+2026-10-13 19:39:56  INFO     evaluative_tone               share_positive: coef=5.3359 se=3.8060 p=0.1611
+2026-10-13 19:39:56  INFO     evaluative_tone               share_negative: coef=-0.3502 se=0.3549 p=0.3238
+2026-10-13 19:39:56  INFO     run_all                       [evaluative_tone] OK (14.9s)
+2026-10-13 19:39:56  INFO     run_all                       ======================================================================
+6. Robustness: placebo tests
+======================================================================
+2026-10-13 19:40:09  INFO     placebo_tests                 placebo_future_news_raw__future_news_t1: coef=0.0481 se=0.0329 p=0.1441 n=2080
+2026-10-13 19:40:09  INFO     placebo_tests                 placebo_future_news_ar2_innovation__innovation_ar2: coef=0.0477 se=0.0327 p=0.1445 n=1941
+2026-10-13 19:40:09  INFO     placebo_tests                 placebo_future_news_m14_25_pre__devrel_media_m14_25: coef=0.0631 se=0.0341 p=0.0649 n=2214
+2026-10-13 19:40:09  INFO     placebo_tests                 placebo_future_news_m14_25_future__future_m14_25: coef=0.0258 se=0.0297 p=0.3859 n=1943
+2026-10-13 19:40:09  INFO     placebo_tests                 placebo_future_news_m26_37_pre__devrel_media_m26_37: coef=0.0442 se=0.0293 p=0.1319 n=2075
+2026-10-13 19:40:09  INFO     placebo_tests                 placebo_future_news_m26_37_future__future_m26_37: coef=0.0464 se=0.0317 p=0.1435 n=1806
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_m1_13_devrel: coef=0.0843 se=0.0400 p=0.0350 n=2214
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_m1_13_allnews: coef=0.0729 se=0.0453 p=0.1075 n=2214
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_m1_13_sports: coef=0.0319 se=0.0239 p=0.1827 n=2214
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll24_devrel: coef=0.2011 se=0.0787 p=0.0106 n=2214
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll24_allnews: coef=0.1648 se=0.0751 p=0.0282 n=2214
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll24_sports: coef=0.0383 se=0.0476 p=0.4216 n=2214
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll36_devrel: coef=0.2031 se=0.0911 p=0.0259 n=2075
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll36_allnews: coef=0.1534 se=0.0898 p=0.0878 n=2075
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll36_sports: coef=0.0342 se=0.0591 p=0.5635 n=2075
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll60_devrel: coef=0.2072 se=0.1163 p=0.0749 n=1797
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll60_allnews: coef=0.1748 se=0.1160 p=0.1319 n=1797
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_roll60_sports: coef=0.0565 se=0.0770 p=0.4634 n=1797
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_streak24_devrel: coef=0.2155 se=0.0889 p=0.0155 n=2214
+2026-10-13 19:40:15  INFO     placebo_tests                 placebo_substance_streak24_allnews: coef=0.1030 se=0.1200 p=0.3911 n=2214
+2026-10-13 19:40:16  INFO     placebo_tests                 placebo_substance_streak24_sports: coef=-0.0850 se=0.1336 p=0.5246 n=2214
+2026-10-13 19:40:16  INFO     placebo_tests                 placebo_substance_streak36_devrel: coef=0.2285 se=0.0860 p=0.0080 n=2214
+2026-10-13 19:40:16  INFO     placebo_tests                 placebo_substance_streak36_allnews: coef=0.2264 se=0.1163 p=0.0516 n=2214
+2026-10-13 19:40:16  INFO     placebo_tests                 placebo_substance_streak36_sports: coef=0.0913 se=0.1224 p=0.4559 n=2214
+2026-10-13 19:40:16  INFO     placebo_tests                 placebo_substance_streak60_devrel: coef=0.2019 se=0.1003 p=0.0442 n=2214
+2026-10-13 19:40:16  INFO     placebo_tests                 placebo_substance_streak60_allnews: coef=0.2958 se=0.0976 p=0.0025 n=2214
+2026-10-13 19:40:16  INFO     placebo_tests                 placebo_substance_streak60_sports: coef=-0.0943 se=0.1270 p=0.4579 n=2214
+2026-10-13 19:40:16  INFO     run_all                       [placebo_tests] OK (19.5s)
+2026-10-13 19:40:16  INFO     run_all                       ======================================================================
+6b. Robustness: alternative timing
+======================================================================
+2026-10-13 19:40:31  INFO     alt_timing                    lag0 (devrel_media_lag0): coef=0.1369 se=0.0460 p=0.0029 n=2336
+2026-10-13 19:40:31  INFO     alt_timing                    lag1 (devrel_media_m1_13): coef=0.0915 se=0.0445 p=0.0398 n=2336
+2026-10-13 19:40:31  INFO     alt_timing                    lag2 (devrel_media_m14_25): coef=0.0705 se=0.0376 p=0.0608 n=2336
+2026-10-13 19:40:31  INFO     alt_timing                    lag3 (devrel_media_m26_37): coef=0.0462 se=0.0296 p=0.1187 n=2190
+2026-10-13 19:40:31  INFO     alt_timing                    lag4 (devrel_media_lag4): coef=-0.0120 se=0.0323 p=0.7095 n=2044
+2026-10-13 19:40:31  INFO     alt_timing                    Wrote 5 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\alt_timing_baseline_results.csv
+2026-10-13 19:40:31  INFO     run_all                       [alt_timing] OK (14.9s)
+2026-10-13 19:40:31  INFO     run_all                       ======================================================================
+6c. Robustness: leave-one-out sensitivity
+======================================================================
+2026-10-13 19:40:48  INFO     leave_one_out                 persistent_roll24: full_coef=0.2011 p=0.0106 n_excl=141 range=[0.1361,0.2235] sign_rev=0 sig_flips=0
+2026-10-13 19:40:53  INFO     leave_one_out                 persistent_roll36: full_coef=0.2031 p=0.0259 n_excl=141 range=[0.1290,0.2314] sign_rev=0 sig_flips=0
+2026-10-13 19:40:58  INFO     leave_one_out                 persistent_roll60: full_coef=0.2072 p=0.0749 n_excl=140 range=[0.1223,0.2460] sign_rev=0 sig_flips=6
+2026-10-13 19:41:02  INFO     leave_one_out                 sustained_streak24: full_coef=0.2155 p=0.0155 n_excl=141 range=[0.1668,0.2492] sign_rev=0 sig_flips=0
+2026-10-13 19:41:07  INFO     leave_one_out                 sustained_streak36: full_coef=0.2285 p=0.0080 n_excl=141 range=[0.1740,0.2512] sign_rev=0 sig_flips=0
+2026-10-13 19:41:12  INFO     leave_one_out                 sustained_streak60: full_coef=0.2019 p=0.0442 n_excl=141 range=[0.1699,0.2324] sign_rev=0 sig_flips=0
+2026-10-13 19:41:27  INFO     leave_one_out                 h4_common_exposure_contemp_diff: full_coef=0.6738 p=1.65e-06 n_excl=141 range=[0.5625,0.7544] sign_rev=0 sig_flips=0
+2026-10-13 19:41:27  INFO     leave_one_out                 Wrote 7 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\leave_one_out_results.csv
+2026-10-13 19:41:29  INFO     run_all                       [leave_one_out] OK (58.4s)
+2026-10-13 19:41:29  INFO     run_all                       ======================================================================
+6d. Robustness: H3 coverage-bar sensitivity (Appendix Table A6)
+======================================================================
+2026-10-13 19:41:39  INFO     h3_bar_sensitivity            bar>=1 streak>=24: coef=0.0709 se=0.0981 p=0.4701 n=2214 (864/2214 = 39.0% meet the definition)
+2026-10-13 19:41:39  INFO     h3_bar_sensitivity            bar>=1 streak>=36: coef=0.1596 se=0.0745 p=0.0323 n=2214 (756/2214 = 34.1% meet the definition)
+2026-10-13 19:41:39  INFO     h3_bar_sensitivity            bar>=1 streak>=60: coef=0.2707 se=0.0972 p=0.0054 n=2214 (598/2214 = 27.0% meet the definition)
+2026-10-13 19:41:39  INFO     h3_bar_sensitivity            bar>=2 streak>=24: coef=0.1925 se=0.1072 p=0.0726 n=2214 (693/2214 = 31.3% meet the definition)
+2026-10-13 19:41:39  INFO     h3_bar_sensitivity            bar>=2 streak>=36: coef=0.2272 se=0.1120 p=0.0426 n=2214 (600/2214 = 27.1% meet the definition)
+2026-10-13 19:41:39  INFO     h3_bar_sensitivity            bar>=2 streak>=60: coef=0.2073 se=0.1138 p=0.0686 n=2214 (469/2214 = 21.2% meet the definition)
+2026-10-13 19:41:40  INFO     h3_bar_sensitivity            bar>=3 streak>=24: coef=0.2155 se=0.0889 p=0.0155 n=2214 (599/2214 = 27.1% meet the definition)
+2026-10-13 19:41:40  INFO     h3_bar_sensitivity            bar>=3 streak>=36: coef=0.2285 se=0.0860 p=0.0080 n=2214 (516/2214 = 23.3% meet the definition)
+2026-10-13 19:41:40  INFO     h3_bar_sensitivity            bar>=3 streak>=60: coef=0.2019 se=0.1003 p=0.0442 n=2214 (405/2214 = 18.3% meet the definition)
+2026-10-13 19:41:41  INFO     h3_bar_sensitivity            bar>=4 streak>=24: coef=0.1621 se=0.0959 p=0.0913 n=2214 (513/2214 = 23.2% meet the definition)
+2026-10-13 19:41:41  INFO     h3_bar_sensitivity            bar>=4 streak>=36: coef=0.1548 se=0.0916 p=0.0910 n=2214 (438/2214 = 19.8% meet the definition)
+2026-10-13 19:41:41  INFO     h3_bar_sensitivity            bar>=4 streak>=60: coef=0.1607 se=0.0963 p=0.0955 n=2214 (339/2214 = 15.3% meet the definition)
+2026-10-13 19:41:41  INFO     h3_bar_sensitivity            bar>=5 streak>=24: coef=0.2392 se=0.1157 p=0.0388 n=2214 (452/2214 = 20.4% meet the definition)
+2026-10-13 19:41:41  INFO     h3_bar_sensitivity            bar>=5 streak>=36: coef=0.1472 se=0.0939 p=0.1172 n=2214 (386/2214 = 17.4% meet the definition)
+2026-10-13 19:41:41  INFO     h3_bar_sensitivity            bar>=5 streak>=60: coef=0.1723 se=0.1039 p=0.0975 n=2214 (296/2214 = 13.4% meet the definition)
+2026-10-13 19:41:42  INFO     h3_bar_sensitivity            bar>=10 streak>=24: coef=0.2008 se=0.1183 p=0.0897 n=2214 (292/2214 = 13.2% meet the definition)
+2026-10-13 19:41:42  INFO     h3_bar_sensitivity            bar>=10 streak>=36: coef=0.0895 se=0.1626 p=0.5823 n=2214 (242/2214 = 10.9% meet the definition)
+2026-10-13 19:41:42  INFO     h3_bar_sensitivity            bar>=10 streak>=60: coef=-0.0318 se=0.1363 p=0.8156 n=2214 (186/2214 = 8.4% meet the definition)
+2026-10-13 19:41:42  INFO     h3_bar_sensitivity            Wrote 18 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\h3_bar_sensitivity_results.csv
+2026-10-13 19:41:42  INFO     h3_bar_sensitivity            Wrote 18 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\diagnostics\h3_bar_sensitivity_coverage.csv
+2026-10-13 19:41:42  INFO     run_all                       [h3_bar_sensitivity] OK (12.9s)
+2026-10-13 19:41:42  INFO     run_all                       ======================================================================
+7a. Figure 1 data + plot
+======================================================================
+2026-10-13 19:41:58  INFO     make_figure1_need_media_oda   Reference lines: x=4.014 (country-level median), y=0.0 (panel-wide standardized mean)
+2026-10-13 19:41:58  INFO     make_figure1_need_media_oda   Country-level sample: 146 recipients, 50 in top 50 by avg annual ODA
+2026-10-13 19:41:58  INFO     make_figure1_need_media_oda   Wrote 146 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figure1_need_media_oda_data.csv
+2026-10-13 19:42:00  INFO     make_figure1_need_media_oda   Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure1_need_media_oda.png
+2026-10-13 19:42:02  INFO     run_all                       [fig1] OK (19.5s)
+2026-10-13 19:42:02  INFO     run_all                       ======================================================================
+7b. Figure 2 data + plot
+======================================================================
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-37] coef=0.00729 se=0.03028 p=0.8098 n=2075
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-36] coef=0.04229 se=0.02492 p=0.0899 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-35] coef=0.05089 se=0.02616 p=0.0519 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-34] coef=0.04863 se=0.03087 p=0.1153 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-33] coef=0.04599 se=0.02915 p=0.1148 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-32] coef=0.02930 se=0.02837 p=0.3018 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-31] coef=0.07823 se=0.03324 p=0.0187 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-30] coef=0.03747 se=0.02908 p=0.1977 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-29] coef=0.03675 se=0.02185 p=0.0927 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-28] coef=0.07484 se=0.03237 p=0.0209 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-27] coef=0.03563 se=0.02560 p=0.1640 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-26] coef=0.02530 se=0.02736 p=0.3552 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-25] coef=0.02226 se=0.03131 p=0.4772 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-24] coef=0.03475 se=0.02959 p=0.2403 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-23] coef=0.04514 se=0.02611 p=0.0840 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-22] coef=0.01981 se=0.02833 p=0.4845 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-21] coef=0.06682 se=0.03426 p=0.0512 n=2214
+2026-10-13 19:42:18  INFO     make_figure2_monthly_temporal_profile  [t=-20] coef=0.06661 se=0.03124 p=0.0331 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-19] coef=0.08549 se=0.03424 p=0.0126 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-18] coef=0.05993 se=0.03862 p=0.1209 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-17] coef=0.04059 se=0.03016 p=0.1785 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-16] coef=0.06691 se=0.03742 p=0.0739 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-15] coef=0.05886 se=0.03127 p=0.0600 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-14] coef=0.04040 se=0.03284 p=0.2188 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-13] coef=0.08318 se=0.03216 p=0.0098 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-12] coef=0.02849 se=0.03094 p=0.3572 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-11] coef=0.03003 se=0.03288 p=0.3611 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t=-10] coef=0.06261 se=0.03621 p=0.0839 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -9] coef=0.08803 se=0.03842 p=0.0221 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -8] coef=0.09074 se=0.03589 p=0.0115 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -7] coef=0.08653 se=0.04070 p=0.0336 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -6] coef=0.06558 se=0.04066 p=0.1069 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -5] coef=0.06422 se=0.03540 p=0.0698 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -4] coef=0.04630 se=0.03927 p=0.2386 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -3] coef=0.08344 se=0.02973 p=0.0050 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -2] coef=0.04530 se=0.03693 p=0.2201 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= -1] coef=0.05964 se=0.03912 p=0.1275 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= +0] coef=0.08782 se=0.03187 p=0.0059 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= +1] coef=0.08641 se=0.03642 p=0.0178 n=2214
+2026-10-13 19:42:19  INFO     make_figure2_monthly_temporal_profile  [t= +2] coef=0.09388 se=0.03633 p=0.0098 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t= +3] coef=0.10215 se=0.03790 p=0.0071 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t= +4] coef=0.11276 se=0.03849 p=0.0034 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t= +5] coef=0.11912 se=0.04391 p=0.0067 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t= +6] coef=0.07163 se=0.04067 p=0.0784 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t= +7] coef=0.08591 se=0.03665 p=0.0192 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t= +8] coef=0.13584 se=0.03752 p=0.0003 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t= +9] coef=0.14579 se=0.03673 p=0.0001 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t=+10] coef=0.06684 se=0.03755 p=0.0752 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t=+11] coef=0.08868 se=0.03891 p=0.0228 n=2214
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  [t=+12] coef=0.05968 se=0.03377 p=0.0773 n=2080
+2026-10-13 19:42:20  INFO     make_figure2_monthly_temporal_profile  Wrote 50 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figure2_monthly_profile_data.csv
+2026-10-13 19:42:21  INFO     make_figure2_monthly_temporal_profile  Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure2_monthly_temporal_profile.png
+2026-10-13 19:42:24  INFO     run_all                       [fig2] OK (22.4s)
+2026-10-13 19:42:24  INFO     run_all                       ======================================================================
+7c. Figure 3 data + plot
+======================================================================
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  1mo] coef=0.04530 se=0.03693 p=0.2201 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  2mo] coef=0.08161 se=0.04261 p=0.0556 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  3mo] coef=0.08454 se=0.04948 p=0.0877 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  4mo] coef=0.10263 se=0.05265 p=0.0514 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  5mo] coef=0.11475 se=0.05757 p=0.0464 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  6mo] coef=0.13569 se=0.06225 p=0.0294 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  7mo] coef=0.15350 se=0.06308 p=0.0150 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  8mo] coef=0.15843 se=0.06440 p=0.0140 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L=  9mo] coef=0.17124 se=0.06513 p=0.0086 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L= 10mo] coef=0.15913 se=0.06553 p=0.0153 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L= 11mo] coef=0.15577 se=0.06564 p=0.0177 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L= 12mo] coef=0.16627 se=0.06669 p=0.0127 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L= 13mo] coef=0.16964 se=0.06744 p=0.0120 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L= 14mo] coef=0.17453 se=0.06771 p=0.0100 n=2214
+2026-10-13 19:42:39  INFO     make_figure3_persistent_attention  [L= 15mo] coef=0.18823 se=0.06909 p=0.0065 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 16mo] coef=0.18570 se=0.07034 p=0.0083 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 17mo] coef=0.18855 se=0.07138 p=0.0083 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 18mo] coef=0.19819 se=0.07260 p=0.0064 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 19mo] coef=0.20131 se=0.07286 p=0.0058 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 20mo] coef=0.20415 se=0.07393 p=0.0058 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 21mo] coef=0.19941 se=0.07454 p=0.0075 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 22mo] coef=0.19709 se=0.07479 p=0.0085 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 23mo] coef=0.19822 se=0.07698 p=0.0101 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 24mo] coef=0.20112 se=0.07867 p=0.0106 n=2214
+2026-10-13 19:42:40  INFO     make_figure3_persistent_attention  [L= 25mo] coef=0.19833 se=0.07991 p=0.0131 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 26mo] coef=0.20022 se=0.08102 p=0.0135 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 27mo] coef=0.20528 se=0.08186 p=0.0122 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 28mo] coef=0.20219 se=0.08240 p=0.0142 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 29mo] coef=0.20314 se=0.08316 p=0.0147 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 30mo] coef=0.20957 se=0.08459 p=0.0133 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 31mo] coef=0.21022 se=0.08525 p=0.0137 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 32mo] coef=0.20950 se=0.08610 p=0.0151 n=2214
+2026-10-13 19:42:41  INFO     make_figure3_persistent_attention  [L= 33mo] coef=0.21045 se=0.08548 p=0.0139 n=2214
+2026-10-13 19:42:42  INFO     make_figure3_persistent_attention  [L= 34mo] coef=0.20939 se=0.08502 p=0.0139 n=2214
+2026-10-13 19:42:42  INFO     make_figure3_persistent_attention  [L= 35mo] coef=0.20966 se=0.08518 p=0.0139 n=2214
+2026-10-13 19:42:42  INFO     make_figure3_persistent_attention  [L= 36mo] coef=0.20312 se=0.09114 p=0.0259 n=2075
+2026-10-13 19:42:42  INFO     make_figure3_persistent_attention  [L= 37mo] coef=0.20127 se=0.09210 p=0.0290 n=2075
+2026-10-13 19:42:42  INFO     make_figure3_persistent_attention  [L= 38mo] coef=0.20420 se=0.09327 p=0.0287 n=2075
+2026-10-13 19:42:42  INFO     make_figure3_persistent_attention  [L= 39mo] coef=0.20328 se=0.09397 p=0.0306 n=2075
+2026-10-13 19:42:42  INFO     make_figure3_persistent_attention  [L= 40mo] coef=0.20295 se=0.09436 p=0.0316 n=2075
+2026-10-13 19:42:43  INFO     make_figure3_persistent_attention  [L= 41mo] coef=0.20496 se=0.09460 p=0.0304 n=2075
+2026-10-13 19:42:43  INFO     make_figure3_persistent_attention  [L= 42mo] coef=0.20566 se=0.09549 p=0.0314 n=2075
+2026-10-13 19:42:43  INFO     make_figure3_persistent_attention  [L= 43mo] coef=0.20815 se=0.09647 p=0.0311 n=2075
+2026-10-13 19:42:43  INFO     make_figure3_persistent_attention  [L= 44mo] coef=0.20959 se=0.09723 p=0.0312 n=2075
+2026-10-13 19:42:43  INFO     make_figure3_persistent_attention  [L= 45mo] coef=0.20774 se=0.09745 p=0.0331 n=2075
+2026-10-13 19:42:43  INFO     make_figure3_persistent_attention  [L= 46mo] coef=0.19974 se=0.09876 p=0.0433 n=2075
+2026-10-13 19:42:44  INFO     make_figure3_persistent_attention  [L= 47mo] coef=0.19471 se=0.09921 p=0.0498 n=2075
+2026-10-13 19:42:44  INFO     make_figure3_persistent_attention  [L= 48mo] coef=0.17288 se=0.10682 p=0.1058 n=1936
+2026-10-13 19:42:44  INFO     make_figure3_persistent_attention  [L= 49mo] coef=0.17512 se=0.10712 p=0.1023 n=1936
+2026-10-13 19:42:44  INFO     make_figure3_persistent_attention  [L= 50mo] coef=0.17709 se=0.10757 p=0.0999 n=1936
+2026-10-13 19:42:44  INFO     make_figure3_persistent_attention  [L= 51mo] coef=0.18226 se=0.10814 p=0.0921 n=1936
+2026-10-13 19:42:45  INFO     make_figure3_persistent_attention  [L= 52mo] coef=0.18598 se=0.10783 p=0.0848 n=1936
+2026-10-13 19:42:45  INFO     make_figure3_persistent_attention  [L= 53mo] coef=0.19000 se=0.10882 p=0.0810 n=1936
+2026-10-13 19:42:45  INFO     make_figure3_persistent_attention  [L= 54mo] coef=0.19189 se=0.11007 p=0.0815 n=1936
+2026-10-13 19:42:45  INFO     make_figure3_persistent_attention  [L= 55mo] coef=0.18927 se=0.11089 p=0.0880 n=1936
+2026-10-13 19:42:45  INFO     make_figure3_persistent_attention  [L= 56mo] coef=0.18821 se=0.11153 p=0.0917 n=1936
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  [L= 57mo] coef=0.18673 se=0.11189 p=0.0953 n=1936
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  [L= 58mo] coef=0.18595 se=0.11272 p=0.0992 n=1936
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  [L= 59mo] coef=0.18285 se=0.11330 p=0.1067 n=1936
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  [L= 60mo] coef=0.20724 se=0.11627 p=0.0749 n=1797
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  Wrote 60 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figure3_persistent_attention_data.csv
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  Cross-check L=24: coef=0.2011 (rolling_persistence_results.csv should match)
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  Cross-check L=36: coef=0.2031 (rolling_persistence_results.csv should match)
+2026-10-13 19:42:46  INFO     make_figure3_persistent_attention  Cross-check L=60: coef=0.2072 (rolling_persistence_results.csv should match)
+2026-10-13 19:42:47  INFO     make_figure3_persistent_attention  Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure3_persistent_attention.png
+2026-10-13 19:42:50  INFO     run_all                       [fig3] OK (25.5s)
+2026-10-13 19:42:50  INFO     run_all                       ======================================================================
+7d. Figure 4 data + plot
+======================================================================
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  1mo] coef=0.04426 se=0.04874 p=0.3638 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  2mo] coef=0.03294 se=0.06137 p=0.5915 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  3mo] coef=0.02369 se=0.06156 p=0.7004 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  4mo] coef=0.08395 se=0.07156 p=0.2409 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  5mo] coef=0.06181 se=0.08118 p=0.4466 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  6mo] coef=0.03820 se=0.08109 p=0.6377 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  7mo] coef=0.05892 se=0.08238 p=0.4745 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  8mo] coef=0.00273 se=0.08310 p=0.9738 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>=  9mo] coef=-0.04940 se=0.09219 p=0.5922 n=2214
+2026-10-13 19:43:03  INFO     make_figure4_streak_threshold_profile  [streak>= 10mo] coef=0.03756 se=0.09452 p=0.6911 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 11mo] coef=0.03024 se=0.08997 p=0.7368 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 12mo] coef=0.05310 se=0.09582 p=0.5795 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 13mo] coef=0.08763 se=0.09309 p=0.3466 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 14mo] coef=0.10244 se=0.10274 p=0.3188 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 15mo] coef=0.12638 se=0.10253 p=0.2179 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 16mo] coef=0.15517 se=0.09938 p=0.1186 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 17mo] coef=0.17607 se=0.10387 p=0.0902 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 18mo] coef=0.17451 se=0.10453 p=0.0952 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 19mo] coef=0.18678 se=0.10520 p=0.0760 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 20mo] coef=0.21449 se=0.10744 p=0.0460 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 21mo] coef=0.21287 se=0.10734 p=0.0475 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 22mo] coef=0.21876 se=0.10575 p=0.0387 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 23mo] coef=0.24617 se=0.11035 p=0.0258 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 24mo] coef=0.21547 se=0.08895 p=0.0155 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 25mo] coef=0.20500 se=0.09580 p=0.0325 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 26mo] coef=0.22717 se=0.09121 p=0.0128 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 27mo] coef=0.25558 se=0.09337 p=0.0062 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 28mo] coef=0.30456 se=0.09638 p=0.0016 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 29mo] coef=0.30070 se=0.10267 p=0.0034 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 30mo] coef=0.30084 se=0.10325 p=0.0036 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 31mo] coef=0.26912 se=0.09929 p=0.0068 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 32mo] coef=0.27933 se=0.10002 p=0.0053 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 33mo] coef=0.27171 se=0.09945 p=0.0063 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 34mo] coef=0.23910 se=0.09754 p=0.0143 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 35mo] coef=0.21637 se=0.09953 p=0.0298 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 36mo] coef=0.22851 se=0.08602 p=0.0080 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 37mo] coef=0.20862 se=0.09190 p=0.0233 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 38mo] coef=0.20950 se=0.09235 p=0.0234 n=2214
+2026-10-13 19:43:04  INFO     make_figure4_streak_threshold_profile  [streak>= 39mo] coef=0.20621 se=0.09290 p=0.0266 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 40mo] coef=0.16558 se=0.08506 p=0.0517 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 41mo] coef=0.17260 se=0.08529 p=0.0431 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 42mo] coef=0.17133 se=0.08639 p=0.0475 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 43mo] coef=0.17888 se=0.08692 p=0.0397 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 44mo] coef=0.17710 se=0.08922 p=0.0473 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 45mo] coef=0.15469 se=0.09038 p=0.0871 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 46mo] coef=0.16390 se=0.08878 p=0.0650 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 47mo] coef=0.15945 se=0.09258 p=0.0852 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 48mo] coef=0.17114 se=0.08681 p=0.0488 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 49mo] coef=0.19347 se=0.08688 p=0.0261 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 50mo] coef=0.20149 se=0.08703 p=0.0207 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 51mo] coef=0.20546 se=0.08691 p=0.0182 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 52mo] coef=0.19841 se=0.08339 p=0.0174 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 53mo] coef=0.18278 se=0.08787 p=0.0376 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 54mo] coef=0.18174 se=0.08843 p=0.0400 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 55mo] coef=0.17499 se=0.08754 p=0.0457 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 56mo] coef=0.17499 se=0.08754 p=0.0457 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 57mo] coef=0.17499 se=0.08754 p=0.0457 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 58mo] coef=0.17650 se=0.08772 p=0.0443 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 59mo] coef=0.17818 se=0.08834 p=0.0438 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  [streak>= 60mo] coef=0.20191 se=0.10027 p=0.0442 n=2214
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  Wrote 60 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figure4_streak_threshold_data.csv
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  Cross-check L=24: coef=0.2155 (sustained_coverage_results.csv should match)
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  Cross-check L=36: coef=0.2285 (sustained_coverage_results.csv should match)
+2026-10-13 19:43:05  INFO     make_figure4_streak_threshold_profile  Cross-check L=60: coef=0.2019 (sustained_coverage_results.csv should match)
+2026-10-13 19:43:06  INFO     make_figure4_streak_threshold_profile  Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure4_streak_threshold_profile.png
+2026-10-13 19:43:09  INFO     run_all                       [fig4] OK (19.8s)
+2026-10-13 19:43:09  INFO     run_all                       ======================================================================
+7e. Figure 5 data + plot
+======================================================================
+2026-10-13 19:43:21  INFO     make_figure5_ppml_contrast    Wrote 12 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figure5_ppml_contrast_data.csv
+2026-10-13 19:43:23  INFO     make_figure5_ppml_contrast    Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure5_ppml_contrast.png
+2026-10-13 19:43:25  INFO     run_all                       [fig5] OK (15.9s)
+2026-10-13 19:43:25  INFO     run_all                       ======================================================================
+7f. Figure 6 data + plot
+======================================================================
+2026-10-13 19:43:42  INFO     make_figure6_oda_threshold_sensitivity  Zero-filled panel: 2,336 rows (146 countries), 2,085 positive-ODA rows (89.3%)
+2026-10-13 19:43:42  INFO     make_figure6_oda_threshold_sensitivity  n_positive=2085 country-years for the empirical threshold grid
+2026-10-13 19:43:42  INFO     make_figure6_oda_threshold_sensitivity  [p 1, thr=$7,264] coef=0.00774 se=0.00976 p=0.4277 n=2214
+2026-10-13 19:43:42  INFO     make_figure6_oda_threshold_sensitivity  [p 2, thr=$10,737] coef=0.00965 se=0.01000 p=0.3346 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p 3, thr=$14,619] coef=0.00789 se=0.01009 p=0.4342 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p 4, thr=$19,047] coef=0.01107 se=0.01045 p=0.2894 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p 5, thr=$24,123] coef=0.00987 se=0.01061 p=0.3524 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p 6, thr=$30,967] coef=0.01439 se=0.01095 p=0.1890 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p 7, thr=$38,103] coef=0.01461 se=0.01193 p=0.2208 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p 8, thr=$46,573] coef=0.01559 se=0.01285 p=0.2251 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p 9, thr=$55,290] coef=0.01847 se=0.01303 p=0.1565 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p10, thr=$65,430] coef=0.01877 se=0.01401 p=0.1805 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p11, thr=$77,699] coef=0.01920 se=0.01445 p=0.1841 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p12, thr=$85,940] coef=0.02077 se=0.01385 p=0.1340 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p13, thr=$92,277] coef=0.02897 se=0.01419 p=0.0414 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p14, thr=$101,724] coef=0.03089 se=0.01434 p=0.0314 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p15, thr=$108,990] coef=0.03333 se=0.01418 p=0.0188 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p16, thr=$114,453] coef=0.03172 se=0.01432 p=0.0268 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p17, thr=$121,769] coef=0.03431 se=0.01392 p=0.0138 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p18, thr=$132,365] coef=0.03823 se=0.01425 p=0.0073 n=2214
+2026-10-13 19:43:43  INFO     make_figure6_oda_threshold_sensitivity  [p19, thr=$144,922] coef=0.03758 se=0.01430 p=0.0087 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p20, thr=$156,668] coef=0.03675 se=0.01517 p=0.0155 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p21, thr=$165,927] coef=0.04565 se=0.01394 p=0.0011 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p22, thr=$183,581] coef=0.04618 se=0.01415 p=0.0011 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p23, thr=$195,681] coef=0.03845 se=0.01339 p=0.0041 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p24, thr=$212,750] coef=0.03499 se=0.01295 p=0.0069 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p25, thr=$230,577] coef=0.03007 se=0.01331 p=0.0240 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p26, thr=$246,749] coef=0.02954 se=0.01405 p=0.0357 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p27, thr=$269,894] coef=0.03846 se=0.01391 p=0.0057 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p28, thr=$293,627] coef=0.04063 se=0.01359 p=0.0028 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p29, thr=$312,048] coef=0.03915 se=0.01294 p=0.0025 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p30, thr=$337,689] coef=0.04370 se=0.01319 p=0.0009 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p31, thr=$370,581] coef=0.04909 se=0.01339 p=0.0003 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p32, thr=$397,631] coef=0.05130 se=0.01367 p=0.0002 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p33, thr=$432,479] coef=0.05434 se=0.01410 p=0.0001 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p34, thr=$461,569] coef=0.05072 se=0.01498 p=0.0007 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p35, thr=$502,846] coef=0.04194 se=0.01456 p=0.0040 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p36, thr=$526,683] coef=0.04714 se=0.01414 p=0.0009 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p37, thr=$566,021] coef=0.03933 se=0.01365 p=0.0040 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p38, thr=$606,467] coef=0.03775 se=0.01373 p=0.0060 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p39, thr=$634,097] coef=0.03526 se=0.01411 p=0.0125 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p40, thr=$659,886] coef=0.04113 se=0.01491 p=0.0058 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p41, thr=$697,951] coef=0.03747 se=0.01507 p=0.0130 n=2214
+2026-10-13 19:43:44  INFO     make_figure6_oda_threshold_sensitivity  [p42, thr=$740,829] coef=0.03096 se=0.01502 p=0.0395 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p43, thr=$795,347] coef=0.03309 se=0.01496 p=0.0271 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p44, thr=$869,198] coef=0.03286 se=0.01503 p=0.0290 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p45, thr=$986,154] coef=0.03786 se=0.01498 p=0.0116 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p46, thr=$1,048,631] coef=0.03949 se=0.01472 p=0.0074 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p47, thr=$1,140,075] coef=0.03789 se=0.01416 p=0.0075 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p48, thr=$1,195,498] coef=0.03003 se=0.01438 p=0.0368 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p49, thr=$1,364,562] coef=0.02474 se=0.01471 p=0.0928 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p50, thr=$1,483,909] coef=0.02766 se=0.01472 p=0.0605 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p51, thr=$1,540,689] coef=0.02820 se=0.01423 p=0.0477 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p52, thr=$1,651,755] coef=0.02977 se=0.01449 p=0.0401 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p53, thr=$1,730,179] coef=0.03037 se=0.01440 p=0.0351 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p54, thr=$1,820,828] coef=0.02572 se=0.01397 p=0.0657 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p55, thr=$2,066,051] coef=0.02502 se=0.01388 p=0.0717 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p56, thr=$2,353,328] coef=0.01778 se=0.01428 p=0.2132 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p57, thr=$2,571,248] coef=0.01235 se=0.01434 p=0.3894 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p58, thr=$2,837,894] coef=0.00976 se=0.01350 p=0.4697 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p59, thr=$3,102,456] coef=0.00456 se=0.01378 p=0.7408 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p60, thr=$3,390,196] coef=0.00599 se=0.01375 p=0.6631 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p61, thr=$3,713,367] coef=0.00394 se=0.01439 p=0.7845 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p62, thr=$4,001,130] coef=0.00334 se=0.01425 p=0.8144 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p63, thr=$4,454,436] coef=0.00246 se=0.01400 p=0.8603 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p64, thr=$4,816,992] coef=0.00330 se=0.01437 p=0.8186 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p65, thr=$5,150,552] coef=0.00350 se=0.01386 p=0.8007 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p66, thr=$5,570,455] coef=0.00927 se=0.01306 p=0.4781 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p67, thr=$5,978,147] coef=0.01069 se=0.01280 p=0.4038 n=2214
+2026-10-13 19:43:45  INFO     make_figure6_oda_threshold_sensitivity  [p68, thr=$6,301,008] coef=0.01289 se=0.01283 p=0.3152 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p69, thr=$6,907,610] coef=0.01392 se=0.01311 p=0.2885 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p70, thr=$7,453,224] coef=0.01696 se=0.01283 p=0.1864 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p71, thr=$8,282,655] coef=0.02063 se=0.01261 p=0.1020 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p72, thr=$8,765,758] coef=0.01780 se=0.01251 p=0.1550 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p73, thr=$9,759,690] coef=0.01915 se=0.01291 p=0.1382 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p74, thr=$10,468,455] coef=0.01659 se=0.01322 p=0.2097 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p75, thr=$11,191,996] coef=0.01978 se=0.01307 p=0.1305 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p76, thr=$11,911,997] coef=0.02051 se=0.01276 p=0.1081 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p77, thr=$13,131,365] coef=0.02194 se=0.01301 p=0.0918 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p78, thr=$14,177,206] coef=0.02480 se=0.01315 p=0.0595 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p79, thr=$15,622,630] coef=0.02560 se=0.01264 p=0.0430 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p80, thr=$17,636,109] coef=0.02552 se=0.01250 p=0.0414 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p81, thr=$19,557,134] coef=0.02691 se=0.01219 p=0.0274 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p82, thr=$20,739,524] coef=0.03013 se=0.01235 p=0.0148 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p83, thr=$23,156,532] coef=0.02802 se=0.01231 p=0.0229 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p84, thr=$26,067,138] coef=0.02034 se=0.01094 p=0.0631 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p85, thr=$28,038,227] coef=0.02477 se=0.01135 p=0.0292 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p86, thr=$31,248,898] coef=0.02308 se=0.01051 p=0.0283 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p87, thr=$34,698,227] coef=0.02305 se=0.01012 p=0.0229 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p88, thr=$40,638,969] coef=0.01645 se=0.00812 p=0.0429 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p89, thr=$47,391,021] coef=0.01443 se=0.00759 p=0.0573 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p90, thr=$55,094,541] coef=0.01156 se=0.00703 p=0.1000 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p91, thr=$63,525,540] coef=0.00931 se=0.00532 p=0.0799 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p92, thr=$76,964,530] coef=0.00419 se=0.00536 p=0.4344 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p93, thr=$85,869,190] coef=0.00613 se=0.00601 p=0.3081 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p94, thr=$100,889,736] coef=0.00128 se=0.00523 p=0.8060 n=2214
+2026-10-13 19:43:46  INFO     make_figure6_oda_threshold_sensitivity  [p95, thr=$112,714,296] coef=-0.00122 se=0.00512 p=0.8122 n=2214
+2026-10-13 19:43:47  INFO     make_figure6_oda_threshold_sensitivity  [p96, thr=$134,984,246] coef=-0.00271 se=0.00571 p=0.6349 n=2214
+2026-10-13 19:43:47  INFO     make_figure6_oda_threshold_sensitivity  [p97, thr=$164,564,366] coef=-0.00292 se=0.00585 p=0.6182 n=2214
+2026-10-13 19:43:47  INFO     make_figure6_oda_threshold_sensitivity  [p98, thr=$223,116,544] coef=-0.00438 se=0.00504 p=0.3856 n=2214
+2026-10-13 19:43:47  INFO     make_figure6_oda_threshold_sensitivity  [p99, thr=$293,501,793] coef=-0.00426 se=0.00405 p=0.2931 n=2214
+2026-10-13 19:43:47  INFO     make_figure6_oda_threshold_sensitivity  Wrote 99 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figure6_oda_threshold_data.csv
+2026-10-13 19:43:50  INFO     make_figure6_oda_threshold_sensitivity  Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure6_oda_threshold_sensitivity.png
+2026-10-13 19:43:52  INFO     run_all                       [fig6] OK (27.1s)
+2026-10-13 19:43:52  INFO     run_all                       ======================================================================
+7g. Figure 7 plot (data already built by ideological_breadth.py)
+======================================================================
+2026-10-13 19:43:58  INFO     make_figure7_ideological_breadth  Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure7_ideological_breadth.png
+2026-10-13 19:43:58  INFO     run_all                       [fig7] OK (5.5s)
+2026-10-13 19:43:58  INFO     run_all                       ======================================================================
+7h. Figure 8 data + plot
+======================================================================
+2026-10-13 19:44:11  INFO     make_figure8_placebo_battery  Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figure8_placebo_battery.png
+2026-10-13 19:44:13  INFO     run_all                       [fig8] OK (15.2s)
+2026-10-13 19:44:13  INFO     run_all                       ======================================================================
+7i. Figure A2 data + plot
+======================================================================
+2026-10-13 19:44:29  INFO     make_figureA2_classifier_performance  Wrote 2061 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figureA2_classifier_performance_data.csv (AUC-ROC=0.9896, AP=0.9571)
+2026-10-13 19:44:29  INFO     make_figureA2_classifier_performance  Wrote 4 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figure_data\figureA2_confusion_matrix_data.csv
+2026-10-13 19:44:29  INFO     make_figureA2_classifier_performance  classifier_performance.csv reports auc_roc=0.9896 (recomputed here from the same predictions: 0.9896)
+2026-10-13 19:44:32  INFO     make_figureA2_classifier_performance  Wrote C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\figures\figureA2_classifier_performance.png
+2026-10-13 19:44:35  INFO     run_all                       [figA2] OK (21.7s)
+2026-10-13 19:44:35  INFO     run_all                       ======================================================================
+8. Generate all tables (Table 1-4, A1-A7)
+======================================================================
+2026-10-13 19:44:50  INFO     generate_tables               Wrote table1_classifier_performance
+2026-10-13 19:45:02  INFO     generate_tables               Wrote table2_panelB_data_construction
+2026-10-13 19:45:20  INFO     generate_tables               Wrote table2_panelC_descriptives
+2026-10-13 19:45:20  INFO     generate_tables               Wrote table3_main_results
+2026-10-13 19:45:20  INFO     generate_tables               Wrote table4_robustness_summary
+2026-10-13 19:45:20  INFO     generate_tables               Wrote tableA1_temporal_placebo
+2026-10-13 19:45:20  INFO     generate_tables               Wrote tableA2_news_substance_placebo
+2026-10-13 19:45:21  INFO     generate_tables               Wrote tableA3_baseline_alt_timing
+2026-10-13 19:45:21  INFO     generate_tables               Wrote tableA4_emergency_alt_timing
+2026-10-13 19:45:21  INFO     generate_tables               Wrote tableA5_leave_one_out
+2026-10-13 19:45:21  INFO     generate_tables               Wrote tableA6_h3_bar_sensitivity
+2026-10-13 19:45:22  INFO     generate_tables               Wrote tableA7_crisis_type_heterogeneity
+2026-10-13 19:45:23  INFO     run_all                       [tables] OK (48.1s)
+2026-10-13 19:45:23  INFO     run_all                       ======================================================================
+9. Consolidate text-only reported numbers
+======================================================================
+2026-10-13 19:45:52  INFO     build_reported_text_results   Wrote 97 rows -> C:\Users\donke\Dropbox\donkee's research\300. Ongoing\[W  . DEV] SDG public sentiment and ODA allocation\03. Analysis\SDG-media-correlation\replication_package_public\results\models\reported_text_results.csv
+2026-10-13 19:45:53  INFO     run_all                       [reported_text] OK (30.0s)
+2026-10-13 19:45:53  INFO     run_all                       ======================================================================
+10. Validation checks
+======================================================================
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/oda_clean.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/panel_country_sdg_month.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/country_year_controls.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/crisis_news_country_month.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/devrel_country_year.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/emergency_country_year.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/outlet_article_counts_long.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/sports_country_month.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  data/analytical/allnews_country_month.csv exists
+2026-10-13 19:46:05  INFO     validate                      PASS  classifier checkpoint present
+2026-10-13 19:46:05  INFO     validate                      PASS  classifier gold set present
+2026-10-13 19:46:12  INFO     validate                      PASS  ODA project count == 94,412
+2026-10-13 19:46:12  INFO     validate                      PASS  devrel panel N == 2,336
+2026-10-13 19:46:12  INFO     validate                      PASS  devrel panel countries == 146
+2026-10-13 19:46:12  INFO     validate                      PASS  devrel panel has no duplicate (country, year) keys
+2026-10-13 19:46:12  INFO     validate                      PASS  emergency panel N == 2,336 (full universe, pre crisis-media merge)
+2026-10-13 19:46:12  INFO     validate                      PASS  emergency panel has no duplicate (country, year) keys
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/main_baseline_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/main_baseline_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/lag_windows_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/lag_windows_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/rolling_persistence_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/rolling_persistence_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/sustained_coverage_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/sustained_coverage_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/emergency_temporal_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/emergency_temporal_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/emergency_temporal_wald_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/emergency_temporal_wald_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/h4_common_exposure_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/h4_common_exposure_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/allocation_margin_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/allocation_margin_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/ideological_breadth_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/ideological_breadth_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/evaluative_tone_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/evaluative_tone_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/placebo_future_news_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/placebo_future_news_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/placebo_news_substance_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/placebo_news_substance_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/alt_timing_baseline_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/alt_timing_baseline_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/leave_one_out_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/leave_one_out_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/h3_bar_sensitivity_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/h3_bar_sensitivity_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/reported_text_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/models/reported_text_results.csv is non-empty
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/table1_classifier_performance.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/table2_panelB_data_construction.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/table2_panelC_descriptives.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/table3_main_results.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/table4_robustness_summary.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/tableA1_temporal_placebo.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/tableA2_news_substance_placebo.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/tableA3_baseline_alt_timing.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/tableA4_emergency_alt_timing.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/tableA5_leave_one_out.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/tableA6_h3_bar_sensitivity.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/tables/tableA7_crisis_type_heterogeneity.csv exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/figures/figure1_need_media_oda.png exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/figures/figure2_monthly_temporal_profile.png exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/figures/figure3_persistent_attention.png exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/figures/figure4_streak_threshold_profile.png exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/figures/figure5_ppml_contrast.png exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/figures/figure6_oda_threshold_sensitivity.png exists
+2026-10-13 19:46:12  INFO     validate                      PASS  results/figures/figure7_ideological_breadth.png exists
+2026-10-13 19:46:13  INFO     validate                      PASS  results/figures/figure8_placebo_battery.png exists
+2026-10-13 19:46:13  INFO     validate                      PASS  results/figures/figureA2_classifier_performance.png exists
+2026-10-13 19:46:13  INFO     validate                      PASS  results/diagnostics/classifier_performance.csv exists
+2026-10-13 19:46:13  INFO     validate                      PASS  results/diagnostics/classifier_predictions.csv exists
+2026-10-13 19:46:13  INFO     validate                      PASS  results/diagnostics/reliability_alpha.csv exists
+2026-10-13 19:46:13  INFO     validate                      PASS  results/diagnostics/h3_bar_sensitivity_coverage.csv exists
+2026-10-13 19:46:13  INFO     validate                      PASS  results/diagnostics/h4_common_exposure_data_checks.csv exists
+2026-10-13 19:46:13  INFO     validate                      PASS  main_baseline_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  main_baseline_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  lag_windows_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  lag_windows_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  rolling_persistence_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  rolling_persistence_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  sustained_coverage_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  sustained_coverage_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  emergency_temporal_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  emergency_temporal_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  h4_common_exposure_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  h4_common_exposure_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  allocation_margin_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  allocation_margin_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  ideological_breadth_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  ideological_breadth_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  evaluative_tone_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  evaluative_tone_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  placebo_future_news_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  placebo_future_news_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  placebo_news_substance_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  placebo_news_substance_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  alt_timing_baseline_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  alt_timing_baseline_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  h3_bar_sensitivity_results.csv has all standardized schema columns
+2026-10-13 19:46:13  INFO     validate                      PASS  h3_bar_sensitivity_results.csv specification_id values are unique
+2026-10-13 19:46:13  INFO     validate                      PASS  no unexpected files in results/models/
+2026-10-13 19:46:13  INFO     validate                      PASS  no unexpected files in results/tables/
+2026-10-13 19:46:13  INFO     validate                      PASS  figure7 data file is non-empty and interaction coefficient exists in source model results
+2026-10-13 19:46:13  INFO     validate                      PASS  figure5 plots the revised-H4 extended model (contemporaneous difference matches source)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_unadjusted_pooled :: coefficient (expected 0.4345, got 0.4345, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_preferred__devrel_media_m1_13 :: coefficient (expected 0.0843, got 0.0843, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_preferred__devrel_media_m1_13 :: p_value (expected 0.035, got 0.0350, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: main_baseline_results.csv :: H1_preferred__devrel_media_m1_13 :: n (expected 2214.0, got 2214.0000, tol 0.0)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: lag_windows_results.csv :: lag_windows_joint__devrel_media_m1_13 :: coefficient (expected 0.068, got 0.0685, tol 0.005)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: rolling_persistence_results.csv :: H2_devrel_media_roll24__devrel_media_roll24 :: coefficient (expected 0.2011, got 0.2011, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: rolling_persistence_results.csv :: H2_devrel_media_roll36__devrel_media_roll36 :: coefficient (expected 0.2031, got 0.2031, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: rolling_persistence_results.csv :: H2_devrel_media_roll60__devrel_media_roll60 :: coefficient (expected 0.2072, got 0.2072, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: sustained_coverage_results.csv :: H3_streak_ge24__streak_ge24 :: coefficient (expected 0.2155, got 0.2155, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: sustained_coverage_results.csv :: H3_streak_ge36__streak_ge36 :: coefficient (expected 0.2285, got 0.2285, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: sustained_coverage_results.csv :: H3_streak_ge60__streak_ge60 :: coefficient (expected 0.2019, got 0.2019, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: emergency_temporal_results.csv :: crisis_media_contemporaneous__crisis_media_lag0 :: coefficient (expected 0.0967, got 0.0967, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: allocation_margin_results.csv :: allocation_margin_extensive__devrel_media_m1_13 :: coefficient (expected 0.0082, got 0.0082, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: allocation_margin_results.csv :: allocation_margin_intensive__devrel_media_m1_13 :: coefficient (expected 0.1924, got 0.1924, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: ideological_breadth_results.csv :: ideological_breadth_crosspartisan__media_x_crosspartisan :: coefficient (expected 0.0837, got 0.0837, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: evaluative_tone_results.csv :: evaluative_tone_additive__devrel_media_m1_13 :: coefficient (expected 0.1089, got 0.1089, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: placebo_future_news_results.csv :: placebo_future_news_ar2_innovation__innovation_ar2 :: p_value (expected 0.1445, got 0.1445, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: placebo_news_substance_results.csv :: placebo_substance_m1_13_sports :: p_value (expected 0.183, got 0.1827, tol 0.01)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: placebo_news_substance_results.csv :: placebo_substance_m1_13_allnews :: coefficient (expected 0.0729, got 0.0729, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: alt_timing_baseline_results.csv :: alt_timing_lag0__devrel_media_lag0 :: coefficient (expected 0.1369, got 0.1369, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: classifier_performance.csv :: f1 :: value (expected 0.9007, got 0.9007, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: classifier_performance.csv :: test_n :: value (expected 1954.0, got 1954.0000, tol 0.0)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: reliability_alpha.csv :: development_relevance :: alpha (expected 0.9231, got 0.9231, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: reliability_alpha.csv :: crisis_flag :: alpha (expected 0.7394, got 0.7394, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h3_bar_sensitivity_results.csv :: H3_bar_sensitivity_bar3_ge24__streak_ge24 :: coefficient (expected 0.2155, got 0.2155, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h3_bar_sensitivity_results.csv :: H3_bar_sensitivity_bar3_ge36__streak_ge36 :: coefficient (expected 0.2285, got 0.2285, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h3_bar_sensitivity_results.csv :: H3_bar_sensitivity_bar3_ge60__streak_ge60 :: coefficient (expected 0.2019, got 0.2019, tol 0.001)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h4_common_exposure_results.csv :: H4_primary__emergency_contemporaneous :: coefficient (expected 0.7122, got 0.7122, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h4_common_exposure_results.csv :: H4_primary__nonemergency_contemporaneous :: coefficient (expected 0.0384, got 0.0384, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h4_common_exposure_results.csv :: H4_primary__diff_emergency_minus_nonemergency_contemporaneous :: coefficient (expected 0.6738, got 0.6738, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h4_common_exposure_results.csv :: H4_extended__diff_emergency_minus_nonemergency_contemporaneous :: coefficient (expected 0.6597, got 0.6597, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h4_common_exposure_results.csv :: H4_loglinear__diff_emergency_minus_nonemergency_contemporaneous :: coefficient (expected 0.0057, got 0.0057, tol 0.002)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h4_common_exposure_data_checks.csv :: media_exposure_mismatches :: value (expected 0.0, got 0.0000, tol 0.0)
+2026-10-13 19:46:13  INFO     validate                      PASS  snapshot: h4_common_exposure_data_checks.csv :: max_abs_partition_error_musd :: value (expected 0.0, got 0.0000, tol 1e-06)
+2026-10-13 19:46:13  INFO     validate                      
+======================================================================
+139 passed, 0 failed
+======================================================================
+2026-10-13 19:46:13  INFO     validate                      All validation checks passed.
+2026-10-13 19:46:15  INFO     run_all                       [validate] OK (21.6s)
+2026-10-13 19:46:15  INFO     run_all                       
+======================================================================
+SUMMARY (569.4s total)
+======================================================================
+2026-10-13 19:46:15  INFO     run_all                         OK    build_data               11.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    classifier               13.6s
+2026-10-13 19:46:15  INFO     run_all                         OK    reliability               9.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    main_baseline            22.3s
+2026-10-13 19:46:15  INFO     run_all                         OK    lag_windows              10.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    rolling_persistence      10.6s
+2026-10-13 19:46:15  INFO     run_all                         OK    sustained_coverage       12.8s
+2026-10-13 19:46:15  INFO     run_all                         OK    emergency_temporal       20.6s
+2026-10-13 19:46:15  INFO     run_all                         OK    h4_common_exposure       34.2s
+2026-10-13 19:46:15  INFO     run_all                         OK    allocation_margin         9.1s
+2026-10-13 19:46:15  INFO     run_all                         OK    ideological_breadth      21.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    evaluative_tone          14.9s
+2026-10-13 19:46:15  INFO     run_all                         OK    placebo_tests            19.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    alt_timing               14.9s
+2026-10-13 19:46:15  INFO     run_all                         OK    leave_one_out            58.4s
+2026-10-13 19:46:15  INFO     run_all                         OK    h3_bar_sensitivity       12.9s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig1                     19.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig2                     22.4s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig3                     25.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig4                     19.8s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig5                     15.9s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig6                     27.1s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig7                      5.5s
+2026-10-13 19:46:15  INFO     run_all                         OK    fig8                     15.2s
+2026-10-13 19:46:15  INFO     run_all                         OK    figA2                    21.7s
+2026-10-13 19:46:15  INFO     run_all                         OK    tables                   48.1s
+2026-10-13 19:46:15  INFO     run_all                         OK    reported_text            30.0s
+2026-10-13 19:46:15  INFO     run_all                         OK    validate                 21.6s
+2026-10-13 19:46:15  INFO     run_all                       
+All stages completed successfully.

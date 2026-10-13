@@ -1,17 +1,9 @@
 """
-True rolling-month lag/window construction over the country x SDG x month
-media panel.
-
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/monthly_lags.py. Core primitive: month_lag_k = k
-months before January 1 of year t, located by explicit
-(calendar_month, year_offset) lookup rather than by relabeling a whole
-prior-year block -- this generalizes cleanly to any k.
-
-Zero-fill convention: a source (entity, year, month) with no rows at all is
-true zero coverage IF that month falls inside the corpus's active range
-[min_ym, max_ym]; a request reaching before the corpus began returns NaN
-(coverage there is unknown, not zero).
+Monthly lag-window construction over the country x SDG x month media panel.
+month_lag_k is k months before January of year t, located by explicit
+(calendar month, year offset) lookup; windows sum or average months
+start_k..end_k, and observations whose window extends beyond the corpus
+range are set to missing.
 """
 from __future__ import annotations
 

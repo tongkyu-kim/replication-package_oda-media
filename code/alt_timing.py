@@ -1,27 +1,10 @@
 """
-Baseline alternative-timing robustness check (Appendix Table A3): does the
-H1 media-ODA association hold at OTHER lags too, or only at the specific
-2-13-month pre-allocation window the headline spec uses?
+Alternative timing of the baseline association (Appendix Table A3). Five
+single-window regressions with country and year FE and country-clustered
+standard errors (no controls): the contemporaneous year (lag0), the 2-13-month
+window (lag1), and the three preceding twelve-month blocks (lag2-lag4).
 
-Five windows, contemporaneous through 38-49 months pre-allocation:
-  lag0 : Jan-Dec of the allocation year itself (k=-11..0) -- contemporaneous
-  lag1 : 2-13 months pre-allocation (devrel_media_m1_13 -- the H1 headline
-         window; identical column, not re-windowed)
-  lag2 : 14-25 months pre-allocation (devrel_media_m14_25, shared with the
-         lag_windows.py temporal-decomposition diagnostic)
-  lag3 : 26-37 months pre-allocation (devrel_media_m26_37, likewise shared)
-  lag4 : 38-49 months pre-allocation
-
-Each is a BIVARIATE, no-controls specification (entity + year FE,
-country-clustered SE, single media regressor only) -- deliberately simpler
-than H1's preferred spec, so this check isolates whether the timing window
-alone (not the control set) drives the result.
-
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/devrel_baseline/robustness_devrel_baseline.py
-(check_alternative_lags / build_country_lag_variants).
-
-Writes: results/models/alt_timing_baseline_results.csv
+Output: results/models/alt_timing_baseline_results.csv
 """
 from __future__ import annotations
 

@@ -1,15 +1,8 @@
 """
-Figure 7 -- Predicted development ODA by ideological breadth of media
-coverage (cross-partisan vs. single-bloc salience).
+Figure 7: predicted ln(ODA) by ideological breadth of coverage, from the
+figure data written by ideological_breadth.py.
 
-Data already complete: results/figure_data/figure7_ideological_breadth_data.csv,
-written by code/ideological_breadth.py's build_figure_data() (predicted
-ln(ODA) for cross-partisan vs. single-bloc coverage across the observed
-5th-95th percentile range of media attention, with delta-method 90% CI
-ribbons, predicted at the estimation sample's means). This script only
-plots that already-written data -- no new computation happens here.
-
-Writes: results/figures/figure7_ideological_breadth.png
+Output: results/figures/figure7_ideological_breadth.png
 """
 from __future__ import annotations
 

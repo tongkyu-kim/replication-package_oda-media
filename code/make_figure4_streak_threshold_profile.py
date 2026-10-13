@@ -1,53 +1,10 @@
 """
-Figure 4 -- Streak-length threshold profile of sustained media coverage.
+Figure 4: sustained attention across minimum streak lengths of 1-60 months,
+one regression per threshold, as in sustained_coverage.py (90% confidence
+intervals).
 
-Extends the study's H3 (sustained-coverage) specification --
-results/models/sustained_coverage_results.csv, three separate binary-
-threshold regressions at >=24/36/60 consecutive covered months -- to a
-DENSE grid of every integer minimum streak length from 1 to 60 months, one
-separate single-regressor regression per threshold (60 regressions, not
-mutually adjusted, matching H3's own three-separate-specifications
-design): devrel_commitment_musd ~ 1(consecutive_periods_covered >= L) +
-controls.
-
-Ported from the original research repository's
-pipeline/devrel_baseline/estimate_streak_threshold_profile.py (the DATA-
-computation script; its own streak_threshold_profile_results.csv is a
-dense L=1..60 companion to H3's headline streak_ge24/36/60 specs) and
-pipeline/manuscript_tables/make_figure5_streak_threshold_profile.py (old
-filename -- "figure5" predates a manuscript renumbering; this is now
-Figure 4) for the plotting logic. consecutive_periods_covered itself
-(lib/devrel_panel.py's attach_streak(), a month covers if it has >=3
-devrel-relevant articles, streak resets on any month below that bar,
-evaluated as of November of year Y-1) is exactly the same column H3's
-three headline specifications already use -- this script only re-
-thresholds it at every integer L instead of only 24/36/60, so there is no
-new panel construction here, only a denser sweep over the existing
-measure.
-
-Cross-check against results/models/sustained_coverage_results.csv (already
-in this package): at L=24 this script reproduces coef=0.21547085839148536,
-se=0.08894733233353389 exactly; L=36 coef=0.22850879161311385; L=60
-coef=0.20190540590658285 -- all three match the original repository's own
-dense-grid CSV (streak_threshold_profile_results.csv) to full float
-precision, confirming the port. n is constant at every threshold (the
-streak column is never missing, so which countries/years enter the
-complete-case sample never changes with L) -- also verified against the
-original's own dense-grid CSV, where n=2214 at every one of the 60
-thresholds.
-
-Manuscript text: "Figure 4 shows this duration profile across the full
-range of minimum consecutive-coverage lengths (1 to 60 months)." Unlike
-the original journal-quality figure (which drops L=1-5 because a streak
-that short is satisfied by nearly every country-year and is not
-comparable to the headline thresholds), this script keeps the FULL 1-60
-range in both the figure-data CSV and the plot, per that manuscript
-sentence.
-
-CI convention: 90% (Z_90, this package's standard, see code/_common.py).
-
-Writes: results/figure_data/figure4_streak_threshold_data.csv (one row per
-threshold, 1..60) and results/figures/figure4_streak_threshold_profile.png.
+Output: results/figures/figure4_streak_threshold_profile.png,
+        results/figure_data/figure4_streak_threshold_data.csv
 """
 from __future__ import annotations
 

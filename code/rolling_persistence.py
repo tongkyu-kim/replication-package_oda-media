@@ -1,14 +1,10 @@
 """
-H2 -- Persistent media attention: a high AVERAGE level of development-related
-media attention maintained over an extended pre-allocation period is
-positively associated with subsequent development ODA.
+H2 persistent attention (Section 4.3; Table 3 column [3]): ln(ODA) on the
+log of the mean monthly development-relevant article count over 24-, 36- and
+60-month windows (months 2-25, 2-37, 2-61), one model per window, with
+country and year FE, five controls and country-clustered standard errors.
 
-Three separate specifications, one per rolling-average window width
-(24, 36, 60 months), each replacing the H1 recent-window predictor with the
-mean monthly article count over that window (still log-transformed after
-averaging, not before). Reported as Table 3 column [3].
-
-Writes: results/models/rolling_persistence_results.csv
+Output: results/models/rolling_persistence_results.csv
 """
 from __future__ import annotations
 

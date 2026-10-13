@@ -2,7 +2,7 @@ item,manuscript_section,value,source_file,source_row_or_field
 "Total ODA projects, 2010-2025",3.1,94412,data/analytical/oda_clean.csv,row count
 Main development-ODA panel N,3.2,2336,data/analytical/devrel_country_year.csv,row count
 Main development-ODA panel countries,3.2,146,data/analytical/devrel_country_year.csv,nunique(country_iso3)
-Full emergency-ODA panel N (country-years; H4 stacks these with non-emergency ODA),3.2,2336,data/analytical/emergency_country_year.csv,row count
+Emergency-ODA panel N (country-years),3.2,2336,data/analytical/emergency_country_year.csv,row count
 Classifier F1 score,3.1,0.9006993006993007,results/diagnostics/classifier_performance.csv,metric==f1
 Classifier Precision,3.1,0.8655913978494624,results/diagnostics/classifier_performance.csv,metric==precision
 Classifier Recall,3.1,0.9387755102040816,results/diagnostics/classifier_performance.csv,metric==recall
@@ -10,7 +10,6 @@ Classifier AUC-ROC,3.1,0.9895525116138502,results/diagnostics/classifier_perform
 Classifier Held-out test N,3.1,1954.0,results/diagnostics/classifier_performance.csv,metric==test_n
 "Krippendorff's alpha, development_relevance (nominal)",3.1,0.9231018119068162,results/diagnostics/reliability_alpha.csv,variable==development_relevance
 "Krippendorff's alpha, sentiment (ordinal)",3.1,0.8142595703735389,results/diagnostics/reliability_alpha.csv,variable==sentiment
-"Krippendorff's alpha, sentiment (interval)",3.1,0.8260427263479145,results/diagnostics/reliability_alpha.csv,variable==sentiment
 "Krippendorff's alpha, crisis_flag (nominal)",3.1,0.7393518518518518,results/diagnostics/reliability_alpha.csv,variable==crisis_flag
 H1 preferred coefficient,4.1,0.0842931125485394,results/models/main_baseline_results.csv,specification_id==H1_preferred__devrel_media_m1_13
 H1 preferred p-value,4.1,0.0350401845896148,results/models/main_baseline_results.csv,specification_id==H1_preferred__devrel_media_m1_13
@@ -77,22 +76,19 @@ H4 roll60 difference p-value,4.5,0.7097195202714066,results/models/h4_common_exp
 H4 streak24 difference p-value,4.5,0.2182139010734394,results/models/h4_common_exposure_results.csv,specification_id==H4_streak24__diff_emergency_minus_nonemergency_streak_ge24
 H4 streak36 difference p-value,4.5,0.2177090923436413,results/models/h4_common_exposure_results.csv,specification_id==H4_streak36__diff_emergency_minus_nonemergency_streak_ge36
 H4 data check: stacked_rows,3.2/3.4,4672.0,results/diagnostics/h4_common_exposure_data_checks.csv,metric==stacked_rows
-H4 data check: media_cells_checked,3.2/3.4,23360.0,results/diagnostics/h4_common_exposure_data_checks.csv,metric==media_cells_checked
-H4 data check: media_exposure_mismatches,3.2/3.4,0.0,results/diagnostics/h4_common_exposure_data_checks.csv,metric==media_exposure_mismatches
-H4 data check: max_abs_partition_error_musd,3.2/3.4,2.8421709430404014e-14,results/diagnostics/h4_common_exposure_data_checks.csv,metric==max_abs_partition_error_musd
 H4 data check: emergency_zero_share,3.2/3.4,0.6528253424657534,results/diagnostics/h4_common_exposure_data_checks.csv,metric==emergency_zero_share
-"Exploratory crisis media -> emergency ODA, contemporaneous coefficient",4.7,0.0966519096493873,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_contemporaneous__crisis_media_lag0
-"Exploratory crisis media -> emergency ODA, contemporaneous p-value",4.7,0.0088559718944802,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_contemporaneous__crisis_media_lag0
-"Exploratory crisis media -> emergency ODA, 2-13 mo coefficient",4.7,0.0405039334663114,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_forward__crisis_media_m1_13
-"Exploratory crisis media -> emergency ODA, 2-13 mo p-value",4.7,0.1445240444231859,results/models/emergency_temporal_results.csv,specification_id==H4_within_emergency_forward__crisis_media_m1_13
+"Exploratory crisis media -> emergency ODA, contemporaneous coefficient",4.7,0.0966519096493873,results/models/emergency_temporal_results.csv,specification_id==crisis_media_contemporaneous__crisis_media_lag0
+"Exploratory crisis media -> emergency ODA, contemporaneous p-value",4.7,0.0088559718944802,results/models/emergency_temporal_results.csv,specification_id==crisis_media_contemporaneous__crisis_media_lag0
+"Exploratory crisis media -> emergency ODA, 2-13 mo coefficient",4.7,0.0405039334663114,results/models/emergency_temporal_results.csv,specification_id==crisis_media_m1_13__crisis_media_m1_13
+"Exploratory crisis media -> emergency ODA, 2-13 mo p-value",4.7,0.1445240444231859,results/models/emergency_temporal_results.csv,specification_id==crisis_media_m1_13__crisis_media_m1_13
 Allocation-margin extensive margin coefficient,4.6,0.0082017570324921,results/models/allocation_margin_results.csv,specification_id==allocation_margin_extensive__devrel_media_m1_13
 Allocation-margin intensive margin coefficient,4.6,0.1923535792013992,results/models/allocation_margin_results.csv,specification_id==allocation_margin_intensive__devrel_media_m1_13
 Ideological-breadth interaction coefficient,4.6,0.0837090871670516,results/models/ideological_breadth_results.csv,specification_id==ideological_breadth_crosspartisan__media_x_crosspartisan
 "Evaluative-tone spec, media coefficient",4.6,0.1088868285746173,results/models/evaluative_tone_results.csv,specification_id==evaluative_tone_additive__devrel_media_m1_13
 Future-news innovation placebo coefficient,4.7,0.0476889951911409,results/models/placebo_future_news_results.csv,specification_id==placebo_future_news_ar2_innovation__innovation_ar2
 Future-news innovation placebo p-value,4.7,0.1444865908404664,results/models/placebo_future_news_results.csv,specification_id==placebo_future_news_ar2_innovation__innovation_ar2
-Crisis-type joint Wald chi-square,4.7,28.056824464969207,results/models/emergency_temporal_wald_results.csv,test_name contains 'crisis-type coefficients = 0'
-Crisis-type joint Wald p-value,4.7,9.167540608545632e-05,results/models/emergency_temporal_wald_results.csv,test_name contains 'crisis-type coefficients = 0'
+Crisis-type joint Wald chi-square,4.7,28.056824464969207,results/models/emergency_temporal_wald_results.csv,specification_id==crisis_type_joint
+Crisis-type joint Wald p-value,4.7,9.167540608545632e-05,results/models/emergency_temporal_wald_results.csv,specification_id==crisis_type_joint
 LOO persistent_roll24 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==persistent_roll24
 LOO persistent_roll36 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==persistent_roll36
 LOO persistent_roll60 sig-flip count,4.7,6,results/models/leave_one_out_results.csv,analysis==persistent_roll60
@@ -100,5 +96,3 @@ LOO sustained_streak24 sig-flip count,4.7,0,results/models/leave_one_out_results
 LOO sustained_streak36 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak36
 LOO sustained_streak60 sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==sustained_streak60
 LOO h4_common_exposure_contemp_diff sig-flip count,4.7,0,results/models/leave_one_out_results.csv,analysis==h4_common_exposure_contemp_diff
-Sports-based IV partial first-stage F,4.8,Not reported (manuscript revised 2026-09-20 to a qualitative-only statement; specific F-statistic could not be traced to any script in the source repository),N/A,N/A
-Entertainment-based IV partial first-stage F,4.8,Not reported (manuscript revised 2026-09-20 to a qualitative-only statement; specific F-statistic could not be traced to any script in the source repository),N/A,N/A

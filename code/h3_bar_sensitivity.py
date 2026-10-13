@@ -1,22 +1,11 @@
 """
-Robustness check: does H3 (sustained/uninterrupted media attention, Section
-4.4) depend on the monthly coverage bar used to define a "covered" month?
+Coverage-threshold sensitivity of sustained attention (Appendix Table A6).
+The streak measures are rebuilt with a month counted as covered at 1, 2, 3
+(baseline), 4, 5 or 10 development-relevant articles; the specification is
+otherwise identical to sustained_coverage.py.
 
-The primary specification (sustained_coverage.py) counts a month as covered
-if it has >= COVERED_ARTICLE_BAR (3) devrel-relevant articles. This script
-rebuilds the identical H3 specification -- same sample, controls, two-way
-FE, country-clustered SE, outcome -- at five alternative monthly bars
-(>=1, >=2, >=4, >=5, >=10 articles; >=3 is the already-reported baseline)
-crossed with the three streak lengths (>=24, >=36, >=60 consecutive
-months), using lib/devrel_panel.py's attach_streak()/build_country_annual()
-with their covered_article_bar parameter -- no duplicated logic, no
-shortcuts. Added 2026-09-20 in response to a reviewer/editor-facing
-threshold-sensitivity request; reported as Appendix Table A6.
-
-Writes:
-  results/models/h3_bar_sensitivity_results.csv        (standardized schema)
-  results/diagnostics/h3_bar_sensitivity_coverage.csv   (share/count meeting
-                                                          each streak definition)
+Output: results/models/h3_bar_sensitivity_results.csv,
+        results/diagnostics/h3_bar_sensitivity_coverage.csv
 """
 from __future__ import annotations
 

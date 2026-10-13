@@ -1,12 +1,6 @@
 """
-Shared two-way fixed-effects estimation and Wald-test helpers.
-
-Ported from the original research repository's shared `_fe_ols` /
-`_wald_zero` / `_wald_equal` pattern (used identically across every
-regression script in the study). Every specification in this package uses
-entity + time fixed effects, country-clustered standard errors -- this
-module is the single place that logic lives, so every analysis script
-calls it the same way instead of re-implementing panel fitting.
+Two-way fixed-effects OLS (country and year FE, country-clustered standard
+errors) and Wald-test helpers shared by the regression scripts.
 """
 from __future__ import annotations
 

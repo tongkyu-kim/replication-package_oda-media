@@ -1,34 +1,7 @@
 """
-Builds the analysis-ready panels from the included analytical data.
-
-Four inputs ship pre-built in data/analytical/ rather than being
-reconstructed from raw sources by this script (see DATA_AVAILABILITY.md
-and docs/DATA_CONSTRUCTION.md for exactly why and how each was built):
-
-  - oda_clean.csv               cleaned, project-level ODA (public gov't
-                                 statistics; the full CRS-to-SDG crosswalk
-                                 that produced it is not re-run here because
-                                 no analysis reported in the final manuscript
-                                 uses SDG-level aggregation)
-  - panel_country_sdg_month.csv the classified media panel (article COUNTS
-                                 only, by country x SDG x month -- not
-                                 restricted data; rebuilding it from raw
-                                 BigKinds text requires the licensed corpus,
-                                 see DATA_AVAILABILITY.md item 1)
-  - country_year_controls.csv   GDP/population/trade/conflict/disaster
-                                 controls, already merged from the cached
-                                 external-API pulls
-  - crisis_news_country_month.csv  crisis-type media counts by country-month
-
-This script's own job is the two remaining, fully reproducible construction
-steps that turn the above into the two panels every regression reads:
-devrel_country_year.csv (development ODA) and emergency_country_year.csv
-(emergency ODA). Both are ported unchanged (statistical logic identical)
-from the original research repository's
-pipeline/devrel_baseline/build_devrel_split.py and
-pipeline/emergency_reclass/build_emergency_split.py.
-
-Usage: python build_analytical_panels.py
+Builds the country x year outcome panels (devrel_country_year.csv,
+emergency_country_year.csv) from the cleaned project-level ODA data and
+checks the pre-built inputs in data/analytical/ (see docs/DATA_CONSTRUCTION.md).
 """
 from __future__ import annotations
 

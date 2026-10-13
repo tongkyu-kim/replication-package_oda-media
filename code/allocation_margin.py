@@ -1,41 +1,12 @@
 """
-Secondary analysis -- extensive vs. intensive margin. Does media attention
-mainly determine WHETHER a country receives any development ODA at all
-(extensive margin), or HOW MUCH it receives conditional on already being a
-recipient (intensive margin)? Reported as Table 3 column [6].
+Allocation margins (Section 4.6; Table 3 column [6]).
 
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/mechanisms/estimate_extensive_intensive.py ("Model D"
-/ "Model 6" -- both names refer to the same script across the project's
-renumbering history).
+Extensive margin: linear probability model for any positive development ODA,
+on the full zero-filled country x year grid. Intensive margin: ln(ODA) among
+country-years with positive ODA. Both use the 2-13-month media window,
+country and year FE, five controls and country-clustered standard errors.
 
-ZERO-FILL PANEL: unlike every other analysis in this package, this one
-needs true zero-ODA country-years, which the finalized devrel-ODA baseline
-sample deliberately excludes (devrel_country_year.csv only has a row for a
-country-year with at least one realized devrel ODA project). This script
-therefore builds its own zero-filled country x year grid -- every country
-in devrel_country_year.csv's own country set, crossed with every year
-2010-2025 -- and fills missing commitments with 0. This is a genuine zero
-commitment, not a data-collection gap: the underlying project-level ODA
-source has complete, uninterrupted year coverage for the full recipient
-universe (see the original script's docstring). Media construction
-(2-13 month pre-allocation window, log1p), FE structure, and clustering
-are otherwise the finalized baseline's, unchanged.
-
-Two specifications:
-  Extensive margin (D1) -- LPM: P(received any devrel ODA) ~ media +
-    controls, country + year FE, country-clustered SE, fit on the FULL
-    zero-filled grid. Outcome is a binary "received any ODA" indicator,
-    NOT log-transformed.
-  Intensive margin (D2) -- ln(ODA) ~ media + controls, country + year FE,
-    country-clustered SE, fit on POSITIVE-COMMITMENT country-years only.
-    Outcome is ln(devrel_commitment_musd) with NO "+1" -- unlike every
-    other outcome in this package, this sample is strictly positive by
-    construction (it excludes the zero rows precisely because they would
-    make the log outcome ill-defined), so the original script logs the
-    raw commitment directly rather than using the usual ln(x+1) convention.
-
-Writes: results/models/allocation_margin_results.csv
+Output: results/models/allocation_margin_results.csv
 """
 from __future__ import annotations
 

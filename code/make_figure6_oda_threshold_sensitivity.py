@@ -1,37 +1,13 @@
 """
-Figure 6 -- Sensitivity of the media coefficient across minimum ODA
-thresholds.
+Figure 6: media coefficient across minimum ODA thresholds. For each threshold
+(percentiles 1-99 of positive annual country-level ODA), a linear probability
+model for ODA at or above the threshold is fitted on the zero-filled
+country x year panel of allocation_margin.py (2-13-month media, country and
+year FE, five controls, country-clustered standard errors; 90% confidence
+intervals).
 
-Refits the SAME extensive-margin specification code/allocation_margin.py
-already estimates -- LPM: P(devrel ODA received >= threshold) ~ media +
-controls, country + year FE, country-clustered SE, fit on the full
-zero-filled country x year grid (allocation_margin.build_zero_filled_panel)
--- at a dense grid of alternative minimum-commitment thresholds, instead of
-the single fixed ">$0" cut point allocation_margin.py itself reports as its
-D1 "extensive margin" row.
-
-Ported (statistical logic identical) from the original research
-repository's pipeline/mechanisms/estimate_model5_dense_threshold_profile.py:
-thresholds are the p1, p2, ..., p99 percentiles of the EMPIRICAL
-distribution of POSITIVE annual country-level devrel ODA (not arbitrary
-round-dollar values, and not selected on significance) -- 99 points. Every
-regression uses the full zero-filled panel (same n_countries x n_years);
-only the binary threshold cut point moves, so only the share of rows coded
-1 shrinks toward the tails. The original script's 7 round-dollar benchmark
-thresholds ($0/$100k/$250k/$500k/$1M/$2M/$5M) are reference-only there and
-are not part of the plotted dense grid -- not reproduced here either.
-
-Regenerated from this package's OWN current data/analytical/
-devrel_country_year.csv via allocation_margin.py's own
-build_zero_filled_panel() and MEDIA_COL (rather than copying the original
-repository's cached results file), so the figure is guaranteed consistent
-with this package's own current data and code -- per the release note that
-an earlier audit pass found the original repo's cached dense-grid CSV
-current as of Sep 4, but this port re-derives it directly rather than
-trusting that snapshot stayed in sync with this package's own build.
-
-Writes: results/figure_data/figure6_oda_threshold_data.csv and
-results/figures/figure6_oda_threshold_sensitivity.png
+Output: results/figures/figure6_oda_threshold_sensitivity.png,
+        results/figure_data/figure6_oda_threshold_data.csv
 """
 from __future__ import annotations
 

@@ -1,14 +1,9 @@
 """
-Single entry point for the full replication pipeline. Runs every stage in
-the required order and writes a timestamped execution log to logs/.
+Runs the full replication pipeline in order and logs to logs/run_all.log.
 
 Usage:
-  python 00_run_all.py             # full pipeline
-  python 00_run_all.py --skip-classifier   # skip classifier_validation.py
-                                             (the slowest stage; useful for
-                                             a quick rerun of everything else)
-  python 00_run_all.py --only STAGE1,STAGE2   # run only named stages (see
-                                                 STAGES below for names)
+  python 00_run_all.py                    # full pipeline
+  python 00_run_all.py --skip-classifier  # reuse saved classifier predictions
 """
 from __future__ import annotations
 
@@ -36,7 +31,7 @@ STAGES: list[tuple[str, str, str]] = [
     ("lag_windows",           "lag_windows.py",                 "3b. Temporal decomposition diagnostic"),
     ("rolling_persistence",   "rolling_persistence.py",         "4. Temporal model: H2 persistent attention"),
     ("sustained_coverage",    "sustained_coverage.py",           "4b. Temporal model: H3 sustained attention"),
-    ("emergency_temporal",    "emergency_temporal.py",          "4c. Exploratory: crisis media and emergency ODA (former H4 specification)"),
+    ("emergency_temporal",    "emergency_temporal.py",          "4c. Exploratory: crisis media and emergency ODA"),
     ("h4_common_exposure",    "h4_common_exposure.py",          "4d. Main model: H4 emergency vs. non-emergency ODA (common DevRel exposure)"),
     ("allocation_margin",     "allocation_margin.py",           "5. Secondary analysis: allocation margin"),
     ("ideological_breadth",   "ideological_breadth.py",         "5b. Secondary analysis: ideological breadth"),

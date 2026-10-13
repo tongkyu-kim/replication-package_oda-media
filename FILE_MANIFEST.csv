@@ -44,7 +44,7 @@ code/placebo_tests.py,code,"Analysis, table, or figure generation script -- see 
 code/reliability_alpha.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/rolling_persistence.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
 code/sustained_coverage.py,code,"Analysis, table, or figure generation script -- see OUTPUT_MANIFEST.csv",,code
-code/verify_edits.txt,other,See README.md,,code
+data/analytical/allnews_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/analytical/country_year_controls.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/analytical/crisis_news_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/analytical/devrel_country_year.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
@@ -52,8 +52,7 @@ data/analytical/emergency_country_year.csv,data,"Analysis-ready panel or aggrega
 data/analytical/oda_clean.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/analytical/outlet_article_counts_long.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/analytical/panel_country_sdg_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
-data/analytical/allnews_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
-data/analytical/topic_placebo_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
+data/analytical/sports_country_month.csv,data,"Analysis-ready panel or aggregate, used as input by one or more analysis scripts",see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/validation/classifier_checkpoint/config.json,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/validation/classifier_checkpoint/model.safetensors,model_weights,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
 data/validation/classifier_checkpoint/tokenizer.json,data,Classifier checkpoint or gold/coder label data for classifier and reliability validation,see DATA_AVAILABILITY.md / docs/DATA_CONSTRUCTION.md,input
@@ -69,7 +68,6 @@ results/diagnostics/classifier_performance.csv,result_data,"Classifier performan
 results/diagnostics/classifier_predictions.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
 results/diagnostics/h3_bar_sensitivity_coverage.csv,result_data,"Share/count of observations meeting each H3 streak definition, by coverage bar -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/diagnostics/h4_common_exposure_data_checks.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
-results/diagnostics/known_discrepancies.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
 results/diagnostics/reliability_alpha.csv,result_data,"Classifier performance, reliability alpha, or known-discrepancy diagnostic output",see OUTPUT_MANIFEST.csv,output
 results/figure_data/figure1_need_media_oda_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/figure_data/figure2_monthly_profile_data.csv,result_data,Underlying plotted values for a figure -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
@@ -95,17 +93,14 @@ results/models/alt_timing_baseline_results.csv,result_data,"Structured model-res
 results/models/emergency_temporal_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/emergency_temporal_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/evaluative_tone_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
-results/models/evaluative_tone_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/h3_bar_sensitivity_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/h4_common_exposure_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
-results/models/h4_common_exposure_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/ideological_breadth_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/lag_windows_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
-results/models/lag_windows_wald_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/leave_one_out_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/main_baseline_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/placebo_future_news_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
-results/models/placebo_nondevrel_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
+results/models/placebo_news_substance_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/reported_text_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/rolling_persistence_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
 results/models/sustained_coverage_results.csv,result_data,"Structured model-result output (coefficients, SEs, tests) -- see OUTPUT_MANIFEST.csv",see OUTPUT_MANIFEST.csv,output
@@ -121,8 +116,8 @@ results/tables/table4_robustness_summary.csv,result_data,Generated manuscript ta
 results/tables/table4_robustness_summary.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA1_temporal_placebo.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA1_temporal_placebo.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/tables/tableA2_media_type_placebo.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
-results/tables/tableA2_media_type_placebo.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA2_news_substance_placebo.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
+results/tables/tableA2_news_substance_placebo.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA3_baseline_alt_timing.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA3_baseline_alt_timing.xlsx,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output
 results/tables/tableA4_emergency_alt_timing.csv,result_data,Generated manuscript table (main or appendix) -- see OUTPUT_MANIFEST.csv,see OUTPUT_MANIFEST.csv,output

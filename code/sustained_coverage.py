@@ -1,18 +1,11 @@
 """
-H3 -- Sustained media attention: development-related coverage sustained
-WITHOUT INTERRUPTION for longer consecutive periods is positively
-associated with subsequent development ODA.
+H3 sustained attention (Section 4.4; Table 3 column [4]): indicators for at
+least 24, 36 and 60 consecutive covered months (a month is covered with at
+least three development-relevant articles; the count resets otherwise),
+evaluated at November of year t-1, one model per threshold, with country and
+year FE, five controls and country-clustered standard errors.
 
-Three binary threshold indicators (>=24, >=36, >=60 consecutive covered
-months -- a month is "covered" if it has at least 3 devrel-relevant
-articles; the running count resets to zero on any month below that bar).
-Each threshold enters its own specification with a single binary
-regressor, mirroring H2's three-separate-rows presentation over the same
-three horizons -- H2 asks whether the AVERAGE level of attention over a
-window matters; H3 asks whether UNBROKEN duration matters. Reported as
-Table 3 column [4].
-
-Writes: results/models/sustained_coverage_results.csv
+Output: results/models/sustained_coverage_results.csv
 """
 from __future__ import annotations
 

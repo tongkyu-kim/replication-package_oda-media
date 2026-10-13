@@ -1,50 +1,7 @@
 """
-Outlet-level ideology tagging and its aggregation to a country x year panel
-of conservative-bloc / progressive-bloc / cross-partisan media coverage.
-
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/mechanisms/outlet_ideology_crosswalk.py (the outlet
-classification) and pipeline/mechanisms/estimate_media_ideology.py's own
-pool_window / build_ideology_measures functions (the aggregation).
-
-OUTLET CLASSIFICATION: five of the raw corpus's national daily newspapers
-are classified ex ante into two ideological blocs, following the standard
-grouping used in the Korean media studies literature (e.g. Lee, S.-M., &
-Koh, Y.-C. (2010). Analysis of ideological orientation of Korean
-newspapers. Korean Journal of Journalism & Communication Studies) --
-conservative: Chosun Ilbo, JoongAng Ilbo, Dong-A Ilbo ("조중동", a standard
-shorthand in Korean media studies); progressive: Hankyoreh, Kyunghyang
-Shinmun. Seven other outlets in the raw corpus's 12-outlet universe are
-deliberately left unclassified (moderate/ambiguous, or simply not
-established in the literature with the same confidence) -- they remain in
-the study's total DEVREL media measure but enter neither bloc here.
-
-WINDOW NOTE (CORRECTED 2026-09-20, final reconciliation pass, explicit
-user instruction): the original estimate_media_ideology.py pooled this
-outlet-level measure over k=1-13 months pre-allocation -- NOT the k=2-13
-window the finalized baseline (devrel_media_m1_13) uses everywhere else in
-this package. That mismatch predated this port (the baseline window was
-corrected to k=2-13 on 2026-08-23; the ideology-bloc pooling in
-estimate_media_ideology.py was never revisited at the same time) and was
-initially preserved here unchanged, per this package's general port-as-is
-policy. Per an explicit instruction in this package's final reconciliation
-pass, this specific inconsistency is now corrected to k=2-13 for
-consistency with the rest of the study -- December of year Y-1 is excluded
-here exactly as it is from every other window in the package. This changes
-`ideological_breadth_results.csv`, Table 3 column [7], and Figure 7 from
-what a k=1-13 pooling would have produced; see
-results/diagnostics/known_discrepancies.csv for the before/after values.
-
-INPUT: data/analytical/outlet_article_counts_long.csv -- (country_iso3,
-year, month, outlet, n_articles), one row per country x year x month x
-outlet cell with at least one devrel-relevant, country-tagged article.
-This is a derived count aggregate (no article text) from the same
-BigKinds-classification pipeline that produces panel_country_sdg_month.csv
--- see DATA_AVAILABILITY.md item 1. Original repo path:
-pipeline/mechanisms/outlet_article_counts_long.csv (built by
-pipeline/mechanisms/build_outlet_breadth.py, which is NOT ported here since
-it requires the raw, non-redistributable news corpus -- only its already-
-aggregated output is needed downstream).
+Outlet ideology classification and its aggregation to a country x year panel
+of conservative-bloc, progressive-bloc and cross-partisan development-relevant
+coverage over the 2-13-month window.
 """
 from __future__ import annotations
 

@@ -1,21 +1,7 @@
 """
-Builds the country x year analytical panel used by every development-ODA
-regression in the study (recent/lagged-cycle, persistent-attention,
-sustained-attention/streak, and evaluative-tone analyses).
-
-Ported unchanged (statistical logic identical) from the original research
-repository's pipeline/devrel_baseline/estimate_devrel_models.py
-(build_country_annual, build_country_sentiment_month,
-attach_sentiment_annual). This is shared plumbing, not a model in its own
-right -- see main_baseline.py, lag_windows.py, rolling_persistence.py,
-sustained_coverage.py, and evaluative_tone.py for the actual specifications
-that consume this panel.
-
-Timing convention: the 2-13 month pre-allocation window (not 1-13) excludes
-December of year Y-1, which can contain post-decision media given Korea's
-constitutional budget deadline (within 30 days before the start of the fiscal
-year, i.e., early December). Every window in this module shares that
-same near edge (k=2) for the same reason.
+Country x year analysis panel for the development-ODA models: outcome,
+media windows, persistent and sustained attention measures, sentiment
+shares and controls.
 """
 from __future__ import annotations
 
