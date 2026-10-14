@@ -94,21 +94,6 @@ Approximately 10-15 minutes end to end on a standard laptop CPU (most of
 that is classifier validation on CPU; a few seconds on GPU). Use
 `--skip-classifier` to skip that stage on a rerun.
 
-## Revision note (2026-10-12): revised H4
-
-H4 now compares emergency and non-emergency ODA against the SAME
-development-relevant media exposure (`code/h4_common_exposure.py`,
-`code/lib/h4_panel.py`; Table 3 column [5], Figure 5, Appendix Table A4
-Panel A, the H4 rows of Table 4 and Appendix Table A5). The former H4 test
--- crisis-related media -> emergency ODA stacked against development-
-relevant media -> development ODA -- has been removed
-(`results/models/emergency_ppml_contrast_results.csv` no longer exists).
-Its within-emergency crisis-media analyses remain in
-`code/emergency_temporal.py` as exploratory diagnostics (Appendix Table A4
-Panel B, Appendix Table A7). No input data changed: the non-emergency
-outcome is derived from the existing `devrel_country_year.csv` and
-`emergency_country_year.csv`. Every revised-H4 estimate reproduces the
-original research repository's validated output exactly.
 
 ## Validation
 
